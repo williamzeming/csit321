@@ -1,8 +1,7 @@
 // import mysql from './mysql';
-import "./mysql"
 const express = require('express')
 const cors = require('cors')
-const mysql = require("./mysql");
+var mysql = require("./mysql");
 const app = express()
 const port = 5000
 
@@ -24,6 +23,6 @@ app.get('/test', (req, res) => {
 mysql.dbConnect();
 
 //最后
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`)
+// })
