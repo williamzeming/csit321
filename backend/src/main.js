@@ -9,7 +9,7 @@ const port = 5000
 app.use(cors()) // Use this after the variable declaration
 
 
-app.get('/', (req, res) => {
+app.get('/Register', (req, res) => {
     res.send('Hello World!')
 })
 

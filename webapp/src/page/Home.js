@@ -1,12 +1,18 @@
 import React from 'react';
 import {default as axios} from "axios";
+import {withRouter} from "react-router";
+import {BrowserRouter, Link, Route} from 'react-router-dom'
+import {Button, DatePicker, Switch, version} from "antd";
+import Register from "./Register";
+//import "antd/dist/antd.css";
+//import "../index.css";
 class Home extends React.Component {
     state = {
         person:null
     }
-    //加载自动运行
+    加载自动运行
     componentDidMount = () => {
-        this.getExample()
+        // this.getExample()
     }
     getExample(){
         axios.get("http://localhost:5000/test").then((res) => {
@@ -14,11 +20,13 @@ class Home extends React.Component {
             this.setState({person:res.data})
         })
     }
+
     render() {
         return <div>
-        Home page
-            <p>{this.state.person==null? "zheshi null":JSON.stringify(this.state.person)}</p>
+                <h1>Home</h1>
         </div>
+
     }
 }
+
 export default Home;
