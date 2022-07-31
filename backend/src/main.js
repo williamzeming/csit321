@@ -1,5 +1,7 @@
+// import mysql from './mysql';
 const express = require('express')
 const cors = require('cors')
+const mysql = require("./mysql");
 const app = express()
 const port = 5000
 
@@ -12,12 +14,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
+
     res.status(200).json({
         name:'william',
         age:18
     })
 })
-
+mysql.dbConnect();
 
 //最后
 app.listen(port, () => {
