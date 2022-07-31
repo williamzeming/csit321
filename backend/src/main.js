@@ -1,4 +1,5 @@
 // import mysql from './mysql';
+import "./mysql"
 const express = require('express')
 const cors = require('cors')
 const mysql = require("./mysql");
