@@ -19,8 +19,25 @@ app.get('/test', (req, res) => {
     console.log(req.query.ID)
     res.status(200).json({
         name:'william',
-        age:18
+        age:18,
+        email:mysql.dbConnect1()
     })
+})
+app.get('/test1', (req, res) => {
+    mysql.dbConnect1()
+    .then(res1 =>{
+            console.log(res1)
+        res.status(200).json({
+            name:'william',
+            age:18,
+            phone:18287888888,
+            email:res1
+        })
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+    console.log(mysql.dbConnect1())
 })
 app.post('/test', (req, res) => {
     console.log('12311')
@@ -30,8 +47,6 @@ app.post('/test', (req, res) => {
         age:18
     })
 })
-mysql.dbConnect();
-
 //最后
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
