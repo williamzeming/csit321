@@ -17,14 +17,19 @@ import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import './Login.css'
-import {Select} from "antd";
-import {FormControl, InputLabel, MenuItem, NativeSelect} from "@mui/material";
+import {AlertTitle,Alert, FormControl, InputLabel, MenuItem, NativeSelect} from "@mui/material";
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+
+
 
 const label = {inputProps: {'aria-label': 'Checkbox demo'}};
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
+function TransitionAlerts() {
+    const [open, setOpen] = React.useState(true);}
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -45,6 +50,7 @@ class Register extends React.Component {
             result.innerHTML = "Password does not match!";
         }
     }
+
     render() {
         return (
             <div>
@@ -88,11 +94,9 @@ class Register extends React.Component {
                                         required={true}
                                         autoFocus={false}
                                         onBlur={this.checkPw}
-                                        //error={ pd(this.TextField)}
+                                        error={true}
                                     />
-                                    <Typography align="center" variant="body1" theme={theme} id="check-pd" color={"red"}></Typography>
                                 </Stack>
-
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField  required={true}  fullWidth id="filled-basic" label="Please input your date of birth" variant="filled" type="date"/>
