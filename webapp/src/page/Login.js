@@ -1,5 +1,4 @@
 import React from 'react';
-import {default as axios} from "axios";
 import {
     createTheme,
     responsiveFontSizes,
@@ -17,10 +16,11 @@ import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import './Login.css'
+import axios from "axios";
 
 
 const label = {inputProps: {'aria-label': 'Checkbox demo'}};
-
+const url = "http://localhost:";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
@@ -33,8 +33,48 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 
-class Login extends React.Component {
 
+function getLogin() {
+    let params = {
+        userName: 'william',
+        pw: '12345678'
+    }
+    axios.get(url + "5000/test", {
+        params: {
+            ID: 12345
+        }
+    }).then((res) => {
+        console.log(res)
+    })
+}
+
+function postLogin1() {
+    let params = {
+        userName: 'william',
+        pw: '12345678'
+    }
+    axios.post(url + "5000/test",).then((res) => {
+        console.log(res)
+    })
+}
+
+function postLogin() {
+    const params = {
+        userName: 'william',
+        pw: '12345678'
+    }
+    axios.post(url + "5000/test", params).then((res) => {
+        console.log(res)
+    })
+}
+
+
+
+
+
+
+
+class Login extends React.Component {
     render() {
         return (
             <div>
@@ -68,8 +108,8 @@ class Login extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={2} direction="row">
-                                    <Button fullWidth variant="contained">Login</Button>
-                                    <Button fullWidth variant="outlined">Clear</Button>
+                                    <Button fullWidth variant="contained" onClick={getLogin}>Login</Button>
+                                    <Button fullWidth variant="outlined" onClick={postLogin}>Clear</Button>
                                 </Stack>
                             </Grid>
                             <Grid item xs={12}>
@@ -79,8 +119,6 @@ class Login extends React.Component {
                         </Grid>
                     </Container>
                 </div>
-
-
             </div>
 
         )
