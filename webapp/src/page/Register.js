@@ -39,15 +39,25 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 class Register extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            showElem:false
+        };
+        this.checkPw= this.checkPw.bind(this);
+    }
+
     checkPw() {
         var pw1 = document.getElementById("first-pd").value;
         var pw2 = document.getElementById("second-pd").value;
         var result = document.getElementById("check-pd");
 
         if(pw1==pw2){
-
+            this.setState({showElem: false})
         }else{
-            result.innerHTML = "Password does not match!";
+            console.log("not match");
+            //result.innerHTML = "Password does not match!";
+            this.setState({showElem: true})
         }
     }
 
@@ -94,10 +104,20 @@ class Register extends React.Component {
                                         required={true}
                                         autoFocus={false}
                                         onBlur={this.checkPw}
-                                        error={true}
                                     />
                                 </Stack>
                             </Grid>
+                            <Grid  marginLeft={22} marginRight={0} padding={0} >
+                                {
+                                    this.state.showElem?(
+                                        <Alert severity="error" >
+                                            Password does not match!
+                                        </Alert>
+                                    ):null
+                                }
+
+                            </Grid>
+
                             <Grid item xs={12}>
                                 <TextField  required={true}  fullWidth id="filled-basic" label="Please input your date of birth" variant="filled" type="date"/>
                             </Grid>
