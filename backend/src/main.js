@@ -3,9 +3,12 @@ const express = require('express')
 const cors = require('cors')
 const mysql = require("./mysql");
 const {response} = require("express");
+var bodyParser = require('body-parser')
 const app = express()
 const port = 5000
 
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //最前
 app.use(cors()) // Use this after the variable declaration
 
@@ -39,9 +42,9 @@ app.get('/test1', (req, res) => {
     })
     console.log(mysql.dbConnect1())
 })
-app.post('/test', (req, res) => {
-    console.log('12311')
-    console.log(req.status)
+app.post('/test',jsonParser, (req, res) => {
+    console.log('app.post')
+    console.log(req.body)
     res.status(200).json({
         name:'william',
         age:18
