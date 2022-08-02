@@ -77,12 +77,12 @@ class Register extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <ThemeProvider theme={theme} >
-                                    <TextField  required={true}  fullWidth id="filled-basic" label="Please input your last name" variant="filled"/>
+                                    <TextField  required={true}  fullWidth id="standard-basic" label="Please input your last name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
                                 <ThemeProvider theme={theme}>
-                                    <TextField  required={true}  fullWidth id="filled-basic" label="Please input your first name" variant="filled"/>
+                                    <TextField  required={true}  fullWidth id="standard-basic" label="Please input your first name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
@@ -91,6 +91,7 @@ class Register extends React.Component {
                                     id="first-pd"
                                     label=" Please input your Password"
                                     type="password"
+                                    variant="standard"
                                     required={true}
                                 />
                             </Grid>
@@ -101,16 +102,17 @@ class Register extends React.Component {
                                         id="second-pd"
                                         label="Please confirm your Password"
                                         type="password"
+                                        variant="standard"
                                         required={true}
                                         autoFocus={false}
                                         onBlur={this.checkPw}
                                     />
                                 </Stack>
                             </Grid>
-                            <Grid  marginLeft={22} marginRight={0} padding={0} >
+                            <Grid item>
                                 {
                                     this.state.showElem?(
-                                        <Alert severity="error" >
+                                        <Alert   severity="error" >
                                             Password does not match!
                                         </Alert>
                                     ):null
@@ -119,13 +121,13 @@ class Register extends React.Component {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="filled-basic" label="Please input your date of birth" variant="filled" type="date"/>
+                                <TextField  required={true}  fullWidth id="standard-basic" label="Please input your date of birth" variant="standard" type="date"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="filled-basic" label="Please input your email" variant="filled"/>
+                                <TextField  required={true}  fullWidth id="standard-basic" label="Please input your email" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required={true}  fullWidth id="filled-basic" label="Please input your phone number" variant="filled" type="number"/>
+                                <TextField required={true}  fullWidth id="standard-basic" label="Please input your phone number" variant="standard" type="number"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth>
