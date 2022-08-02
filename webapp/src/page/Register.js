@@ -22,6 +22,8 @@ import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import * as PropTypes from "prop-types";
 import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import {Option} from "antd/es/mentions";
 
 
 
@@ -59,15 +61,34 @@ class Register extends React.Component {
     checkPw() {
         var pw1 = document.getElementById("first-pd").value;
         var pw2 = document.getElementById("second-pd").value;
-        var result = document.getElementById("check-pd");
-
         if(pw1==pw2){
             this.setState({showElem: false})
         }else{
-            console.log("not match");
-            //result.innerHTML = "Password does not match!";
             this.setState({showElem: true})
         }
+    }
+
+    checkSb(){
+        var lastName = document.getElementById("last-name").value;
+        var firstName = document.getElementById("first-name").value;
+        var firstPd = document.getElementById("first-pd").value;
+        var secondPd = document.getElementById("second-pd").value;
+        var birth = document.getElementById("birth").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phone-number").value;
+        var gender = document.getElementById("gender");
+        var index = gender.selectedIndex;
+        var value = gender.options[index].value;
+        var temp ="default";
+        console.log(value,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
+
+        if(lastName==""||firstName==""||firstPd==""||secondPd==""||birth==""||email==""||phoneNumber==""||value==temp){
+            alert("Please input your personal detail");
+        }else{
+            console.log("right");
+        }
+
+
     }
 
     render() {
@@ -86,12 +107,12 @@ class Register extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <ThemeProvider theme={theme} >
-                                    <TextField  required={true}  fullWidth id="standard-basic" label="Please input your last name" variant="standard"/>
+                                    <TextField  required={true}  fullWidth id="last-name" label="Please input your last name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
                                 <ThemeProvider theme={theme}>
-                                    <TextField  required={true}  fullWidth id="standard-basic" label="Please input your first name" variant="standard"/>
+                                    <TextField  required={true}  fullWidth id="first-name" label="Please input your first name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
@@ -120,7 +141,7 @@ class Register extends React.Component {
                             <Grid item xs={12}>
                                 {
                                     this.state.showElem?(
-                                        <Alert  severity="error" >
+                                        <Alert severity="error" >
                                             Password does not match!
                                         </Alert>
                                     ):null
@@ -129,28 +150,29 @@ class Register extends React.Component {
                             <Grid item xs={12}>
                                 <TextField  InputLabelProps={{
                                     shrink: true,
-                                }}required={true}  fullWidth id="standard-basic" label="Please input your date of birth" variant="standard" type="date"/>
+                                }}required={true}  fullWidth id="birth" label="Please input your date of birth" variant="standard" type="date"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="date" label="Please input your email" variant="standard"/>
+                                <TextField  required={true}  fullWidth id="email" label="Please input your email" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required={true}  fullWidth id="standard-basic" label="Please input your phone number" variant="standard" type="number"/>
+                                <TextField required={true}  fullWidth id="phone-number" label="Please input your phone number" variant="standard" type="number"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth>
                                     <InputLabel  required={true} variant="standard" htmlFor="uncontrolled-native" theme={theme}>
                                         Gender
                                     </InputLabel>
-                                    <NativeSelect>
-                                        <option value={"none"} selected disabled hidden>Please select your gender</option>
+                                    <NativeSelect id="gender" defaultValue={"default"}>
+                                        <option value={-1} value={"default"} disabled>Please select your gender</option>
                                         <option value={1}>Male</option>
                                         <option value={0}>Female</option>
+
                                     </NativeSelect>
                                 </FormControl>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button fullWidth variant="contained" size={"large"}>Submit</Button>
+                                <Button fullWidth variant="contained" size={"large"} onClick={this.checkSb}>Submit</Button>
                             </Grid>
                         </Grid>
                     </Container>
@@ -161,5 +183,5 @@ class Register extends React.Component {
     }
 
 }
-
+//
 export default Register;
