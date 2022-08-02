@@ -20,6 +20,8 @@ import './Login.css'
 import {AlertTitle,Alert, FormControl, InputLabel, MenuItem, NativeSelect} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
+import * as PropTypes from "prop-types";
+import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
 
 
 
@@ -38,11 +40,18 @@ const Item = styled(Paper)(({theme}) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
+
+function MobileDatePicker(props) {
+    return null;
+}
+
+
 class Register extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             showElem:false
+
         };
         this.checkPw= this.checkPw.bind(this);
     }
@@ -104,27 +113,26 @@ class Register extends React.Component {
                                         type="password"
                                         variant="standard"
                                         required={true}
-                                        autoFocus={false}
                                         onBlur={this.checkPw}
                                     />
                                 </Stack>
                             </Grid>
-                            <Grid item>
+                            <Grid item xs={12}>
                                 {
                                     this.state.showElem?(
-                                        <Alert   severity="error" >
+                                        <Alert  severity="error" >
                                             Password does not match!
                                         </Alert>
                                     ):null
                                 }
-
-                            </Grid>
-
-                            <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="standard-basic" label="Please input your date of birth" variant="standard" type="date"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="standard-basic" label="Please input your email" variant="standard"/>
+                                <TextField  InputLabelProps={{
+                                    shrink: true,
+                                }}required={true}  fullWidth id="standard-basic" label="Please input your date of birth" variant="standard" type="date"/>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField  required={true}  fullWidth id="date" label="Please input your email" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField required={true}  fullWidth id="standard-basic" label="Please input your phone number" variant="standard" type="number"/>
@@ -135,6 +143,7 @@ class Register extends React.Component {
                                         Gender
                                     </InputLabel>
                                     <NativeSelect>
+                                        <option value={"none"} selected disabled hidden>Please select your gender</option>
                                         <option value={1}>Male</option>
                                         <option value={0}>Female</option>
                                     </NativeSelect>
