@@ -60,8 +60,8 @@ function postLogin1() {
 
 function postLogin() {
     const params = {
-        userName: 'william',
-        pw: '12345678'
+        userName: document.getElementById("userName").value,
+        pw: document.getElementById("pw").value
     }
     axios.post(url + "5000/test", params).then((res) => {
         console.log(res)
@@ -92,12 +92,12 @@ class Login extends React.Component {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <TextField fullWidth id="filled-basic" label="Name" variant="filled"/>
+                                <TextField fullWidth id="userName" label="Name" variant="filled"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     fullWidth
-                                    id="outlined-password-input"
+                                    id="pw"
                                     label="Password"
                                     type="password"
                                     autoComplete="current-password"
@@ -114,7 +114,7 @@ class Login extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Checkbox {...label} defaultChecked/>
-                                <Link href="#">Privacy Policy</Link>
+                                <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Privacy Policy</Link>
                             </Grid>
                         </Grid>
                     </Container>

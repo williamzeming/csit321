@@ -156,7 +156,7 @@ class Register extends React.Component {
                                 <TextField  required={true}  fullWidth id="email" label="Please input your email" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required={true}  fullWidth id="phone-number" label="Please input your phone number" variant="standard" type="number"/>
+                                <TextField required={true}  fullWidth id="phone-number" label="Please input your phone number" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth>
