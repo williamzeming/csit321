@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Link from '@mui/material/Link';
 import logo from './logo_w.png'
+import "./Home.css"
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +18,8 @@ const Item = styled(Paper)(({theme}) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
+
+
 
 const url = "http://localhost:";
 
@@ -45,11 +48,11 @@ class Home extends React.Component {
                 <Stack spacing={2} alignItems={"center"}>
                     <Grid container spacing={4}>
                         <Grid item xs>
-                            <img src={logo} width={80}/>
+                            <img src={logo} width={80} style={{paddingLeft:10}} className={"center"}/>
                         </Grid>
                         <Grid item xs={6}>
-                            <Stack spacing={2} direction="row" justifyContent={"right"}>
-                                <Link to="/" underline="hover">Home</Link>
+                            <Stack spacing={2} direction="row" justifyContent={"right"} className={"center"}>
+                                <Link to="/" underline="hover" >Home</Link>
                                 <Link to="/" underline="hover">Community</Link>
                             </Stack>
                         </Grid>
