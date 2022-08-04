@@ -1,4 +1,11 @@
+
 .center {
     padding: 5px 0;
     text-align: center;
+}
+
+.backgroundIMG{
+    background-image:url('./backIMG.jpg');
+    background-size: 100%;
+    background-repeat:no-repeat;
 }

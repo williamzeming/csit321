@@ -40,8 +40,8 @@ class Home extends React.Component {
     }
 
     render() {
-        return <div>
-            <Box sx={{flexGrow: 1}}n style={{backgroundColor:"pink"}}>
+        return <div className={"backgroundIMG"}>
+            <Box sx={{flexGrow: 1}} >
                 <Grid>
                     <br/>
                 </Grid>
@@ -69,6 +69,26 @@ class Home extends React.Component {
                         </Grid>
                     </Grid>
                 </Stack>
+                <Grid>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <Stack spacing={4} direction={"row"}>
+                        <Stack item xs>
+
+                        </Stack>
+                        <Stack item xs={6}>
+                            <h1>WELCOME</h1>
+                        </Stack>
+                        <Stack item xs>
+
+                        </Stack>
+                    </Stack>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                </Grid>
             </Box>
         </div>
 
