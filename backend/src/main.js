@@ -71,7 +71,9 @@ app.post('/login',jsonParser, (req, res) => {
 
 app.post('/register',jsonParser, (req, res) => {
     mysql.registerInsert(req.body.lastName,req.body.firstName,req.body.firstPd,req.body.birth,req.body.email,req.body.phoneNumber,req.body.gender)
-    res.status(200);
+    res.status(200).json({
+        state:"susses"
+    });
 })
 //最后
 app.listen(port, () => {
