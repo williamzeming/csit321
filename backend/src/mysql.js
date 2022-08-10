@@ -31,6 +31,7 @@ exports.loginSelectByEmail = function (email1){
           }
         })
     });
+    //resolve 作为promise 返回值
     promise.then(function (value) {
         return value;
     }, function (value) {});
