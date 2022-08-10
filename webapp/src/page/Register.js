@@ -84,23 +84,22 @@ class Register extends React.Component {
 
         if(lastName==""||firstName==""||firstPd==""||secondPd==""||birth==""||email==""||phoneNumber==""||value==temp){
             this.setState({showSub: true})
-            // const params = {
-            //     lastName: lastName,
-            //     firstName: firstName,
-            //     firstPd: firstPd,
-            //     birth: birth,
-            //     email: email,
-            //     phoneNumber: phoneNumber,
-            //     gender: text
-            //
-            // }
-            // axios.post(url + "5000/test", params).then((res) => {
-            //     console.log(res)
-            // })
 
-            window.open(url+"3000/Login")
+            // window.open(url+"3000/Login")
         }else{
             this.setState({showSub: false})
+            const params = {
+                lastName: lastName,
+                firstName: firstName,
+                firstPd: firstPd,
+                birth: birth,
+                email: email,
+                phoneNumber: phoneNumber,
+                gender: text
+            }
+            axios.post(url + "5000/register", params).then((res) => {
+                console.log(res)
+            })
         }
 
     }

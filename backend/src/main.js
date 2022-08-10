@@ -26,11 +26,11 @@ app.get('/test', (req, res) => {
     res.status(200).json({
         name:'william',
         age:18,
-        email:mysql.dbConnect1()
+        email:mysql.loginSelectByEmail()
     })
 })
 app.get('/test1', (req, res) => {
-    mysql.dbConnect1()
+    mysql.loginSelectByEmail()
     .then(res1 =>{
             // console.log(res1)
         res.status(200).json({
@@ -48,9 +48,9 @@ app.get('/test1', (req, res) => {
 
 
 
-app.post('/test',jsonParser, (req, res) => {
+app.post('/login',jsonParser, (req, res) => {
     console.log(req.body.email)
-    mysql.dbConnect1(req.body.email)
+    mysql.loginSelectByEmail(req.body.email)
         .then(res1 =>{
             console.log(res1.userNum)
             console.log(req.body.pw)
@@ -67,6 +67,11 @@ app.post('/test',jsonParser, (req, res) => {
         .catch(err =>{
             console.log(err)
         })
+})
+
+app.post('/register',jsonParser, (req, res) => {
+    mysql.registerInsert(req.body.lastName,req.body.firstName,req.body.firstPd,req.body.birth,req.body.email,req.body.phoneNumber,req.body.gender)
+    res.status(200);
 })
 //最后
 app.listen(port, () => {

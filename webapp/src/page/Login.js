@@ -87,7 +87,7 @@ class Login extends React.Component {
             pw: document.getElementById("pw").value
         }
         console.log(params)
-        axios.post(url + "5000/test", params).then((res) => {
+        axios.post(url + "5000/login", params).then((res) => {
             console.log(res)
             if (res.data.error === "password error") {
                 console.log("error")
