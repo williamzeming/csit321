@@ -6,9 +6,7 @@ const {response} = require("express");
 var bodyParser = require('body-parser')
 const app = express()
 const port = 5000
-const router = require('./router')
-app.engine('html',require('express-art-template'))
-app.use(router)
+
 
 
 
@@ -47,6 +45,9 @@ app.get('/test1', (req, res) => {
     })
     // console.log(mysql.dbConnect1())
 })
+
+
+
 app.post('/test',jsonParser, (req, res) => {
     console.log(req.body.email)
     mysql.dbConnect1(req.body.email)
@@ -58,13 +59,10 @@ app.post('/test',jsonParser, (req, res) => {
                     userNum:res1.userNum
                 })
             } else {
-                res.status(403).json({
+                res.status(200).json({
                     error:"password error"
                 })
             }
-            // res.status(200).json({
-            //     password:res1
-            // })
         })
         .catch(err =>{
             console.log(err)

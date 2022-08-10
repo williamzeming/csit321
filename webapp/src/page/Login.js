@@ -17,6 +17,7 @@ import {styled} from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import './Login.css'
 import axios from "axios";
+import {Alert} from "@mui/material";
 
 
 const label = {inputProps: {'aria-label': 'Checkbox demo'}};
@@ -53,26 +54,49 @@ function postLogin1() {
         userName: 'william',
         pw: '12345678'
     }
-    axios.post(url + "5000/test",).then((res) => {
-        console.log(res)
-    })
-}
-
-function postLogin() {
-    const params = {
-        email: document.getElementById("userName").value,
-        pw: document.getElementById("pw").value
-    }
-    axios.post(url + "5000/test", params).then((res) => {
+    axios.post(url + "5000/test").then((res) => {
         console.log(res)
     })
 }
 
 
-
+// function postLogin() {
+//     const params = {
+//         email: document.getElementById("userName").value,
+//         pw: document.getElementById("pw").value
+//     }
+//     axios.post(url + "5000/test", params).then((res) => {
+//         console.log(res)
+//         if (res.data.error === "password error"){
+//             console.log("error")
+//
+//
+//         }
+//     })
+// }
 
 
 class Login extends React.Component {
+    state = {
+            showElem: true
+        };
+
+    postLogin=()=> {
+        const params = {
+            email: document.getElementById("userName").value,
+            pw: document.getElementById("pw").value
+        }
+        console.log(params)
+        axios.post(url + "5000/test", params).then((res) => {
+            console.log(res)
+            if (res.data.error === "password error") {
+                console.log("error")
+                this.setState({showElem: false})
+
+            }
+        })
+    }
+
     render() {
         return (
             <div>
@@ -105,14 +129,25 @@ class Login extends React.Component {
                                 <Link underline="hover" href="#">Forgotten your password?</Link>
                             </Grid>
                             <Grid item xs={12}>
-                                <Stack spacing={2} direction="row">
-                                    <Button fullWidth variant="contained" onClick={getLogin}>Login</Button>
-                                    <Button fullWidth variant="outlined" onClick={postLogin}>Clear</Button>
-                                </Stack>
+                                {
+                                    this.state.showElem ? (
+                                        <Alert severity="error">
+                                            Password Error !
+                                        </Alert>
+                                    ) : null
+                                }
                             </Grid>
                             <Grid item xs={12}>
+                                <Stack spacing={2} direction="row">
+                                    <Button fullWidth variant="contained" onClick={this.postLogin}>Login</Button>
+                                    <Button fullWidth variant="outlined" onMouseDown = {this.props.postLogin}>Clear</Button>
+                                </Stack>
+                            </Grid>
+
+                            <Grid item xs={12}>
                                 <Checkbox {...label} defaultChecked/>
-                                <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Privacy Policy</Link>
+                                <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Privacy
+                                    Policy</Link>
                             </Grid>
                         </Grid>
                     </Container>
