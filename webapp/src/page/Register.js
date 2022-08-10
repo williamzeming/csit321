@@ -24,10 +24,11 @@ import * as PropTypes from "prop-types";
 import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {Option} from "antd/es/mentions";
-
+import {Redirect} from "react-router-dom";
 
 
 const label = {inputProps: {'aria-label': 'Checkbox demo'}};
+const url = "http://localhost:";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -43,19 +44,17 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 
-function MobileDatePicker(props) {
-    return null;
-}
 
 
 class Register extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            showElem:false
-
+            showElem:false,
+            showSub:false
         };
         this.checkPw= this.checkPw.bind(this);
+        this.checkSb= this.checkSb.bind(this);
     }
 
     checkPw() {
@@ -79,15 +78,30 @@ class Register extends React.Component {
         var gender = document.getElementById("gender");
         var index = gender.selectedIndex;
         var value = gender.options[index].value;
+        var text = gender.options[index].text;
         var temp ="default";
-        console.log(value,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
+        console.log(text,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
 
         if(lastName==""||firstName==""||firstPd==""||secondPd==""||birth==""||email==""||phoneNumber==""||value==temp){
-            alert("Please input your personal detail");
-        }else{
-            console.log("right");
-        }
+            this.setState({showSub: true})
+            // const params = {
+            //     lastName: lastName,
+            //     firstName: firstName,
+            //     firstPd: firstPd,
+            //     birth: birth,
+            //     email: email,
+            //     phoneNumber: phoneNumber,
+            //     gender: text
+            //
+            // }
+            // axios.post(url + "5000/test", params).then((res) => {
+            //     console.log(res)
+            // })
 
+            window.open(url+"3000/Login")
+        }else{
+            this.setState({showSub: false})
+        }
 
     }
 
@@ -144,6 +158,7 @@ class Register extends React.Component {
                                         <Alert severity="error" >
                                             Password does not match!
                                         </Alert>
+
                                     ):null
                                 }
                             </Grid>
@@ -174,6 +189,15 @@ class Register extends React.Component {
                             <Grid item xs={12}>
                                 <Button fullWidth variant="contained" size={"large"} onClick={this.checkSb}>Submit</Button>
                             </Grid>
+                            <Grid item xs={12}>
+                                {
+                                    this.state.showSub?(
+                                        <Alert severity="error" >
+                                            Please input your whole information!
+                                        </Alert>
+                                    ):null
+                                }
+                            </Grid>
                         </Grid>
                     </Container>
                 </div>
@@ -181,6 +205,7 @@ class Register extends React.Component {
 
         )
     }
+
 
 }
 //
