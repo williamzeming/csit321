@@ -40,10 +40,27 @@ exports.registerInsert = function (lastName, firstName, firstPd, birth, email, p
             return;
         }
 
-        console.log('--------------------------INSERT----------------------------');
-        //console.log('INSERT ID:',result.insertId);
-        console.log('INSERT ID:',result);
-        console.log('-----------------------------------------------------------------\n\n');
+        // console.log('--------------------------INSERT----------------------------');
+        // //console.log('INSERT ID:',result.insertId);
+        // console.log('INSERT ID:',result);
+        // console.log('-----------------------------------------------------------------\n\n');
     });
     createConnect.end();
 }
+checkEmail = function (email){
+    let createConnect = connectSQL();
+    createConnect.connect();
+    var sql = 'SELECT userNum FROM userInfo where email = ?';
+    createConnect.query(sql,[email],function (err, result) {
+        if(err){
+            console.log('[SELECT ERROR] - ',err.message);
+            return false;
+        } else {
+            return true;
+        }
+    })
+}
+if(checkEmail('112233@gmail.com')==true){
+    console.log('true')
+}
+// console.log(checkEmail('112233@gmail.com'));

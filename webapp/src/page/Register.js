@@ -99,6 +99,7 @@ class Register extends React.Component {
             }
             axios.post(url + "5000/register", params).then((res) => {
                 console.log(res)
+                window.open(url+"3000/Login")
             })
         }
 
