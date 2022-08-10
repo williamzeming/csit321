@@ -78,10 +78,10 @@ function postLogin1() {
 
 class Login extends React.Component {
     state = {
-            showElem: true
-        };
+        showElem: true
+    };
 
-    postLogin=()=> {
+    postLogin = () => {
         const params = {
             email: document.getElementById("userName").value,
             pw: document.getElementById("pw").value
@@ -140,7 +140,8 @@ class Login extends React.Component {
                             <Grid item xs={12}>
                                 <Stack spacing={2} direction="row">
                                     <Button fullWidth variant="contained" onClick={this.postLogin}>Login</Button>
-                                    <Button fullWidth variant="outlined" onMouseDown = {this.props.postLogin}>Clear</Button>
+                                    <Button fullWidth variant="outlined"
+                                            onMouseDown={this.props.postLogin}>Clear</Button>
                                 </Stack>
                             </Grid>
 

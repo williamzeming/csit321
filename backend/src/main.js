@@ -7,10 +7,8 @@ const app = express()
 const port = 5000
 
 
-
-
 var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({extended: false})
 //最前
 app.use(cors()) // Use this after the variable declaration
 
@@ -23,55 +21,54 @@ app.get('/test', (req, res) => {
     console.log('12311')
     console.log(req.query.ID)
     res.status(200).json({
-        name:'william',
-        age:18,
-        email:mysql.loginSelectByEmail()
+        name: 'william',
+        age: 18,
+        email: mysql.loginSelectByEmail()
     })
 })
 app.get('/test1', (req, res) => {
     mysql.loginSelectByEmail()
-    .then(res1 =>{
+        .then(res1 => {
             // console.log(res1)
-        res.status(200).json({
-            name:'william',
-            age:18,
-            phone:18287888888,
-            email:res1
+            res.status(200).json({
+                name: 'william',
+                age: 18,
+                phone: 18287888888,
+                email: res1
+            })
         })
-    })
-    .catch(err =>{
-        console.log(err)
-    })
+        .catch(err => {
+            console.log(err)
+        })
     // console.log(mysql.dbConnect1())
 })
 
 
-
-app.post('/login',jsonParser, (req, res) => {
+app.post('/login', jsonParser, (req, res) => {
     console.log(req.body.email)
     mysql.loginSelectByEmail(req.body.email)
-        .then(res1 =>{
+        .then(res1 => {
             // console.log(res1.userNum)
             // console.log(req.body.pw)
-            if (res1.password === req.body.pw){
+            if (res1.password === req.body.pw) {
                 res.status(200).json({
-                    userNum:res1.userNum
+                    userNum: res1.userNum
                 })
             } else {
                 res.status(200).json({
-                    error:"password error"
+                    error: "password error"
                 })
             }
         })
-        .catch(err =>{
+        .catch(err => {
             console.log(err)
         })
 })
 
-app.post('/register',jsonParser, (req, res) => {
-    mysql.registerInsert(req.body.lastName,req.body.firstName,req.body.firstPd,req.body.birth,req.body.email,req.body.phoneNumber,req.body.gender)
+app.post('/register', jsonParser, (req, res) => {
+    mysql.registerInsert(req.body.lastName, req.body.firstName, req.body.firstPd, req.body.birth, req.body.email, req.body.phoneNumber, req.body.gender)
     res.status(200).json({
-        state:"susses"
+        state: "susses"
     });
 })
 //最后
