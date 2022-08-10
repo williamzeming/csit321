@@ -6,6 +6,11 @@ const {response} = require("express");
 var bodyParser = require('body-parser')
 const app = express()
 const port = 5000
+const router = require('./router')
+app.engine('html',require('express-art-template'))
+app.use(router)
+
+
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -53,7 +58,9 @@ app.post('/test',jsonParser, (req, res) => {
                     userNum:res1.userNum
                 })
             } else {
-                res.status(400).links({})
+                res.status(403).json({
+                    error:"password error"
+                })
             }
             // res.status(200).json({
             //     password:res1
