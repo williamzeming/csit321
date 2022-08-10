@@ -51,8 +51,8 @@ app.post('/login',jsonParser, (req, res) => {
     console.log(req.body.email)
     mysql.loginSelectByEmail(req.body.email)
         .then(res1 =>{
-            console.log(res1.userNum)
-            console.log(req.body.pw)
+            // console.log(res1.userNum)
+            // console.log(req.body.pw)
             if (res1.password === req.body.pw){
                 res.status(200).json({
                     userNum:res1.userNum
