@@ -1,11 +1,11 @@
+const mysql      = require('mysql');
 connectSQL = function () {
-    var mysql      = require('mysql');
-    var connection = mysql.createConnection({
-        host     : '192.168.0.122',
-        user     : 'william',
-        password : '123456',
-        port     : '3306',
-        database : 'csit321'
+    const connection = mysql.createConnection({
+        host: '192.168.0.122',
+        user: 'william',
+        password: '123456',
+        port: '3306',
+        database: 'csit321'
     });
     return connection;
 }

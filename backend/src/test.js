@@ -15,18 +15,6 @@ checkEmail = function (email) {
     createConnect.connect();
     var sql = 'SELECT userNum FROM userinfo where email = ?';
     var tag = createConnect.query(sql, [email], function (err, result) {
-        //     if(err){
-        //         console.log('[SELECT ERROR] - ',err.message);
-        //     } else if (result.length > 0){
-        //         flag = true;
-        //         return flag;
-        //     }else {
-        //         flag = false;
-        //         return flag;
-        //     }
-        //     return flag;
-        // })
-        // return flag;
         return result.length > 0;
     })
     return tag;
