@@ -60,7 +60,7 @@ function postLogin1() {
 
 function postLogin() {
     const params = {
-        userName: document.getElementById("userName").value,
+        email: document.getElementById("userName").value,
         pw: document.getElementById("pw").value
     }
     axios.post(url + "5000/test", params).then((res) => {

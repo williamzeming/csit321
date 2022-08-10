@@ -29,7 +29,7 @@ app.get('/test', (req, res) => {
 app.get('/test1', (req, res) => {
     mysql.dbConnect1()
     .then(res1 =>{
-            console.log(res1)
+            // console.log(res1)
         res.status(200).json({
             name:'william',
             age:18,
@@ -40,15 +40,28 @@ app.get('/test1', (req, res) => {
     .catch(err =>{
         console.log(err)
     })
-    console.log(mysql.dbConnect1())
+    // console.log(mysql.dbConnect1())
 })
 app.post('/test',jsonParser, (req, res) => {
-    console.log('app.post')
-    console.log(req.body)
-    res.status(200).json({
-        name:'william',
-        age:18
-    })
+    console.log(req.body.email)
+    mysql.dbConnect1(req.body.email)
+        .then(res1 =>{
+            console.log(res1.userNum)
+            console.log(req.body.pw)
+            if (res1.password === req.body.pw){
+                res.status(200).json({
+                    userNum:res1.userNum
+                })
+            } else {
+                res.status(400).links({})
+            }
+            // res.status(200).json({
+            //     password:res1
+            // })
+        })
+        .catch(err =>{
+            console.log(err)
+        })
 })
 //最后
 app.listen(port, () => {
