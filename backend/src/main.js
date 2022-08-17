@@ -45,19 +45,24 @@ app.get('/test1', (req, res) => {
 
 
 app.post('/login', jsonParser, (req, res) => {
-    console.log(req.body.email)
+    // console.log(req.body.email)
     mysql.loginSelectByEmail(req.body.email)
         .then(res1 => {
-            // console.log(res1.userNum)
-            // console.log(req.body.pw)
+            console.log(res1.userNum)
+            console.log(res1.password)
             if (res1.password === req.body.pw) {
                 res.status(200).json({
-                    userNum: res1.userNum
+                    userNum: res1.userNum,
+                    statusCode: 1
+                    // redirect: '/'
                 })
+                console.log(res1)
             } else {
                 res.status(200).json({
-                    error: "password error"
+                    userNum: res1.userNum,
+                    statusCode: 0
                 })
+                console.log("error")
             }
         })
         .catch(err => {

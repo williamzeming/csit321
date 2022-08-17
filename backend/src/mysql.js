@@ -15,6 +15,7 @@ exports.loginSelectByEmail = function (email1) {
         checkEmail(email1).then(res => {
             if (res == 0) {
                 console.log("email not exists")
+                resolve(400);
             } else {
                 let createConnect = connectSQL();
                 createConnect.connect();
