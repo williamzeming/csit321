@@ -71,10 +71,15 @@ app.post('/login', jsonParser, (req, res) => {
 })
 
 app.post('/register', jsonParser, (req, res) => {
-    mysql.registerInsert(req.body.lastName, req.body.firstName, req.body.firstPd, req.body.birth, req.body.email, req.body.phoneNumber, req.body.gender)
-    res.status(200).json({
-        state: "susses"
+    mysql.registerInsert(req.body.lastName, req.body.firstName, req.body.firstPd, req.body.birth, req.body.email, req.body.phoneNumber, req.body.gender).then(res1 => {
+        console.log(res1)
+        res.status(200).json({
+            error: res1
+        })
     });
+    // res.status(200).json({
+    //     state: "susses"
+    // });
 })
 //最后
 app.listen(port, () => {

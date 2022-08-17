@@ -80,7 +80,7 @@ class Register extends React.Component {
         var value = gender.options[index].value;
         var text = gender.options[index].text;
         var temp ="default";
-        console.log(text,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
+        // console.log(text,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
 
         if(lastName==""||firstName==""||firstPd==""||secondPd==""||birth==""||email==""||phoneNumber==""||value==temp){
             this.setState({showSub: true})
@@ -98,7 +98,7 @@ class Register extends React.Component {
                 gender: text
             }
             axios.post(url + "5000/register", params).then((res) => {
-                console.log(res)
+                console.log(res.data.error)
                 window.open(url+"3000/Login")
             })
         }

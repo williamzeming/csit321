@@ -40,22 +40,32 @@ exports.loginSelectByEmail = function (email1) {
     return promise;
 }
 exports.registerInsert = function (lastName, firstName, firstPd, birth, email, phoneNumber, gender) {
-    checkEmail(email).then(res => {
-        if (res == 0) {
-            let createConnect = connectSQL();
-            createConnect.connect();
-            var sql = 'INSERT INTO userInfo (cusDOB, password, firstName, lastName, phoneNum, email, gender) VALUE (?,?,?,?,?,?,?)';
-            createConnect.query(sql, [birth, firstPd, firstName, lastName, phoneNumber, email, gender], function (err, result) {
-                if (err) {
-                    console.log('[INSERT ERROR] - ', err.message);
-                    return;
-                }
-            });
-            createConnect.end();
-        } else {
-            console.log("email already exists")
-        }
-    })
+    var promise = new Promise(function (resolve, reject) {
+        checkEmail(email).then(res => {
+            if (res == 0) {
+                let createConnect = connectSQL();
+                createConnect.connect();
+                var sql = 'INSERT INTO userInfo (cusDOB, password, firstName, lastName, phoneNum, email, gender) VALUE (?,?,?,?,?,?,?)';
+                createConnect.query(sql, [birth, firstPd, firstName, lastName, phoneNumber, email, gender], function (err, result) {
+                    if (err) {
+                        console.log('[INSERT ERROR] - ', err.message);
+                        return;
+                    }else{
+                        console.log('insert success')
+                    }
+                });
+                createConnect.end();
+            } else {
+                console.log("email already exists")
+                resolve("already exists");
+            }
+        })
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
 }
 checkEmail = function (email) {
     var promise = new Promise(function (resolve, reject) {
@@ -78,5 +88,3 @@ checkEmail = function (email) {
     });
     return promise;
 }
-
-// console.log(checkEmail('112233@gmail.com'));
