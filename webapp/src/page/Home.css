@@ -9,3 +9,55 @@
     background-size: 100%;
     background-repeat:no-repeat;
 }
+.backgroundBlack{
+    background-color: #5e5050;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_firstColumn{
+    background-color: #5e5050;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_secondColumn{
+    background-color: #5e5050;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+}
+.backgroundBlack_thirdColumn{
+    background-color: #5e5050;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_fourthColumn{
+    background-color: #5e5050;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_row{
+    background-color: #5e5050;
+    color: white;
+    text-align: center;
+}
+.link-top{
+    width: 80%;
+    height: 1px;
+    border-top: solid #070707 1px;
+    margin-left:auto;
+    margin-right:auto;
+}
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
