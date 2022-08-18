@@ -17,6 +17,9 @@
     flex-grow: 1;
 }
 .backgroundBlack_firstColumn{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
     background-color: #000000;
     color: white;
     display: flex;
@@ -24,6 +27,7 @@
     flex-grow: 1;
 }
 .backgroundBlack_secondColumn{
+    padding-top: 20px;
     background-color: #000000;
     color: white;
     display: flex;
@@ -31,6 +35,7 @@
     flex-grow: 2;
 }
 .backgroundBlack_thirdColumn{
+    padding-top: 20px;
     background-color: #000000;
     color: white;
     display: flex;
@@ -38,6 +43,7 @@
     flex-grow: 1;
 }
 .backgroundBlack_fourthColumn{
+    padding-top: 20px;
     background-color: #000000;
     color: white;
     display: flex;

@@ -10,6 +10,7 @@ import Stack from "@mui/material/Stack";
 import Link from '@mui/material/Link';
 import logo from './logo_w.png'
 import "./Home.css"
+import logo1 from './logo.jpg'
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -117,22 +118,28 @@ class Home extends React.Component {
                 <br/>
                 <Grid className={"backgroundBlack"}>
                     <Grid className={"backgroundBlack_firstColumn"}>
-                        <img src={logo} width={30} height={30} style={{paddingRight: 10,paddingLeft:10}} />
+                        <img src={logo1} width={30} height={30} style={{paddingRight:10,paddingLeft:10}} />
                             We Climb
                     </Grid>
                     <Grid className={"backgroundBlack_secondColumn"}>
                         Learn More
                         <br/>
                         <br/>
+                        <br/>
                         About Lift
+                        <br/>
                         <br/>
                         Press Releases
                         <br/>
+                        <br/>
                         Environment
+                        <br/>
                         <br/>
                         Jobs
                         <br/>
+                        <br/>
                         Privacy Policy
+                        <br/>
                         <br/>
                         Contact Us
                     </Grid>
