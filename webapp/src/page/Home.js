@@ -28,8 +28,7 @@ const Item = styled(Paper)(({theme}) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
-
-
+import {Alert} from "@mui/material";
 
 const url = "http://localhost:";
 
@@ -53,14 +52,14 @@ const bull = (
 
 class Home extends React.Component {
     state = {
-        person: null
-        //loginState: "in"
+        person: null,
+        loginState: false
     }
     // button1 = "LOGIN1";
     // button2 = "REGISTER1"
     //加载自动运行
     componentDidMount = () => {
-        //this.checkLogin();
+        this.checkLogin();
 
         // this.getExample()
 
@@ -73,15 +72,24 @@ class Home extends React.Component {
         })
     }
 //className={"backgroundIMG"}
-    // checkLogin(){
-    //     if (this.state.loginState == "out"){
-    //
-    //     }else {
-    //         document.getElementById("Button1").innerText = this.button1;
-    //         document.getElementById("Button2").innerText = this.button2;
-    //         //document.getElementById("Button3").innerHTML = '<Button fullWidth variant="outlined" href={"/Register"}>Register</Button>';
-    //     }
-    // }
+
+    checkLogin(){
+        var userID = this.getCookie("uid");
+        if (userID !== ""){
+            this.setState({loginState: true})
+        }else {
+            this.setState({loginState: false})
+        }
+    }
+    getCookie(cname) {
+        var name = cname + "=";
+        var ca   = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
 
     render() {
         return( <div >
@@ -104,12 +112,24 @@ class Home extends React.Component {
                         </Grid>
                         <Grid item xs>
                             <Stack direction="row">
-                                <Stack spacing={2} direction="row" justifyContent={"left"}>
-                                    <Button fullWidth variant="contained" href={"/Login"}>
-                                        Login
-                                    </Button>
-                                    <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
-                                </Stack>
+                                {
+                                    this.state.loginState ? (
+                                        <Stack spacing={2} direction="row" justifyContent={"left"}>
+                                            <Button fullWidth variant="contained" href={"/Login"}>
+                                                userName
+                                            </Button>
+                                            <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                        </Stack>) : (
+                                        <Stack spacing={2} direction="row" justifyContent={"left"}>
+                                            <Button fullWidth variant="contained" href={"/Login"}>
+                                                Login
+                                            </Button>
+                                            <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
+                                        </Stack>
+                                    )
+                                }
+
+
                             </Stack>
                         </Grid>
                     </Grid>
@@ -119,15 +139,7 @@ class Home extends React.Component {
                     <br/>
                     <br/>
                     <Stack spacing={4} direction={"row"}>
-                        <Stack item xs>
 
-                        </Stack>
-                        <Stack item xs={6}>
-                            <h1>WELCOME</h1>
-                        </Stack>
-                        <Stack item xs>
-
-                        </Stack>
                     </Stack>
                     <br/>
                     <br/>
@@ -273,8 +285,8 @@ class Home extends React.Component {
                 <br/>
                 <Grid className={"backgroundBlack"}>
                     <Grid className={"backgroundBlack_firstColumn"}>
-                        <img src={logo1} width={30} height={30} style={{paddingRight:10,paddingLeft:10}} />
-                            We Climb
+                        <img src={logo1} width={30} height={30} style={{paddingRight: 10, paddingLeft: 10}}/>
+                        We Climb
                     </Grid>
                     <Grid className={"backgroundBlack_secondColumn"}>
                         Learn More
@@ -302,7 +314,7 @@ class Home extends React.Component {
                         Contact Us
                         <br/>
                         <br/>
-                        Call us:    123-456-7890
+                        Call us: 123-456-7890
                     </Grid>
                     <Grid className={"backgroundBlack_fourthColumn"}>
                         Social
