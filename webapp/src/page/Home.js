@@ -93,8 +93,8 @@ class Home extends React.Component {
 
     render() {
         return( <div >
-            <Box sx={{flexGrow: 1}} >
-        return <div>
+            {/*   <Box sx={{flexGrow: 1}} >
+        return <div> */}
             <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
                 <Grid>
                     <br/>
