@@ -9,6 +9,20 @@
     background-size: 100%;
     background-repeat:no-repeat;
 }
+.text1{
+    font-family: "Arial";
+    font-weight: bolder;
+    font-size: larger;
+}
+.smText{
+    font-weight: inherit;
+    font-size: small;
+    color:blue;
+}
+.text2{
+    font-weight: inherit;
+    font-size: small;
+}
 .backgroundBlack{
     background-color: #000000;
     color: white;

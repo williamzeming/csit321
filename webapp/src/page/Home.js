@@ -10,12 +10,46 @@ import Stack from "@mui/material/Stack";
 import Link from '@mui/material/Link';
 import logo from './logo_w.png'
 import "./Home.css"
+import ButtonBase from '@mui/material/ButtonBase';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import climb from './climbPg.jpg';
+import img1 from './bouddi.jpg';
+import img2 from './cradleM.jpg';
+import img3 from './mountKeira.jpg';
+import climbMt from './climb2.jpeg';
 import logo1 from './logo.jpg'
 
+const Item = styled(Paper)(({theme}) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 
 
 const url = "http://localhost:";
+
+//climbPg image style
+const Img = styled('img')({
+    margin:'auto',
+    display:'block',
+    maxWidth:'100%',
+    maxHeight: '100%'
+});
+
+const bull = (
+    <Box
+        component="span"
+        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+        •
+    </Box>
+);
+
 
 class Home extends React.Component {
     state = {
@@ -38,6 +72,7 @@ class Home extends React.Component {
             this.setState({person: res.data})
         })
     }
+//className={"backgroundIMG"}
     // checkLogin(){
     //     if (this.state.loginState == "out"){
     //
@@ -49,6 +84,8 @@ class Home extends React.Component {
     // }
 
     render() {
+        return( <div >
+            <Box sx={{flexGrow: 1}} >
         return <div>
             <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
                 <Grid>
@@ -98,6 +135,116 @@ class Home extends React.Component {
 
                 </Grid>
             </Box>
+                <hr/>
+            {/*main content*/}
+            <Grid container>
+                <Grid item xs={2}/>
+                <Grid item xs={8}>
+                    <Grid item my={1}/><hr/>
+                    {/*part1 sign up*/}
+                    <Grid container my={3} spacing={4}>
+                        <Grid item xs={1}/>
+                        <Grid item xs={4}>
+                            <ButtonBase sx={{width:400, height:320}}>
+                                <Img alt="climb" src={climb}/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={6}>
+                           <p class={"text1"}>Build your own trip?</p>
+                            <Button variant="contained">Sign Up</Button>
+                        </Grid>
+                        <Grid item xs={1}/>
+                    </Grid>
+                    <hr/>
+                    {/*part2 instruction*/}
+                    <Grid container my={2}>
+                        <Grid item xs={2}/>
+                        <Grid container xs={9} spacing={4}>
+                            <Grid item xs={3}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography variant="h5" component="div">
+                                            Detailed Guide
+                                        </Typography><br/>
+                                        <Typography variant="body2">
+                                            We provide detailed routes,you can plan your route according to the guidelines.
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography variant="h5" component="div">
+                                            Transport
+                                        </Typography><br/>
+                                        <Typography variant="body2">
+                                            Choose a more suitable transportation based on the route of Google Maps.
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography variant="h5" component="div">
+                                                Camp Fire
+                                        </Typography><br/>
+                                        <Typography variant="body2">
+                                            Climbers can organize camp fire in permitted areas.
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={2}/>
+                    </Grid>
+                    <hr/>
+                    {/*part3 mountain images*/}
+                    <Grid item my={3}>
+                        <p class={"smText"} align={"center"}>About us</p>
+                        <p class={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
+                        <Grid container spacing={1}>
+                        <Grid item xs={4}>
+                            <ButtonBase sx={{width:300, height:300}}>
+                                <Img alt="img1" src={img1}/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <ButtonBase sx={{width:300, height:300}}>
+                                <Img alt="img2" src={img2}/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <ButtonBase sx={{width:300, height:300}}>
+                                <Img alt="img3" src={img3}/>
+                            </ButtonBase>
+                        </Grid>
+                        </Grid>
+                    </Grid>
+                    <hr/>
+                    {/*part4 customer review*/}
+                    <Grid container my={2} spacing={5}>
+                        <Grid item xs={1}/>
+                        <Grid item xs={4}>
+                            <p class={"smText"}>What they say</p>
+                            <p class={"text1"}>Customer Reviews</p>
+                            <p class={"text2"}>We encourage each customer to leave review about their climbing journey and what they would like to suggest to other climbers.</p>
+                            <Button variant="contained">All Reviews</Button>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <ButtonBase sx={{width:400, height:320}}>
+                                <Img alt="climbMt" src={climbMt}/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={1}/>
+                    </Grid>
+                    <hr/>
+                    <Grid item my={1}/>
+                </Grid>
+                <Grid item xs={2}/>
+            </Grid>
+                <hr/>
             {/*footer*/}
             <footer>
                 <Grid style={{background: "pink"}}>
@@ -170,8 +317,8 @@ class Home extends React.Component {
 
             </footer>
         </div>
-
-    }
+        );
+    };
 }
 
 export default Home;
