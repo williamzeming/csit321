@@ -28,7 +28,7 @@ const Item = styled(Paper)(({theme}) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
-import {Alert} from "@mui/material";
+
 
 const url = "http://localhost:";
 
@@ -93,8 +93,6 @@ class Home extends React.Component {
 
     render() {
         return( <div >
-            {/*   <Box sx={{flexGrow: 1}} >
-        return <div> */}
             <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
                 <Grid>
                     <br/>
