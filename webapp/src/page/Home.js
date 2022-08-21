@@ -12,24 +12,24 @@ import logo from './logo_w.png'
 import "./Home.css"
 import logo1 from './logo.jpg'
 
-const Item = styled(Paper)(({theme}) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+
 
 
 const url = "http://localhost:";
 
 class Home extends React.Component {
     state = {
-        person: null
+        person: null,
+        loginState: "in"
     }
+    button1 = "LOGIN1";
+    button2 = "REGISTER1"
     //加载自动运行
     componentDidMount = () => {
+        this.checkLogin();
+
         // this.getExample()
+
     }
 
     getExample() {
@@ -37,6 +37,15 @@ class Home extends React.Component {
             console.log(res)
             this.setState({person: res.data})
         })
+    }
+    checkLogin(){
+        if (this.state.loginState == "out"){
+
+        }else {
+            document.getElementById("Button1").innerText = this.button1;
+            document.getElementById("Button2").innerText = this.button2;
+            //document.getElementById("Button3").innerHTML = '<Button fullWidth variant="outlined" href={"/Register"}>Register</Button>';
+        }
     }
 
     render() {
@@ -59,12 +68,11 @@ class Home extends React.Component {
                         <Grid item xs>
                             <Stack direction="row">
                                 <Stack spacing={2} direction="row" justifyContent={"left"}>
-                                    <Button fullWidth variant="contained" href={"/Login"}>
+                                    <Button fullWidth variant="contained" href={"/Login"} id={"Button1"}>
                                         Login
                                     </Button>
-                                    <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
+                                    <Button fullWidth variant="outlined" href={"/Register"} id={"Button2"}>Register</Button>
                                 </Stack>
-
                             </Stack>
                         </Grid>
                     </Grid>
