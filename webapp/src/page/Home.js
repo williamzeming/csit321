@@ -19,14 +19,14 @@ const url = "http://localhost:";
 
 class Home extends React.Component {
     state = {
-        person: null,
-        loginState: "in"
+        person: null
+        //loginState: "in"
     }
-    button1 = "LOGIN1";
-    button2 = "REGISTER1"
+    // button1 = "LOGIN1";
+    // button2 = "REGISTER1"
     //加载自动运行
     componentDidMount = () => {
-        this.checkLogin();
+        //this.checkLogin();
 
         // this.getExample()
 
@@ -38,15 +38,15 @@ class Home extends React.Component {
             this.setState({person: res.data})
         })
     }
-    checkLogin(){
-        if (this.state.loginState == "out"){
-
-        }else {
-            document.getElementById("Button1").innerText = this.button1;
-            document.getElementById("Button2").innerText = this.button2;
-            //document.getElementById("Button3").innerHTML = '<Button fullWidth variant="outlined" href={"/Register"}>Register</Button>';
-        }
-    }
+    // checkLogin(){
+    //     if (this.state.loginState == "out"){
+    //
+    //     }else {
+    //         document.getElementById("Button1").innerText = this.button1;
+    //         document.getElementById("Button2").innerText = this.button2;
+    //         //document.getElementById("Button3").innerHTML = '<Button fullWidth variant="outlined" href={"/Register"}>Register</Button>';
+    //     }
+    // }
 
     render() {
         return <div>
@@ -68,10 +68,10 @@ class Home extends React.Component {
                         <Grid item xs>
                             <Stack direction="row">
                                 <Stack spacing={2} direction="row" justifyContent={"left"}>
-                                    <Button fullWidth variant="contained" href={"/Login"} id={"Button1"}>
+                                    <Button fullWidth variant="contained" href={"/Login"}>
                                         Login
                                     </Button>
-                                    <Button fullWidth variant="outlined" href={"/Register"} id={"Button2"}>Register</Button>
+                                    <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
                                 </Stack>
                             </Stack>
                         </Grid>
