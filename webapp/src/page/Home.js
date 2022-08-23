@@ -20,6 +20,7 @@ import img2 from './cradleM.jpg';
 import img3 from './mountKeira.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.jpg'
+import {ImageList, ImageListItem, ImageListItemBar} from "@mui/material";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -48,7 +49,24 @@ const bull = (
         •
     </Box>
 );
-
+//images list
+const itemData = [
+    {
+        img: img1,
+        title: 'Bouddi, Australia',
+        name: 'Bouddi National Park',
+    },
+    {
+        img: img2,
+        title: 'Tasmanian, Australia',
+        name: 'Cradle Mountain',
+    },
+    {
+        img: img3,
+        title: 'Wollongong, Australia',
+        name: 'Mount Kiera',
+    }
+]
 
 class Home extends React.Component {
     state = {
@@ -71,7 +89,7 @@ class Home extends React.Component {
             this.setState({person: res.data})
         })
     }
-//className={"backgroundIMG"}
+
 
     checkLogin(){
         var userID = this.getCookie("uid");
@@ -152,14 +170,14 @@ class Home extends React.Component {
                 <Grid item xs={8}>
                     <Grid item my={1}/><hr/>
                     {/*part1 sign up*/}
-                    <Grid container my={3} spacing={4}>
+                    <Grid container my={2} spacing={5}>
                         <Grid item xs={1}/>
-                        <Grid item xs={4}>
-                            <ButtonBase sx={{width:400, height:320}}>
+                        <Grid item xs={6}>
+                            <ButtonBase sx={{width:400, height:300}}>
                                 <Img alt="climb" src={climb}/>
                             </ButtonBase>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={4}>
                            <p class={"text1"}>Build your own trip?</p>
                             <Button variant="contained">Sign Up</Button>
                         </Grid>
@@ -214,22 +232,26 @@ class Home extends React.Component {
                     <Grid item my={3}>
                         <p class={"smText"} align={"center"}>About us</p>
                         <p class={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
-                        <Grid container spacing={1}>
-                        <Grid item xs={4}>
-                            <ButtonBase sx={{width:300, height:300}}>
-                                <Img alt="img1" src={img1}/>
-                            </ButtonBase>
+                        <Grid container spacing={3}>
+                            <Grid item xs={1}/>
+                        <Grid item xs={10}>
+                            <ImageList cols={3} gap={8}>
+                                {itemData.map((item) => (
+                                    <ImageListItem key={item.img}>
+                                        <img src={`${item.img}?w=248&fit=crop&auto=format`}
+                                             srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                             alt={item.title}
+                                             loading="lazy"
+                                             />
+                                        <ImageListItemBar align={"center"}
+                                            title={item.title}
+                                            subtitle={item.name}
+                                            />
+                                    </ImageListItem>
+                                ))}
+                            </ImageList>
                         </Grid>
-                        <Grid item xs={4}>
-                            <ButtonBase sx={{width:300, height:300}}>
-                                <Img alt="img2" src={img2}/>
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <ButtonBase sx={{width:300, height:300}}>
-                                <Img alt="img3" src={img3}/>
-                            </ButtonBase>
-                        </Grid>
+                            <Grid item xs={1}/>
                         </Grid>
                     </Grid>
                     <hr/>

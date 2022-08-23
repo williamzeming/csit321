@@ -23,6 +23,16 @@
     font-weight: inherit;
     font-size: small;
 }
+.bouddiImgCard{
+    width:320px;
+    height:415px;
+}
+.bouddiImg{
+    height:auto;
+    max-height: 250px;
+    width:auto;
+    max-width: 250px;
+}
 .backgroundBlack{
     background-color: #000000;
     color: white;
