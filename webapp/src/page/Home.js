@@ -125,7 +125,7 @@ class Home extends React.Component {
     render() {
         return (<div>
                 <Grid className={"topColumn"} container>
-                    <Grid className={"topFirstColumn"} item xs={3} md={4}>
+                    <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <Grid className={"topFirstColumnRow"}>
                             <span>
                                  <img src={logo1} height={60} width={60} style={{paddingLeft: 10}}
@@ -152,7 +152,7 @@ class Home extends React.Component {
                         </Grid>
 
                     </Grid>
-                    <Grid item xs={2} md={4} style={{paddingTop: 200, position: "relative"}}>
+                    <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5} style={{paddingTop: 200, position: "relative"}}>
                         <Grid style={{paddingLeft: 70, position: "absolute", alignContent: "center"}}>
                             <Paper
                                 component="form"
@@ -169,7 +169,7 @@ class Home extends React.Component {
                         </Grid>
 
                     </Grid>
-                    <Grid item xs={3} md={4}>
+                    <Grid item xs={3} md={4} lg={3}>
                         <Stack direction="row" spacing={2}>
                             <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
                                 <Link style={{paddingRight: 20}} to="/" underline="hover">Home</Link>
@@ -177,7 +177,7 @@ class Home extends React.Component {
                             </Stack>
                             {
                                 this.state.loginState ? (
-                                    <Stack spacing={2} direction="row" style={{paddingRight: 10}}>
+                                    <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
                                         <Button fullWidth variant="contained" href={"/Login"}>
                                             <div>{this.state.userName}</div>
                                         </Button>
@@ -185,13 +185,19 @@ class Home extends React.Component {
                                         <Button fullWidth variant="outlined" onClick={this.logout}
                                                 href={"/"}>Logout</Button>
                                     </Stack>) : (
-                                    <Stack spacing={2} direction="row" style={{paddingRight: 10}}>
-                                        <Button fullWidth variant="contained" href={"/Login"}>
-                                            Login
-                                        </Button>
-                                        <Button fullWidth variant="outlined"
-                                                href={"/Register"}>Register</Button>
-                                    </Stack>
+                                        <Grid style={{paddingRight: 10}}>
+                                            <Stack spacing={2} direction="row" >
+
+                                                <Button fullWidth variant="contained" href={"/Login"}>
+                                                    Login
+                                                </Button>
+                                                <Button fullWidth variant="outlined"
+                                                        href={"/Register"}>Register</Button>
+
+
+                                            </Stack>
+                                        </Grid>
+
 
                                 )
                             }
