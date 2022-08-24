@@ -108,7 +108,9 @@ class Home extends React.Component {
         }
         return "";
     }
+    logout(){
 
+    }
     render() {
         return( <div >
             <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
@@ -141,7 +143,9 @@ class Home extends React.Component {
                                                 Login
                                             </Button>
                                             <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
+                                            <Button fullWidth variant="outlined" onClick={} href={"/"}>Log out</Button>
                                         </Stack>
+
                                     )
                                 }
 
@@ -178,7 +182,7 @@ class Home extends React.Component {
                             </ButtonBase>
                         </Grid>
                         <Grid item xs={4}>
-                           <p class={"text1"}>Build your own trip?</p>
+                           <p className={"text1"}>Build your own trip?</p>
                             <Button variant="contained">Sign Up</Button>
                         </Grid>
                         <Grid item xs={1}/>
@@ -230,8 +234,8 @@ class Home extends React.Component {
                     <hr/>
                     {/*part3 mountain images*/}
                     <Grid item my={3}>
-                        <p class={"smText"} align={"center"}>About us</p>
-                        <p class={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
+                        <p className={"smText"} align={"center"}>About us</p>
+                        <p className={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
                         <Grid container spacing={3}>
                             <Grid item xs={1}/>
                         <Grid item xs={10}>
@@ -259,9 +263,9 @@ class Home extends React.Component {
                     <Grid container my={2} spacing={5}>
                         <Grid item xs={1}/>
                         <Grid item xs={4}>
-                            <p class={"smText"}>What they say</p>
-                            <p class={"text1"}>Customer Reviews</p>
-                            <p class={"text2"}>We encourage each customer to leave review about their climbing journey and what they would like to suggest to other climbers.</p>
+                            <p className={"smText"}>What they say</p>
+                            <p className={"text1"}>Customer Reviews</p>
+                            <p className={"text2"}>We encourage each customer to leave review about their climbing journey and what they would like to suggest to other climbers.</p>
                             <Button variant="contained">All Reviews</Button>
                         </Grid>
                         <Grid item xs={6}>

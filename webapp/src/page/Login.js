@@ -78,7 +78,7 @@ function postLogin1() {
 
 class Login extends React.Component {
     state = {
-        showElem: true
+        showElem: false
     };
 
     postLogin = () => {
@@ -91,11 +91,16 @@ class Login extends React.Component {
             console.log(res)
             if (res.data.statusCode === 0) {
                 console.log("password error")
-                this.setState({showElem: false})
+                this.setState({showElem: true})
             }else {
+                document.cookie="uid="+res.data.uid+";path=/";
                 window.location.href = url + "3000"
             }
         })
+    }
+    clearInput(){
+        document.getElementById("userName").value =""
+        document.getElementById("pw").value = ""
     }
 
     render() {
@@ -133,7 +138,7 @@ class Login extends React.Component {
                                 {
                                     this.state.showElem ? (
                                         <Alert severity="error">
-                                            Password Error !
+                                            Password Error
                                         </Alert>
                                     ) : null
                                 }
@@ -142,7 +147,7 @@ class Login extends React.Component {
                                 <Stack spacing={2} direction="row">
                                     <Button fullWidth variant="contained" onClick={this.postLogin}>Login</Button>
                                     <Button fullWidth variant="outlined"
-                                            onMouseDown={this.props.postLogin}>Clear</Button>
+                                            onClick={this.clearInput}>Clear</Button>
                                 </Stack>
                             </Grid>
 

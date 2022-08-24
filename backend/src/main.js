@@ -53,14 +53,14 @@ app.post('/login', jsonParser, (req, res) => {
             //statusCode 1: success, 0: error
             if (res1.password === req.body.pw) {
                 res.status(200).json({
-                    userNum: res1.userNum,
+                    uid: res1.userNum,
                     statusCode: 1
                     // redirect: '/'
                 })
                 console.log(res1)
             } else {
                 res.status(200).json({
-                    userNum: res1.userNum,
+                    uid: res1.userNum,
                     statusCode: 0
                 })
                 console.log("error")
