@@ -51,7 +51,8 @@ class Register extends React.Component {
         super(props);
         this.state = {
             showElem:false,
-            showSub:false
+            showSub:false,
+            showEmail:false
         };
         this.checkPw= this.checkPw.bind(this);
         this.checkSb= this.checkSb.bind(this);
@@ -100,9 +101,13 @@ class Register extends React.Component {
             axios.post(url + "5000/register", params).then((res) => {
                 if(res.data.error==="already exists"){
                     console.log(res.data.error)
+                    this.setState({showEmail: true})
+                }else{
+                    this.setState({showEmail: false})
+                    window.open(url+"3000/Login")
                 }
 
-                window.open(url+"3000/Login")
+
             })
         }
 
@@ -172,6 +177,15 @@ class Register extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField  required={true}  fullWidth id="email" label="Please input your email" variant="standard"/>
+                            </Grid>
+                            <Grid item xs={12}>
+                                {
+                                    this.state.showEmail?(
+                                        <Alert severity="error" >
+                                            This email has already been registered!
+                                        </Alert>
+                                    ):null
+                                }
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField required={true}  fullWidth id="phone-number" label="Please input your phone number" variant="standard"/>

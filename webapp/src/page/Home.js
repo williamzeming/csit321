@@ -280,13 +280,14 @@ class Home extends React.Component {
             {/*footer*/}
             <footer>
                 <Grid style={{background: "pink"}}>
-                    <Grid textAlign={"center"}>
+                    <Grid textAlign={"center"} style={{color:"#2094E6"}}>
                         About us
                     </Grid>
                     <br/>
-                    <Grid textAlign={"center"}>
+                    <Grid textAlign={"center"} style={{fontSize:20}}>
                         Explore world with us
                     </Grid>
+                    <br/>
                     <Grid textAlign={"center"}>
                         If you would like more information about our website, you can contact us by
                         <br/>
@@ -294,15 +295,13 @@ class Home extends React.Component {
                     </Grid>
                     <br/>
                     <Grid textAlign={"center"}>
-                        <button>
+                        <Button  variant="contained" href={"/Login"}>
                             About us
-                        </button>
-
+                        </Button>
                     </Grid>
+                    <br/>
+                    <br/>
                 </Grid>
-
-                <br/>
-                <br/>
                 <Grid className={"backgroundBlack"}>
                     <Grid className={"backgroundBlack_firstColumn"}>
                         <img src={logo1} width={30} height={30} style={{paddingRight: 10, paddingLeft: 10}}/>

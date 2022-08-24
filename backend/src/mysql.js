@@ -51,7 +51,8 @@ exports.registerInsert = function (lastName, firstName, firstPd, birth, email, p
                         console.log('[INSERT ERROR] - ', err.message);
                         return;
                     }else{
-                        console.log('insert success')
+                        console.log('insert success');
+                        resolve("insert success");
                     }
                 });
                 createConnect.end();
