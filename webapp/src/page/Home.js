@@ -124,12 +124,13 @@ class Home extends React.Component {
         return (<div>
                 <Grid className={"topColumn"}>
                     <Grid className={"topFirstColumn"}>
-                        <Grid className={"topFirstColumnRow"}>
+                        <Grid className={"topFirstColumnRow"} >
+                            <span>
+                                 <img src={logo1} height={60} width={60} style={{paddingLeft: 10}} className={"center"}/>
+                            </span>
 
-                                <img src={logo1} height={60} width={60} style={{paddingLeft: 10}} className={"center"}/>
-                                <span className={"serif"} style={{paddingLeft:15,color:"white",fontSize:60}}>We Climb</span>
+                            <span className={"serif"} style={{position: "absolute",marginTop:5,paddingLeft:15,color:"white",fontSize:60}}>We Climb</span>
                             <Stack spacing={1}>
-
                             <Grid style={{paddingTop:30}}>
                                 <span style={{fontSize:40,paddingLeft:50,color:"white", paddingTop: 80}}>Explore new places</span>
 
@@ -145,6 +146,7 @@ class Home extends React.Component {
 
                     </Grid>
                     <Grid className={"topSecondColumnColumn"}>
+
                     </Grid>
                     <Grid className={"topThirdColumnColumn"}>
                         <Stack direction="row"spacing={2} >

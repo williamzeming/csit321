@@ -120,6 +120,7 @@ a{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+
 }
 .topSecondColumn{
     align-content:center;
@@ -127,6 +128,7 @@ a{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+
 }
 .topThirdColumn{
     align-content:center;
@@ -135,10 +137,16 @@ a{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+
 }
 topFirstColumnRow{
     color: white;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    align-content:center;
+
+}
+html{
+    min-width: 800px;
 }
