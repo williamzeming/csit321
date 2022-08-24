@@ -19,7 +19,7 @@ exports.loginSelectByEmail = function (email1) {
             } else {
                 let createConnect = connectSQL();
                 createConnect.connect();
-                var sql = 'SELECT password,userNum FROM userInfo where email = ?';
+                var sql = 'SELECT password,userNum,firstName FROM userInfo where email = ?';
                 createConnect.query(sql, [email1], function (err, result) {
                     if (err) {
                         console.log('[SELECT ERROR] - ', err.message);
