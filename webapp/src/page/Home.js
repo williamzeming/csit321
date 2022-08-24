@@ -71,25 +71,29 @@ const itemData = [
 class Home extends React.Component {
     state = {
         person: null,
-        loginState: false
+        loginState: false,
+        userName:this.getCookie('fname')
     }
     // button1 = "LOGIN1";
     // button2 = "REGISTER1"
     //加载自动运行
     componentDidMount = () => {
         this.checkLogin();
-
+        this.initHomePost();
         // this.getExample()
 
     }
 
-    getExample() {
-        axios.get("http://localhost:5000/test").then((res) => {
+    initHomePost = () => {
+        const params = {
+            uid: this.getCookie("uid")
+        }
+        axios.post(url + "5000/initHomePost", params).then((res) => {
             console.log(res)
-            this.setState({person: res.data})
+            var mountains = res.data.mountains
+            console.log(mountains)
         })
     }
-
 
     checkLogin(){
         console.log("checkLogin")
@@ -97,7 +101,6 @@ class Home extends React.Component {
         if (userID !== ""){
             console.log("uid")
             this.setState({loginState: true})
-
         }else {
             this.setState({loginState: false})
         }
@@ -118,9 +121,8 @@ class Home extends React.Component {
         document.location.reload();
     }
     render() {
+        let userName;
         return( <div >
-            {/*   <Box sx={{flexGrow: 1}} >
-        return <div> */}
             <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
                 <Grid>
                     <br/>
@@ -142,7 +144,8 @@ class Home extends React.Component {
                                     this.state.loginState ? (
                                         <Stack spacing={2} direction="row" justifyContent={"left"}>
                                             <Button fullWidth variant="contained" href={"/Login"}>
-                                                <div id={"uname"}>userName</div>
+                                                <div id={"userName"}>{this.state.userName}</div>
+
                                             </Button>
                                             <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
                                             <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log out</Button>

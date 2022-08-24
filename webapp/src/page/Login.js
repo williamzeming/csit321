@@ -94,6 +94,7 @@ class Login extends React.Component {
                 this.setState({showElem: true})
             }else {
                 document.cookie="uid="+res.data.uid+";path=/";
+                document.cookie="fname="+res.data.fname+";path=/";
                 window.location.href = url + "3000"
             }
         })

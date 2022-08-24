@@ -84,10 +84,14 @@ app.post('/register', jsonParser, (req, res) => {
     // });
 })
 
-app.post('/initHomepage', jsonParser, (req, res) => {
+app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
     res.status(200).json({
-        mountains: "mount keira"
+        mountains: {
+            mountain1: "mount keira1",
+            mountain2: "mount keira2",
+            mountain3: "mount keira3"
+        }
     })
 })
 //最后
