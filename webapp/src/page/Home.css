@@ -5,8 +5,15 @@
 }
 
 .backgroundIMG{
-    background-image:url('./backIMG.jpg');
-    background-size: 100%;
+    height: 400px;
+    background-image:url('./back2.jpg');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+}
+.botton{
+    height: 400px;
+    background-image:url('./bback2.jpg');
+    background-size: 100% 100%;
     background-repeat:no-repeat;
 }
 .text1{

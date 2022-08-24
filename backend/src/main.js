@@ -79,18 +79,15 @@ app.post('/register', jsonParser, (req, res) => {
             error: res1
         })
     });
-    // res.status(200).json({
-    //     state: "susses"
-    // });
 })
 
 app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
     res.status(200).json({
         mountains: {
-            mountain1: {mountain: "Mount Kosciuszko", city: "Canberra",state:"NSW"},
-            mountain2: {mountain: "Cradle Mountain", city: "Tasmania",state:"TAS"},
-            mountain3: {mountain: "Bluff Knoll", city: "Sterling ridge",state:"WA"}
+            mountain1: {mountain: "Mount Kosciuszko", city: "Canberra", state: "NSW"},
+            mountain2: {mountain: "Cradle Mountain", city: "Tasmania", state: "TAS"},
+            mountain3: {mountain: "Bluff Knoll", city: "Sterling ridge", state: "WA"}
         }
     })
 })

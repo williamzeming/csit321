@@ -176,7 +176,7 @@ class Home extends React.Component {
 
                     </Grid>
                 </Box>
-                <hr/>
+                {/*<hr/>*/}
                 {/*main content*/}
                 <Grid container>
                     <Grid item xs={2}/>
@@ -296,7 +296,7 @@ class Home extends React.Component {
                 <hr/>
                 {/*footer*/}
                 <footer>
-                    <Grid style={{background: "black"}}>
+                    <Grid class={"botton"} >
                         <br/>
                         <Grid textAlign={"center"} style={{color: "#2094E6"}}>
                             About us

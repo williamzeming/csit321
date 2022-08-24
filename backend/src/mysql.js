@@ -89,3 +89,12 @@ checkEmail = function (email) {
     });
     return promise;
 }
+// promise template
+// var promise = new Promise(function (resolve, reject) {
+//
+// });
+// promise.then(function (value) {
+//     return value;
+// }, function (value) {
+// });
+// return promise;
