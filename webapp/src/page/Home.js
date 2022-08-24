@@ -128,7 +128,6 @@ class Home extends React.Component {
                             <span>
                                  <img src={logo1} height={60} width={60} style={{paddingLeft: 10}} className={"center"}/>
                             </span>
-
                             <span className={"serif"} style={{position: "absolute",marginTop:5,paddingLeft:15,color:"white",fontSize:60}}>We Climb</span>
                             <Stack spacing={1}>
                             <Grid style={{paddingTop:30}}>
