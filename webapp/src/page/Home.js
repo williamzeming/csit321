@@ -294,7 +294,7 @@ class Home extends React.Component {
                 <hr/>
             {/*footer*/}
             <footer>
-                <Grid style={{background: "pink"}}>
+                <Grid style={{background: "black"}}>
                     <br/>
                     <Grid textAlign={"center"} style={{color:"#2094E6"}}>
                         About us
@@ -318,38 +318,85 @@ class Home extends React.Component {
                     <br/>
                     <br/>
                 </Grid>
+
                 <Grid className={"backgroundBlack"}>
                     <Grid className={"backgroundBlack_firstColumn"}>
                         <img src={logo1} width={30} height={30} style={{paddingRight: 10, paddingLeft: 10}}/>
                         We Climb
                     </Grid>
                     <Grid className={"backgroundBlack_secondColumn"}>
-                        Learn More
-                        <br/>
-                        <br/>
-                        <br/>
-                        About Lift
-                        <br/>
-                        <br/>
-                        Press Releases
-                        <br/>
-                        <br/>
-                        Environment
-                        <br/>
-                        <br/>
-                        Jobs
-                        <br/>
-                        <br/>
-                        Privacy Policy
-                        <br/>
-                        <br/>
-                        Contact Us
+                        {/*<a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">*/}
+                        {/*Learn More*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+
+                        {/*About Lift*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*Press Releases*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*Environment*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*Jobs*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*Privacy Policy*/}
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*Contact Us*/}
+                        {/*</a>*/}
+                        <table border="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <a style={{fontSize:"20px",color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Learn More</a>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <br/>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">About Lift</a>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Press Releases</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Environment</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Jobs</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Privacy Policy</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Contact Us</a>
+                                </td>
+                            </tr>
+                        </table>
                     </Grid>
                     <Grid className={"backgroundBlack_thirdColumn"}>
+                        <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
                         Contact Us
                         <br/>
                         <br/>
                         Call us: 123-456-7890
+                        </a>
                     </Grid>
                     <Grid className={"backgroundBlack_fourthColumn"}>
                         Social
