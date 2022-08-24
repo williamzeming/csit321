@@ -122,7 +122,7 @@ a{
     color: white;
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-grow: 2;
 
 }
 .topSecondColumn{
@@ -130,7 +130,8 @@ a{
     color: white;
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-grow: 2;
+    padding-top: 250px;
 
 
 }
@@ -140,7 +141,7 @@ a{
     color: white;
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-grow: 2;
 
 }
 topFirstColumnRow{
