@@ -11,12 +11,14 @@
     background-image:url('./back3.jpg');
     background-size: 100% 100%;
     background-repeat:no-repeat;
+
 }
 .botton{
     height: 400px;
     background-image:url('./bback2.jpg');
     background-size: 100% 100%;
     background-repeat:no-repeat;
+
 }
 .text1{
     font-family: "Arial";
@@ -130,6 +132,7 @@ a{
     flex-direction: row;
     flex-grow: 1;
 
+
 }
 .topThirdColumn{
     align-content:center;
@@ -150,4 +153,10 @@ topFirstColumnRow{
 }
 html{
     min-width: 800px;
+}
+.headFont{
+    font-size: 2rem;
+    padding-left: 50px;
+    color: white;
+    padding-top: 80px;
 }

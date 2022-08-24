@@ -12,6 +12,7 @@ import "./Home.css"
 import ButtonBase from '@mui/material/ButtonBase';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import climb from './climbPg.jpg';
 import img1 from './imgM/Ironstone Mountain.jpg';
@@ -20,7 +21,8 @@ import img3 from './imgM/MountKosciuszko.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.png'
 
-import {ImageList, ImageListItem, ImageListItemBar} from "@mui/material";
+import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -122,36 +124,56 @@ class Home extends React.Component {
 
     render() {
         return (<div>
-                <Grid className={"topColumn"}>
-                    <Grid className={"topFirstColumn"}>
-                        <Grid className={"topFirstColumnRow"} >
+                <Grid className={"topColumn"} container>
+                    <Grid className={"topFirstColumn"} item xs={3} md={4}>
+                        <Grid className={"topFirstColumnRow"}>
                             <span>
-                                 <img src={logo1} height={60} width={60} style={{paddingLeft: 10}} className={"center"}/>
+                                 <img src={logo1} height={60} width={60} style={{paddingLeft: 10}}
+                                      className={"center"}/>
                             </span>
-                            <span className={"serif"} style={{position: "absolute",marginTop:5,paddingLeft:15,color:"white",fontSize:60}}>We Climb</span>
-                            <Stack spacing={1}>
-                            <Grid style={{paddingTop:30}}>
-                                <span style={{fontSize:40,paddingLeft:50,color:"white", paddingTop: 80}}>Explore new places</span>
-
-                            </Grid>
-                            <Grid >
-                                <span style={{fontSize:40,paddingLeft:50,color:"white", paddingTop: 80}}>with We Climb</span>
-                            </Grid>
-                            <Grid style={{paddingLeft:50,paddingTop:30}}>
-                                <Button  variant="contained" href={"/Login"}>GET STARTED</Button>
-                            </Grid>
-                        </Stack>
+                            <span className={"serif"} style={{
+                                position: "absolute",
+                                marginTop: 5,
+                                paddingLeft: 15,
+                                color: "white",
+                                fontSize: 60
+                            }}>We Climb</span>
+                            <Stack spacing={1} >
+                                <Grid style={{paddingTop: 30}} >
+                                    <span className={"headFont"} >Explore new places</span>
+                                </Grid>
+                                <Grid>
+                                    <span style={{fontSize: 30, paddingLeft: 50, color: "white", paddingTop: 80}}>with We Climb</span>
+                                </Grid>
+                                <Grid style={{paddingLeft: 50, paddingTop: 30}}>
+                                    <Button variant="contained" href={"/Login"}>GET STARTED</Button>
+                                </Grid>
+                            </Stack>
                         </Grid>
 
                     </Grid>
-                    <Grid className={"topSecondColumnColumn"}>
+                    <Grid item xs={2} md={4} style={{paddingTop: 200, position: "relative"}}>
+                        <Grid style={{paddingLeft: 70, position: "absolute", alignContent: "center"}}>
+                            <Paper
+                                component="form"
+                                sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, height: 50}}
+                            >
+                                <InputBase
+                                    sx={{ml: 1, flex: 1}}
+                                    placeholder="Search"
+                                />
+                                <IconButton type="button" sx={{p: '10px'}} aria-label="search">
+                                    <SearchIcon/>
+                                </IconButton>
+                            </Paper>
+                        </Grid>
 
                     </Grid>
-                    <Grid className={"topThirdColumnColumn"}>
-                        <Stack direction="row"spacing={2} >
-                            <Stack spacing={2} direction="row" style={{paddingTop:7}}>
-                                <Link style={{paddingRight:20}}to="/" underline="hover">Home</Link>
-                                <Link style={{paddingRight:20}}to="/" underline="hover">Community</Link>
+                    <Grid item xs={3} md={4}>
+                        <Stack direction="row" spacing={2}>
+                            <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
+                                <Link style={{paddingRight: 20}} to="/" underline="hover">Home</Link>
+                                <Link style={{paddingRight: 20}} to="/" underline="hover">Community</Link>
                             </Stack>
                             {
                                 this.state.loginState ? (
@@ -250,12 +272,12 @@ class Home extends React.Component {
                         {/*part1 sign up*/}
                         <Grid container my={2} spacing={5}>
                             <Grid item xs={1}/>
-                            <Grid item xs={6} style={{display:"flex"}}>
+                            <Grid item xs={6} style={{display: "flex"}}>
                                 <ButtonBase sx={{width: 400, height: 300}}>
                                     <Img alt="climb" src={climb}/>
                                 </ButtonBase>
                             </Grid>
-                            <Grid item xs={4} >
+                            <Grid item xs={4}>
                                 <p className={"text1"}>Build your own trip?</p>
                                 <Button variant="contained">Sign Up</Button>
                             </Grid>
@@ -265,8 +287,8 @@ class Home extends React.Component {
                         {/*part2 instruction*/}
                         <Grid container my={2}>
                             <Grid item xs={2}/>
-                            <Grid container xs={9} spacing={4}>
-                                <Grid item xs={3}>
+                            <Grid container xs={12} md={9} spacing={4}>
+                                <Grid item xs={4}>
                                     <Card>
                                         <CardContent>
                                             <Typography variant="h5" component="div">
@@ -279,7 +301,7 @@ class Home extends React.Component {
                                         </CardContent>
                                     </Card>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={4} md={4}>
                                     <Card>
                                         <CardContent>
                                             <Typography variant="h5" component="div">
@@ -291,7 +313,7 @@ class Home extends React.Component {
                                         </CardContent>
                                     </Card>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={4}>
                                     <Card>
                                         <CardContent>
                                             <Typography variant="h5" component="div">
@@ -359,30 +381,31 @@ class Home extends React.Component {
                 </Grid>
                 <hr/>
                 {/*footer*/}
-                <footer>
-                    <Grid class={"botton"} >
-                        <br/>
-                        <Grid textAlign={"center"} style={{color: "#2094E6"}}>
-                            About us
-                        </Grid>
-                        <br/>
-                        <Grid textAlign={"center"} style={{fontSize: 20, color: "white"}}>
-                            Explore world with us
-                        </Grid>
-                        <br/>
-                        <Grid textAlign={"center"} style={{color: "white"}}>
-                            If you would like more information about our website, you can contact us by
+                <Grid>
+                    <Grid class={"botton"}>
+                        <Grid style={{paddingTop:50}}>
                             <br/>
-                            phone or follow us on our social media.
+
+                            <br/>
+                            <Grid textAlign={"center"} style={{fontSize: 20, color: "white"}}>
+                                Explore world with us
+                            </Grid>
+                            <br/>
+                            <Grid textAlign={"center"} style={{color: "white"}}>
+                                If you would like more information about our website, you can contact us by
+                                <br/>
+                                phone or follow us on our social media.
+                            </Grid>
+                            <br/>
+                            <Grid textAlign={"center"}>
+                                <Button variant="contained" href={"/Login"}>
+                                    About us
+                                </Button>
+                            </Grid>
+                            <br/>
                         </Grid>
-                        <br/>
-                        <Grid textAlign={"center"}>
-                            <Button variant="contained" href={"/Login"}>
-                                About us
-                            </Button>
-                        </Grid>
-                        <br/>
-                        <br/>
+
+
                     </Grid>
 
                     <Grid className={"backgroundBlack"}>
@@ -426,7 +449,7 @@ class Home extends React.Component {
                         @ 2022 We Climb | All Rights Reserved
                     </Grid>
 
-                </footer>
+                </Grid>
             </div>
         );
     };

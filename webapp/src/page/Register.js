@@ -17,12 +17,12 @@ import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import './Login.css'
-import {AlertTitle,Alert, FormControl, InputLabel, MenuItem, NativeSelect} from "@mui/material";
+import {AlertTitle, Alert, FormControl, InputLabel, MenuItem, NativeSelect} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import * as PropTypes from "prop-types";
 import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, {SelectChangeEvent} from '@mui/material/Select';
 import {Option} from "antd/es/mentions";
 import {Redirect} from "react-router-dom";
 
@@ -34,7 +34,8 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function TransitionAlerts() {
-    const [open, setOpen] = React.useState(true);}
+    const [open, setOpen] = React.useState(true);
+}
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -45,30 +46,29 @@ const Item = styled(Paper)(({theme}) => ({
 }));
 
 
-
 class Register extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            showElem:false,
-            showSub:false,
-            showEmail:false
+            showElem: false,
+            showSub: false,
+            showEmail: false
         };
-        this.checkPw= this.checkPw.bind(this);
-        this.checkSb= this.checkSb.bind(this);
+        this.checkPw = this.checkPw.bind(this);
+        this.checkSb = this.checkSb.bind(this);
     }
 
     checkPw() {
         var pw1 = document.getElementById("first-pd").value;
         var pw2 = document.getElementById("second-pd").value;
-        if(pw1==pw2){
+        if (pw1 == pw2) {
             this.setState({showElem: false})
-        }else{
+        } else {
             this.setState({showElem: true})
         }
     }
 
-    checkSb(){
+    checkSb() {
         var lastName = document.getElementById("last-name").value;
         var firstName = document.getElementById("first-name").value;
         var firstPd = document.getElementById("first-pd").value;
@@ -80,14 +80,14 @@ class Register extends React.Component {
         var index = gender.selectedIndex;
         var value = gender.options[index].value;
         var text = gender.options[index].text;
-        var temp ="default";
+        var temp = "default";
         // console.log(text,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
 
-        if(lastName==""||firstName==""||firstPd==""||secondPd==""||birth==""||email==""||phoneNumber==""||value==temp){
+        if (lastName == "" || firstName == "" || firstPd == "" || secondPd == "" || birth == "" || email == "" || phoneNumber == "" || value == temp) {
             this.setState({showSub: true})
 
             // window.open(url+"3000/Login")
-        }else{
+        } else {
             this.setState({showSub: false})
             const params = {
                 lastName: lastName,
@@ -99,10 +99,10 @@ class Register extends React.Component {
                 gender: text
             }
             axios.post(url + "5000/register", params).then((res) => {
-                if(res.data.error==="already exists"){
+                if (res.data.error === "already exists") {
                     console.log(res.data.error)
                     this.setState({showEmail: true})
-                }else{
+                } else {
                     this.setState({showEmail: false})
                     window.location.href = url + "3000/Login"
                 }
@@ -120,21 +120,23 @@ class Register extends React.Component {
                 <div className="bg bg2"></div>
                 <div className="bg bg3"></div>
                 <div className="content">
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" >
                         <Grid container rowSpacing={3} columnSpacing={{xs: 1, sm: 2, md: 3}}>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} md={12}>
                                 <ThemeProvider theme={theme}>
                                     <Typography align="center" variant="h2" theme={theme}>Register</Typography>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
-                                <ThemeProvider theme={theme} >
-                                    <TextField  required={true}  fullWidth id="last-name" label="Please input your last name" variant="standard"/>
+                                <ThemeProvider theme={theme}>
+                                    <TextField required={true} fullWidth id="last-name"
+                                               label="Please input your last name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
                                 <ThemeProvider theme={theme}>
-                                    <TextField  required={true}  fullWidth id="first-name" label="Please input your first name" variant="standard"/>
+                                    <TextField required={true} fullWidth id="first-name"
+                                               label="Please input your first name" variant="standard"/>
                                 </ThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
@@ -162,37 +164,41 @@ class Register extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 {
-                                    this.state.showElem?(
-                                        <Alert severity="error" >
+                                    this.state.showElem ? (
+                                        <Alert severity="error">
                                             Password does not match!
                                         </Alert>
 
-                                    ):null
+                                    ) : null
                                 }
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField  InputLabelProps={{
+                                <TextField InputLabelProps={{
                                     shrink: true,
-                                }}required={true}  fullWidth id="birth" label="Please input your date of birth" variant="standard" type="date"/>
+                                }} required={true} fullWidth id="birth" label="Please input your date of birth"
+                                           variant="standard" type="date"/>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField  required={true}  fullWidth id="email" label="Please input your email" variant="standard"/>
+                                <TextField required={true} fullWidth id="email" label="Please input your email"
+                                           variant="standard"/>
                             </Grid>
-                            <Grid item xs={12}>
-                                {
-                                    this.state.showEmail?(
-                                        <Alert severity="error" >
+
+                            {
+                                this.state.showEmail ? (<Grid item xs={12}>
+                                        <Alert severity="error">
                                             This email has already been registered!
-                                        </Alert>
-                                    ):null
-                                }
-                            </Grid>
+                                        </Alert></Grid>
+                                ) : null
+                            }
+
                             <Grid item xs={12}>
-                                <TextField required={true}  fullWidth id="phone-number" label="Please input your phone number" variant="standard"/>
+                                <TextField required={true} fullWidth id="phone-number"
+                                           label="Please input your phone number" variant="standard"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth>
-                                    <InputLabel  required={true} variant="standard" htmlFor="uncontrolled-native" theme={theme}>
+                                    <InputLabel required={true} variant="standard" htmlFor="uncontrolled-native"
+                                                theme={theme}>
                                         Gender
                                     </InputLabel>
                                     <NativeSelect id="gender" defaultValue={"default"}>
@@ -204,15 +210,16 @@ class Register extends React.Component {
                                 </FormControl>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button fullWidth variant="contained" size={"large"} onClick={this.checkSb}>Submit</Button>
+                                <Button fullWidth variant="contained" size={"large"}
+                                        onClick={this.checkSb}>Submit</Button>
                             </Grid>
                             <Grid item xs={12}>
                                 {
-                                    this.state.showSub?(
-                                        <Alert severity="error" >
+                                    this.state.showSub ? (
+                                        <Alert severity="error">
                                             Please input your whole information!
                                         </Alert>
-                                    ):null
+                                    ) : null
                                 }
                             </Grid>
                         </Grid>
@@ -225,5 +232,6 @@ class Register extends React.Component {
 
 
 }
+
 //
 export default Register;
