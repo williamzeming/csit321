@@ -94,7 +94,7 @@ class Home extends React.Component {
     checkLogin(){
         console.log("checkLogin")
         var userID = this.getCookie("uid");
-        if (userID !== "0" || userID !== ""){
+        if (userID !== ""){
             console.log("uid")
             this.setState({loginState: true})
         }else {
@@ -113,6 +113,7 @@ class Home extends React.Component {
     logout(){
         console.log("logout")
         document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        this.setState({loginState: false})
         document.location.reload();
     }
     render() {
