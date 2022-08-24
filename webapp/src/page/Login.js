@@ -89,10 +89,9 @@ class Login extends React.Component {
         console.log(params)
         axios.post(url + "5000/login", params).then((res) => {
             console.log(res)
-            if (res.data.error === "password error") {
-                console.log("error")
+            if (res.data.statusCode === 0) {
+                console.log("password error")
                 this.setState({showElem: false})
-
             }
         })
     }
