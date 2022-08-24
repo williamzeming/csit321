@@ -92,8 +92,10 @@ class Home extends React.Component {
 
 
     checkLogin(){
+        console.log("checkLogin")
         var userID = this.getCookie("uid");
-        if (userID !== ""){
+        if (userID !== "0" || userID !== ""){
+            console.log("uid")
             this.setState({loginState: true})
         }else {
             this.setState({loginState: false})
@@ -109,7 +111,9 @@ class Home extends React.Component {
         return "";
     }
     logout(){
-
+        console.log("logout")
+        document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.location.reload();
     }
     render() {
         return( <div >
@@ -137,13 +141,13 @@ class Home extends React.Component {
                                                 userName
                                             </Button>
                                             <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                            <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log out</Button>
                                         </Stack>) : (
                                         <Stack spacing={2} direction="row" justifyContent={"left"}>
                                             <Button fullWidth variant="contained" href={"/Login"}>
                                                 Login
                                             </Button>
                                             <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
-                                            <Button fullWidth variant="outlined" onClick={} href={"/"}>Log out</Button>
                                         </Stack>
 
                                     )
