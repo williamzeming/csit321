@@ -129,8 +129,12 @@ class Home extends React.Component {
                     <Stack spacing={2} alignItems={"center"}>
                         <Grid container spacing={4}>
                             <Grid item xs>
-                                <img src={logo1} width={80} style={{paddingLeft: 10}} className={"center"}/>
+                                <Grid style={{fontSize:60,paddingLeft: 10,display:"flex"}}>
+                                    <img src={logo1} width={60} style={{paddingLeft: 10}} className={"center"}/>
+                                    <span className={"serif"} style={{paddingLeft:5,color:"white"}}>We Climb</span>
+                                </Grid>
                             </Grid>
+
                             <Grid item xs={6}>
                                 <Stack spacing={2} direction="row" justifyContent={"right"} className={"center"}>
                                     <Link to="/" underline="hover">Home</Link>
@@ -163,6 +167,12 @@ class Home extends React.Component {
                             </Grid>
                         </Grid>
                     </Stack>
+                    <Grid className={"serif"} style={{fontSize:40,paddingLeft:50,color:"white", paddingTop: 80}}>
+                        <span>Explore new places</span>
+                        <br/>
+                        <span>with We Climb</span>
+                    </Grid>
+
                     <Grid>
                         <br/>
                         <br/>

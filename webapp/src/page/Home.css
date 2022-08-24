@@ -3,9 +3,11 @@
     padding: 5px 0;
     text-align: center;
 }
-
+.serif {
+    font-family: Times, "Times New Roman", Georgia, serif;
+}
 .backgroundIMG{
-    height: 400px;
+    height: 300px;
     background-image:url('./back3.jpg');
     background-size: 100% 100%;
     background-repeat:no-repeat;
