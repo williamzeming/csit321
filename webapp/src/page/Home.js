@@ -1,6 +1,5 @@
 import React from 'react';
 import {default as axios} from "axios";
-import {BrowserRouter, Route} from 'react-router-dom'
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -15,11 +14,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import climb from './climbPg.jpg';
-import img1 from './bouddi.jpg';
+import img1 from './imgM/Black Mountain.jpg';
+import img3 from './imgM/Black Mountain.jpg';
 import img2 from './cradleM.jpg';
-import img3 from './mountKeira.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.jpg'
+// import imgM from 'imgM'
 import {ImageList, ImageListItem, ImageListItemBar} from "@mui/material";
 
 const Item = styled(Paper)(({theme}) => ({
@@ -50,7 +50,7 @@ const bull = (
     </Box>
 );
 //images list
-const itemData = [
+var itemData = [
     {
         img: img1,
         title: 'Bouddi, Australia',
@@ -74,8 +74,7 @@ class Home extends React.Component {
         loginState: false,
         userName: this.getCookie('fname')
     }
-    // button1 = "LOGIN1";
-    // button2 = "REGISTER1"
+
     //加载自动运行
     componentDidMount = () => {
         this.checkLogin();
@@ -89,9 +88,10 @@ class Home extends React.Component {
             uid: this.getCookie("uid")
         }
         axios.post(url + "5000/initHomePost", params).then((res) => {
-            console.log(res)
             var mountains = res.data.mountains
-            console.log(mountains)
+            //itemData[0].img = "./imgM/"+mountains.mountain1.mountain+".jpg"
+            // itemData[1].img =require("./imgM/MountKosciuszko.jpg")
+            // console.log(itemData)
         })
     }
 
@@ -163,8 +163,6 @@ class Home extends React.Component {
 
                                         )
                                     }
-
-
                                 </Stack>
                             </Grid>
                         </Grid>
