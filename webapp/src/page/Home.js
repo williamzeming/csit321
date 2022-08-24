@@ -14,12 +14,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import climb from './climbPg.jpg';
-import img1 from './imgM/Black Mountain.jpg';
-import img3 from './imgM/Black Mountain.jpg';
-import img2 from './cradleM.jpg';
+import img1 from './imgM/Ironstone Mountain.jpg';
+import img2 from './imgM/Mother Cummings Peak.jpg';
+import img3 from './imgM/MountKosciuszko.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.jpg'
-// import imgM from 'imgM'
+
 import {ImageList, ImageListItem, ImageListItemBar} from "@mui/material";
 
 const Item = styled(Paper)(({theme}) => ({
@@ -79,7 +79,7 @@ class Home extends React.Component {
     componentDidMount = () => {
         this.checkLogin();
         this.initHomePost();
-        // this.getExample()
+
 
     }
 
@@ -89,17 +89,15 @@ class Home extends React.Component {
         }
         axios.post(url + "5000/initHomePost", params).then((res) => {
             var mountains = res.data.mountains
-            //itemData[0].img = "./imgM/"+mountains.mountain1.mountain+".jpg"
+            //itemData[1].img = "./imgM/"+mountains.mountain1.mountain+".jpg"
             // itemData[1].img =require("./imgM/MountKosciuszko.jpg")
             // console.log(itemData)
         })
     }
 
     checkLogin() {
-        console.log("checkLogin")
         var userID = this.getCookie("uid");
         if (userID !== "") {
-            console.log("uid")
             this.setState({loginState: true})
         } else {
             this.setState({loginState: false})
@@ -117,14 +115,12 @@ class Home extends React.Component {
     }
 
     logout() {
-        console.log("logout")
         document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         this.setState({loginState: false})
         document.location.reload();
     }
 
     render() {
-        let userName;
         return (<div>
                 <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
                     <Grid>
@@ -150,8 +146,8 @@ class Home extends React.Component {
                                                     <div>{this.state.userName}</div>
                                                 </Button>
                                                 <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
-                                                <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log
-                                                    out</Button>
+                                                <Button fullWidth variant="outlined" onClick={this.logout}
+                                                        href={"/"}>Logout</Button>
                                             </Stack>) : (
                                             <Stack spacing={2} direction="row" justifyContent={"left"}>
                                                 <Button fullWidth variant="contained" href={"/Login"}>
@@ -249,7 +245,7 @@ class Home extends React.Component {
                         <hr/>
                         {/*part3 mountain images*/}
                         <Grid item my={3}>
-                            <p className={"smText"} align={"center"}>About us</p>
+                            <p className={"Text"} align={"center"}>About us</p>
                             <p className={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
                             <Grid container spacing={3}>
                                 <Grid item xs={1}/>
@@ -257,11 +253,12 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                <img src={`${item.img}?w=248&fit=crop&auto=format`}
-                                                     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                                     alt={item.title}
-                                                     loading="lazy"
-                                                />
+                                                {/*<img src={`${item.img}?w=248&fit=crop&auto=format`}*/}
+                                                {/*     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}*/}
+                                                {/*     alt={item.title}*/}
+                                                {/*     loading="lazy"*/}
+                                                {/*/>*/}
+                                                < img src={item.img} alt={item.title} loading="lazy"/>
                                                 <ImageListItemBar align={"center"}
                                                                   title={item.title}
                                                                   subtitle={item.name}
@@ -278,7 +275,7 @@ class Home extends React.Component {
                         <Grid container my={2} spacing={5}>
                             <Grid item xs={1}/>
                             <Grid item xs={4}>
-                                <p className={"smText"}>What they say</p>
+                                <p className={"Text"}>What they say</p>
                                 <p className={"text1"}>Customer Reviews</p>
                                 <p className={"text2"}>We encourage each customer to leave review about their climbing
                                     journey and what they would like to suggest to other climbers.</p>
@@ -297,102 +294,76 @@ class Home extends React.Component {
                     <Grid item xs={2}/>
                 </Grid>
                 <hr/>
-            {/*footer*/}
-            <footer>
-                <Grid style={{background: "black"}}>
-                    <br/>
-                    <Grid textAlign={"center"} style={{color:"#2094E6"}}>
-                        About us
-                    </Grid>
-                    <br/>
-                    <Grid textAlign={"center"} style={{fontSize:20,color:"white"}}>
-                        Explore world with us
-                    </Grid>
-                    <br/>
-                    <Grid textAlign={"center"} style={{color:"white"}}>
-                        If you would like more information about our website, you can contact us by
+                {/*footer*/}
+                <footer>
+                    <Grid style={{background: "black"}}>
                         <br/>
-                        phone or follow us on our social media.
-                    </Grid>
-                    <br/>
-                    <Grid textAlign={"center"}>
-                        <Button  variant="contained" href={"/Login"}>
+                        <Grid textAlign={"center"} style={{color: "#2094E6"}}>
                             About us
-                        </Button>
-                    </Grid>
-                    <br/>
-                    <br/>
-                </Grid>
-
-                <Grid className={"backgroundBlack"}>
-                    <Grid className={"backgroundBlack_firstColumn"}>
-                        <img src={logo1} width={30} height={30} style={{paddingRight: 10, paddingLeft: 10}}/>
-                        We Climb
-                    </Grid>
-                    <Grid className={"backgroundBlack_secondColumn"}>
-                        <table border="0" cellspacing="10">
-                            <tr>
-                                <td>
-                                    <a style={{fontSize:"20px",color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Learn More</a>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <br/>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">About Lift</a>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Press Releases</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Environment</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Jobs</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Privacy Policy</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Contact Us</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </Grid>
-                    <Grid className={"backgroundBlack_thirdColumn"}>
-                        <a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
-                        Contact Us
+                        </Grid>
+                        <br/>
+                        <Grid textAlign={"center"} style={{fontSize: 20, color: "white"}}>
+                            Explore world with us
+                        </Grid>
+                        <br/>
+                        <Grid textAlign={"center"} style={{color: "white"}}>
+                            If you would like more information about our website, you can contact us by
+                            <br/>
+                            phone or follow us on our social media.
+                        </Grid>
+                        <br/>
+                        <Grid textAlign={"center"}>
+                            <Button variant="contained" href={"/Login"}>
+                                About us
+                            </Button>
+                        </Grid>
                         <br/>
                         <br/>
-                        Call us: 123-456-7890
-                        </a>
                     </Grid>
-                    <Grid className={"backgroundBlack_fourthColumn"}>
-                        Social
-                    </Grid>
-                </Grid>
-                <Grid className={"backgroundBlack_row"}>
-                    <br/>
-                    <br/>
-                    <div className="link-top"></div>
-                    @ 2022 We Climb | All Rights Reserved
-                </Grid>
 
-            </footer>
-        </div>
+                    <Grid className={"backgroundBlack"}>
+                        <Grid className={"backgroundBlack_firstColumn"}>
+                            <img src={logo1} width={50} height={50} style={{paddingRight: 10, paddingLeft: 10}}/>
+                            <div style={{paddingTop: 10}}>We Climb</div>
+                        </Grid>
+                        <Grid className={"backgroundBlack_secondColumn"}>
+                            <Stack spacing={1}>
+                                <Link href="#" color="inherit" underline={'hover'}>
+                                    Environment
+                                </Link>
+                                <Link href="#" color="inherit" underline={'hover'}>
+                                    Press Releases
+                                </Link>
+                                <Link href="#" color="inherit" underline={'hover'}>
+                                    Privacy Policy
+                                </Link>
+                            </Stack>
+                        </Grid>
+                        <Grid className={"backgroundBlack_thirdColumn"}>
+                            <Stack spacing={1}>
+                                <Link href="#" color="inherit" underline={'hover'}>
+                                    Contact Us
+                                </Link>
+                                <Link href="#" color="inherit" underline={'hover'}>
+                                    041244321
+                                </Link>
+                            </Stack>
+                        </Grid>
+                        <Grid className={"backgroundBlack_fourthColumn"}>
+                            <Link href="#" color="inherit" underline={'hover'}>
+                                Learn More
+                            </Link>
+                        </Grid>
+                    </Grid>
+                    <Grid className={"backgroundBlack_row"}>
+                        <br/>
+                        <br/>
+                        <div className="link-top"></div>
+                        @ 2022 We Climb | All Rights Reserved
+                    </Grid>
+
+                </footer>
+            </div>
         );
     };
 }
