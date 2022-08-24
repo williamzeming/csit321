@@ -92,6 +92,8 @@ class Login extends React.Component {
             if (res.data.statusCode === 0) {
                 console.log("password error")
                 this.setState({showElem: false})
+            }else {
+                window.location.href = url + "3000"
             }
         })
     }
