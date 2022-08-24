@@ -104,7 +104,7 @@ class Register extends React.Component {
                     this.setState({showEmail: true})
                 }else{
                     this.setState({showEmail: false})
-                    window.open(url+"3000/Login")
+                    window.location.href = url + "3000/Login"
                 }
 
 
