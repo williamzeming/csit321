@@ -35,16 +35,16 @@ const url = "http://localhost:";
 
 //climbPg image style
 const Img = styled('img')({
-    margin:'auto',
-    display:'block',
-    maxWidth:'100%',
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
     maxHeight: '100%'
 });
 
 const bull = (
     <Box
         component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+        sx={{display: 'inline-block', mx: '2px', transform: 'scale(0.8)'}}
     >
         •
     </Box>
@@ -72,7 +72,7 @@ class Home extends React.Component {
     state = {
         person: null,
         loginState: false,
-        userName:this.getCookie('fname')
+        userName: this.getCookie('fname')
     }
     // button1 = "LOGIN1";
     // button2 = "REGISTER1"
@@ -95,202 +95,209 @@ class Home extends React.Component {
         })
     }
 
-    checkLogin(){
+    checkLogin() {
         console.log("checkLogin")
         var userID = this.getCookie("uid");
-        if (userID !== ""){
+        if (userID !== "") {
             console.log("uid")
             this.setState({loginState: true})
-        }else {
+        } else {
             this.setState({loginState: false})
         }
     }
+
     getCookie(cname) {
         var name = cname + "=";
-        var ca   = document.cookie.split(';');
+        var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i].trim();
             if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
         }
         return "";
     }
-    logout(){
+
+    logout() {
         console.log("logout")
         document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         this.setState({loginState: false})
         document.location.reload();
     }
+
     render() {
         let userName;
-        return( <div >
-            <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
-                <Grid>
-                    <br/>
-                </Grid>
-                <Stack spacing={2} alignItems={"center"}>
-                    <Grid container spacing={4}>
-                        <Grid item xs>
-                            <img src={logo} width={80} style={{paddingLeft: 10}} className={"center"}/>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Stack spacing={2} direction="row" justifyContent={"right"} className={"center"}>
-                                <Link to="/" underline="hover">Home</Link>
-                                <Link to="/" underline="hover">Community</Link>
-                            </Stack>
-                        </Grid>
-                        <Grid item xs>
-                            <Stack direction="row">
-                                {
-                                    this.state.loginState ? (
-                                        <Stack spacing={2} direction="row" justifyContent={"left"}>
-                                            <Button fullWidth variant="contained" href={"/Login"}>
-                                                <div id={"userName"}>{this.state.userName}</div>
-
-                                            </Button>
-                                            <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
-                                            <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log out</Button>
-                                        </Stack>) : (
-                                        <Stack spacing={2} direction="row" justifyContent={"left"}>
-                                            <Button fullWidth variant="contained" href={"/Login"}>
-                                                Login
-                                            </Button>
-                                            <Button fullWidth variant="outlined" href={"/Register"}>Register</Button>
-                                        </Stack>
-
-                                    )
-                                }
-
-
-                            </Stack>
-                        </Grid>
+        return (<div>
+                <Box sx={{flexGrow: 1}} className={"backgroundIMG"}>
+                    <Grid>
+                        <br/>
                     </Grid>
-                </Stack>
-                <Grid>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <Stack spacing={4} direction={"row"}>
+                    <Stack spacing={2} alignItems={"center"}>
+                        <Grid container spacing={4}>
+                            <Grid item xs>
+                                <img src={logo} width={80} style={{paddingLeft: 10}} className={"center"}/>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Stack spacing={2} direction="row" justifyContent={"right"} className={"center"}>
+                                    <Link to="/" underline="hover">Home</Link>
+                                    <Link to="/" underline="hover">Community</Link>
+                                </Stack>
+                            </Grid>
+                            <Grid item xs>
+                                <Stack direction="row">
+                                    {
+                                        this.state.loginState ? (
+                                            <Stack spacing={2} direction="row" justifyContent={"left"}>
+                                                <Button fullWidth variant="contained" href={"/Login"}>
+                                                    <div>{this.state.userName}</div>
+                                                </Button>
+                                                <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                                <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log
+                                                    out</Button>
+                                            </Stack>) : (
+                                            <Stack spacing={2} direction="row" justifyContent={"left"}>
+                                                <Button fullWidth variant="contained" href={"/Login"}>
+                                                    Login
+                                                </Button>
+                                                <Button fullWidth variant="outlined"
+                                                        href={"/Register"}>Register</Button>
+                                            </Stack>
 
+                                        )
+                                    }
+
+
+                                </Stack>
+                            </Grid>
+                        </Grid>
                     </Stack>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <Grid>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <Stack spacing={4} direction={"row"}>
 
-                </Grid>
-            </Box>
+                        </Stack>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                    </Grid>
+                </Box>
                 <hr/>
-            {/*main content*/}
-            <Grid container>
-                <Grid item xs={2}/>
-                <Grid item xs={8}>
-                    <Grid item my={1}/><hr/>
-                    {/*part1 sign up*/}
-                    <Grid container my={2} spacing={5}>
-                        <Grid item xs={1}/>
-                        <Grid item xs={6}>
-                            <ButtonBase sx={{width:400, height:300}}>
-                                <Img alt="climb" src={climb}/>
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={4}>
-                           <p className={"text1"}>Build your own trip?</p>
-                            <Button variant="contained">Sign Up</Button>
-                        </Grid>
-                        <Grid item xs={1}/>
-                    </Grid>
-                    <hr/>
-                    {/*part2 instruction*/}
-                    <Grid container my={2}>
-                        <Grid item xs={2}/>
-                        <Grid container xs={9} spacing={4}>
-                            <Grid item xs={3}>
-                                <Card>
-                                    <CardContent>
-                                        <Typography variant="h5" component="div">
-                                            Detailed Guide
-                                        </Typography><br/>
-                                        <Typography variant="body2">
-                                            We provide detailed routes,you can plan your route according to the guidelines.
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
+                {/*main content*/}
+                <Grid container>
+                    <Grid item xs={2}/>
+                    <Grid item xs={8}>
+                        <Grid item my={1}/>
+                        <hr/>
+                        {/*part1 sign up*/}
+                        <Grid container my={2} spacing={5}>
+                            <Grid item xs={1}/>
+                            <Grid item xs={6}>
+                                <ButtonBase sx={{width: 400, height: 300}}>
+                                    <Img alt="climb" src={climb}/>
+                                </ButtonBase>
                             </Grid>
-                            <Grid item xs={3}>
-                                <Card>
-                                    <CardContent>
-                                        <Typography variant="h5" component="div">
-                                            Transport
-                                        </Typography><br/>
-                                        <Typography variant="body2">
-                                            Choose a more suitable transportation based on the route of Google Maps.
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
+                            <Grid item xs={4}>
+                                <p className={"text1"}>Build your own trip?</p>
+                                <Button variant="contained">Sign Up</Button>
                             </Grid>
-                            <Grid item xs={3}>
-                                <Card>
-                                    <CardContent>
-                                        <Typography variant="h5" component="div">
+                            <Grid item xs={1}/>
+                        </Grid>
+                        <hr/>
+                        {/*part2 instruction*/}
+                        <Grid container my={2}>
+                            <Grid item xs={2}/>
+                            <Grid container xs={9} spacing={4}>
+                                <Grid item xs={3}>
+                                    <Card>
+                                        <CardContent>
+                                            <Typography variant="h5" component="div">
+                                                Detailed Guide
+                                            </Typography><br/>
+                                            <Typography variant="body2">
+                                                We provide detailed routes,you can plan your route according to the
+                                                guidelines.
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Card>
+                                        <CardContent>
+                                            <Typography variant="h5" component="div">
+                                                Transport
+                                            </Typography><br/>
+                                            <Typography variant="body2">
+                                                Choose a more suitable transportation based on the route of Google Maps.
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Card>
+                                        <CardContent>
+                                            <Typography variant="h5" component="div">
                                                 Camp Fire
-                                        </Typography><br/>
-                                        <Typography variant="body2">
-                                            Climbers can organize camp fire in permitted areas.
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
+                                            </Typography><br/>
+                                            <Typography variant="body2">
+                                                Climbers can organize camp fire in permitted areas.
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={2}/>
+                        </Grid>
+                        <hr/>
+                        {/*part3 mountain images*/}
+                        <Grid item my={3}>
+                            <p className={"smText"} align={"center"}>About us</p>
+                            <p className={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
+                            <Grid container spacing={3}>
+                                <Grid item xs={1}/>
+                                <Grid item xs={10}>
+                                    <ImageList cols={3} gap={8}>
+                                        {itemData.map((item) => (
+                                            <ImageListItem key={item.img}>
+                                                <img src={`${item.img}?w=248&fit=crop&auto=format`}
+                                                     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                                     alt={item.title}
+                                                     loading="lazy"
+                                                />
+                                                <ImageListItemBar align={"center"}
+                                                                  title={item.title}
+                                                                  subtitle={item.name}
+                                                />
+                                            </ImageListItem>
+                                        ))}
+                                    </ImageList>
+                                </Grid>
+                                <Grid item xs={1}/>
                             </Grid>
                         </Grid>
-                        <Grid item xs={2}/>
-                    </Grid>
-                    <hr/>
-                    {/*part3 mountain images*/}
-                    <Grid item my={3}>
-                        <p className={"smText"} align={"center"}>About us</p>
-                        <p className={"text1"} align={"center"}>Have no idea for climbing?</p><br/>
-                        <Grid container spacing={3}>
+                        <hr/>
+                        {/*part4 customer review*/}
+                        <Grid container my={2} spacing={5}>
                             <Grid item xs={1}/>
-                        <Grid item xs={10}>
-                            <ImageList cols={3} gap={8}>
-                                {itemData.map((item) => (
-                                    <ImageListItem key={item.img}>
-                                        <img src={`${item.img}?w=248&fit=crop&auto=format`}
-                                             srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                             alt={item.title}
-                                             loading="lazy"
-                                             />
-                                        <ImageListItemBar align={"center"}
-                                            title={item.title}
-                                            subtitle={item.name}
-                                            />
-                                    </ImageListItem>
-                                ))}
-                            </ImageList>
-                        </Grid>
+                            <Grid item xs={4}>
+                                <p className={"smText"}>What they say</p>
+                                <p className={"text1"}>Customer Reviews</p>
+                                <p className={"text2"}>We encourage each customer to leave review about their climbing
+                                    journey and what they would like to suggest to other climbers.</p>
+                                <Button variant="contained">All Reviews</Button>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <ButtonBase sx={{width: 400, height: 320}}>
+                                    <Img alt="climbMt" src={climbMt}/>
+                                </ButtonBase>
+                            </Grid>
                             <Grid item xs={1}/>
                         </Grid>
+                        <hr/>
+                        <Grid item my={1}/>
                     </Grid>
-                    <hr/>
-                    {/*part4 customer review*/}
-                    <Grid container my={2} spacing={5}>
-                        <Grid item xs={1}/>
-                        <Grid item xs={4}>
-                            <p className={"smText"}>What they say</p>
-                            <p className={"text1"}>Customer Reviews</p>
-                            <p className={"text2"}>We encourage each customer to leave review about their climbing journey and what they would like to suggest to other climbers.</p>
-                            <Button variant="contained">All Reviews</Button>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <ButtonBase sx={{width:400, height:320}}>
-                                <Img alt="climbMt" src={climbMt}/>
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={1}/>
-                    </Grid>
-                    <hr/>
-                    <Grid item my={1}/>
+                    <Grid item xs={2}/>
                 </Grid>
-                <Grid item xs={2}/>
-            </Grid>
                 <hr/>
             {/*footer*/}
             <footer>
@@ -325,29 +332,6 @@ class Home extends React.Component {
                         We Climb
                     </Grid>
                     <Grid className={"backgroundBlack_secondColumn"}>
-                        {/*<a style={{color: "white",textDecoration:"none"}} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">*/}
-                        {/*Learn More*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-
-                        {/*About Lift*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*Press Releases*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*Environment*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*Jobs*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*Privacy Policy*/}
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*Contact Us*/}
-                        {/*</a>*/}
                         <table border="0" cellspacing="10">
                             <tr>
                                 <td>
