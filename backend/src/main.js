@@ -84,8 +84,11 @@ app.post('/register', jsonParser, (req, res) => {
     // });
 })
 
-app.post('/homepage', jsonParser, (req, res) => {
-
+app.post('/initHomepage', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    res.status(200).json({
+        mountains: "mount keira"
+    })
 })
 //最后
 app.listen(port, () => {
