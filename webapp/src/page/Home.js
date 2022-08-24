@@ -186,12 +186,12 @@ class Home extends React.Component {
                         {/*part1 sign up*/}
                         <Grid container my={2} spacing={5}>
                             <Grid item xs={1}/>
-                            <Grid item xs={6}>
+                            <Grid item xs={6} style={{display:"flex"}}>
                                 <ButtonBase sx={{width: 400, height: 300}}>
                                     <Img alt="climb" src={climb}/>
                                 </ButtonBase>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={4} >
                                 <p className={"text1"}>Build your own trip?</p>
                                 <Button variant="contained">Sign Up</Button>
                             </Grid>

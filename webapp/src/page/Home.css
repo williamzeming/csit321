@@ -97,3 +97,8 @@ footer{
     width: 100%;
     position: absolute;
 }
+a{
+    color: white;
+    text-decoration:none;
+}
+
