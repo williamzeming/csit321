@@ -91,6 +91,7 @@ app.post('/initHomePost', jsonParser, (req, res) => {
         }
     })
 })
+
 //最后
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

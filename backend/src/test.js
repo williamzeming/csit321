@@ -33,3 +33,55 @@
 // checkEmail('112w233@gmail.com').then(res => {
 //     console.log(res)
 // })
+
+function sendEmail(me,name, email,location,startDate,endDate,message) {
+    const nodemailer = require('nodemailer');
+
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com', port: 465, secure: true, // use SSL
+        auth: {
+            user: 'deltaness118@gmail.com', pass: 'uviorgbzohwemzbj'
+        }
+    });
+
+    var mailOptions = {
+        from: '"We Climb" <deltaness118@gmail.com>', // sender address
+        to: email, // list of receivers
+        subject: me+"'s trip to "+location, // Subject line
+        text: 'Hello '+name+
+            ":\nIt is me, "+me+". "
+            +message+
+            " \nfrom "+ startDate+
+            " \nuntil "+ endDate +". "+
+            "\nIf my trip goes right, you will receive another email to indicate you that I have back. "+
+            "If not, please contact the police for help."
+        // html: '<b>Hello world!</b>' // html body
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+}
+sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
