@@ -103,4 +103,42 @@ a{
     color: white;
     text-decoration:none;
 }
-
+.topColumn{
+    padding-top: 10px;
+    height: 400px;
+    background-image:url('./back3.jpg');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.topFirstColumn{
+    align-content:center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.topSecondColumn{
+    align-content:center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.topThirdColumn{
+    align-content:center;
+    justify-content: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+topFirstColumnRow{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
