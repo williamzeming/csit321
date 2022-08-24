@@ -18,7 +18,7 @@ import img1 from './imgM/Ironstone Mountain.jpg';
 import img2 from './imgM/Mother Cummings Peak.jpg';
 import img3 from './imgM/MountKosciuszko.jpg';
 import climbMt from './climb2.jpeg';
-import logo1 from './logo.jpg'
+import logo1 from './logo.png'
 
 import {ImageList, ImageListItem, ImageListItemBar} from "@mui/material";
 
@@ -129,7 +129,7 @@ class Home extends React.Component {
                     <Stack spacing={2} alignItems={"center"}>
                         <Grid container spacing={4}>
                             <Grid item xs>
-                                <img src={logo} width={80} style={{paddingLeft: 10}} className={"center"}/>
+                                <img src={logo1} width={80} style={{paddingLeft: 10}} className={"center"}/>
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={2} direction="row" justifyContent={"right"} className={"center"}>
