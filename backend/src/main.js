@@ -54,10 +54,9 @@ app.post('/login', jsonParser, (req, res) => {
             //statusCode 1: success, 0: error
             if (res1.password === req.body.pw) {
                 res.status(200).json({
-                    firstName: res1.firstName,
+                    fname: res1.firstName,
                     uid: res1.userNum,
                     statusCode: 1
-                    // redirect: '/'
                 })
                 console.log(res1)
             } else {
@@ -83,6 +82,10 @@ app.post('/register', jsonParser, (req, res) => {
     // res.status(200).json({
     //     state: "susses"
     // });
+})
+
+app.post('/homepage', jsonParser, (req, res) => {
+
 })
 //最后
 app.listen(port, () => {

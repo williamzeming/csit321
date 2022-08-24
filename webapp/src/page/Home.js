@@ -97,6 +97,7 @@ class Home extends React.Component {
         if (userID !== ""){
             console.log("uid")
             this.setState({loginState: true})
+
         }else {
             this.setState({loginState: false})
         }
@@ -141,7 +142,7 @@ class Home extends React.Component {
                                     this.state.loginState ? (
                                         <Stack spacing={2} direction="row" justifyContent={"left"}>
                                             <Button fullWidth variant="contained" href={"/Login"}>
-                                                userName
+                                                <div id={"uname"}>userName</div>
                                             </Button>
                                             <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
                                             <Button fullWidth variant="outlined" onClick={this.logout} href={"/"}>Log out</Button>
