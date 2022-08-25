@@ -65,8 +65,8 @@ var itemData = [
     },
     {
         img: img3,
-        title: 'Wollongong, Australia',
-        name: 'Mount Kiera',
+        title: 'Alpine, Australia',
+        name: 'Mount Kosciuszko',
     }
 ]
 
@@ -138,9 +138,9 @@ class Home extends React.Component {
                                 color: "white",
                                 fontSize: 60
                             }}>We Climb</span>
-                            <Stack spacing={1} >
-                                <Grid style={{paddingTop: 30}} >
-                                    <span className={"headFont"} >Explore new places</span>
+                            <Stack spacing={1}>
+                                <Grid style={{paddingTop: 30}}>
+                                    <span className={"headFont"}>Explore new places</span>
                                 </Grid>
                                 <Grid>
                                     <span style={{fontSize: 30, paddingLeft: 50, color: "white", paddingTop: 80}}>with We Climb</span>
@@ -152,7 +152,8 @@ class Home extends React.Component {
                         </Grid>
 
                     </Grid>
-                    <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5} style={{paddingTop: 200, position: "relative"}}>
+                    <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5}
+                          style={{paddingTop: 200, position: "relative"}}>
                         <Grid style={{paddingLeft: 70, position: "absolute", alignContent: "center"}}>
                             <Paper
                                 component="form"
@@ -185,18 +186,18 @@ class Home extends React.Component {
                                         <Button fullWidth variant="outlined" onClick={this.logout}
                                                 href={"/"}>Logout</Button>
                                     </Stack>) : (
-                                        <Grid style={{paddingRight: 10}}>
-                                            <Stack spacing={2} direction="row" >
+                                    <Grid style={{paddingRight: 10}}>
+                                        <Stack spacing={2} direction="row">
 
-                                                <Button fullWidth variant="contained" href={"/Login"}>
-                                                    Login
-                                                </Button>
-                                                <Button fullWidth variant="outlined"
-                                                        href={"/Register"}>Register</Button>
+                                            <Button fullWidth variant="contained" href={"/Login"}>
+                                                Login
+                                            </Button>
+                                            <Button fullWidth variant="outlined"
+                                                    href={"/Register"}>Register</Button>
 
 
-                                            </Stack>
-                                        </Grid>
+                                        </Stack>
+                                    </Grid>
 
 
                                 )
@@ -283,10 +284,18 @@ class Home extends React.Component {
                                     <Img alt="climb" src={climb}/>
                                 </ButtonBase>
                             </Grid>
-                            <Grid item xs={4}>
-                                <p className={"text1"}>Build your own trip?</p>
-                                <Button variant="contained">Sign Up</Button>
-                            </Grid>
+                            {
+                                this.state.loginState ? (
+                                    <Grid item xs={4}>
+                                        <p className={"text1"}>Build your own trip?</p>
+                                        <Button variant="contained">Start</Button>
+                                    </Grid>) : (
+                                    <Grid item xs={4}>
+                                        <p className={"text1"}>Build your own trip?</p>
+                                        <Button variant="contained">Sign Up</Button>
+                                    </Grid>
+                                )
+                            }
                             <Grid item xs={1}/>
                         </Grid>
                         <hr/>
@@ -389,7 +398,7 @@ class Home extends React.Component {
                 {/*footer*/}
                 <Grid>
                     <Grid class={"botton"}>
-                        <Grid style={{paddingTop:50}}>
+                        <Grid style={{paddingTop: 50}}>
                             <br/>
 
                             <br/>
