@@ -8,7 +8,7 @@ import './App.css';
 import Home from './page/Home';
 import Login from './page/Login';
 import Register from './page/Register';
-
+import Detail from './page/Detail'
 class App extends Component {
     render() {
         return <div>
@@ -17,6 +17,7 @@ class App extends Component {
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/Login" element={<Login/>}></Route>
                     <Route path="/Register" element={<Register/>} component={Register}></Route>
+                    <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
                 </Routes>
             </BrowserRouter>
 

@@ -122,7 +122,7 @@ class Register extends React.Component {
                 <div className="content">
                     <Container maxWidth="sm" >
                         <Grid container rowSpacing={3} columnSpacing={{xs: 1, sm: 2, md: 3}}>
-                            <Grid item xs={12} md={12}>
+                            <Grid item xs={12} >
                                 <ThemeProvider theme={theme}>
                                     <Typography align="center" variant="h2" theme={theme}>Register</Typography>
                                 </ThemeProvider>
