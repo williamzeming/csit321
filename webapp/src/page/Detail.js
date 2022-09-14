@@ -65,7 +65,7 @@ class Detail extends React.Component{
                                     <Button fullWidth variant="outlined" onClick={this.logout}
                                             href={"/"}>Logout</Button>
                                 </Stack>) : (
-                                <Grid style={{paddingRight: 10}}>
+                                <Grid style={{paddingLeft:50,paddingRight: 10}}>
                                     <Stack spacing={2} direction="row">
                                         <Button  size={"small"}fullWidth variant="outlined" href={"/Login"}>
                                             Login
