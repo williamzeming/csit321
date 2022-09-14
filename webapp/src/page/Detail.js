@@ -34,12 +34,55 @@ class Detail extends React.Component{
         })
     }
     render() {
-        return(
+        return (
             <div>
-                <Grid container>
-                    <Grid item md={12}>
-                        header
+                <Grid className={"column"} container>
+                    <Grid  className={"topFirstColumn"} item xs={3} md={4} lg={4}>
+                        <img src={logo1} height={25} width={25} style={{paddingLeft: 10,marginBottom:3}}
+                             className={"center"}/>
+                        <span className={"serif"}
+                              style={{
+                                  position: "relative",
+                                  marginTop: 2,
+                                  paddingLeft: 15,
+                                  color: "white",
+                                  fontSize: 30
+                              }}>We Climb</span>
                     </Grid>
+                    <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5}
+                          style={{paddingTop: 5, position: "relative"}}>
+                        <Link style={{paddingRight: 20,paddingLeft:190}} to="/" color={"white"} underline="hover">Home</Link>
+                        <Link style={{paddingRight: 20}} to="/" color={"white"} underline="hover">Community</Link>
+                    </Grid>
+                    <Grid item xs={3} md={4} lg={3}>
+                        {
+                            this.state.loginState ? (
+                                <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
+                                    <Button fullWidth variant="contained" href={"/Login"}>
+                                        <div>{this.state.userName}</div>
+                                    </Button>
+                                    <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                    <Button fullWidth variant="outlined" onClick={this.logout}
+                                            href={"/"}>Logout</Button>
+                                </Stack>) : (
+                                <Grid style={{paddingRight: 10}}>
+                                    <Stack spacing={2} direction="row">
+                                        <Button  size={"small"}fullWidth variant="outlined" href={"/Login"}>
+                                            Login
+                                        </Button>
+                                        <Button fullWidth variant="outlined"
+                                                href={"/Register"}>Register</Button>
+                                    </Stack>
+
+                                </Grid>
+
+
+                            )
+                        }
+
+                    </Grid>
+
+                </Grid>
                     <Grid item md={10}>
                         NAVI
                     </Grid>
@@ -62,7 +105,7 @@ class Detail extends React.Component{
                             Weather detail
                         </Stack>
                         <Stack>
-                            Review      Photos
+                            Review Photos
                         </Stack>
                         <Stack direction={"row"}>
                             <Stack>
@@ -79,7 +122,7 @@ class Detail extends React.Component{
                     </Grid>
 
 
-                </Grid>
+
                 <Footer>
                 </Footer>
             </div>
