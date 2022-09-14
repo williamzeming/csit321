@@ -10,7 +10,9 @@ import Login from './page/Login';
 import Register from './page/Register';
 import Detail from './page/Detail';
 import Footer from './page/Footer';
-import Test from './page/test';
+import Star from './page/Star';
+import Map from './page/Map';
+
 class App extends Component {
     render() {
         return <div>
@@ -21,7 +23,8 @@ class App extends Component {
                     <Route path="/Register" element={<Register/>} component={Register}></Route>
                     <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
                     <Route path="/Footer" element={<Footer/>} component={Footer}></Route>
-                    <Route path="/Test" element={<Test/>} component={Test}></Route>
+                    <Route path="/Map" element={<Map/>} component={Map}></Route>
+                    <Route path="/Star" element={<Star/>} component={Star}></Route>
                 </Routes>
             </BrowserRouter>
 

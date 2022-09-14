@@ -19,14 +19,16 @@ import Footer from './Footer';
 import Map from './Map'
 import key from "./key.json";
 import logo1 from './logo.png'
-
+import Star from './Star'
+import Rating from "@mui/material/Rating";
 const url = "http://localhost:";
 
 class Detail extends React.Component {
     state = {
         lat: 0,
         lng: 0,
-        loginState: false
+        loginState: false,
+        userName: this.getCookie('fname')
     }
 
     initDetailPost = () => {
@@ -41,20 +43,42 @@ class Detail extends React.Component {
             console.log(this.state.lat)
         })
     }
+    checkLogin() {
+        var userID = this.getCookie("uid");
+        if (userID !== "") {
+            this.setState({loginState: true})
+        } else {
+            this.setState({loginState: false})
+        }
+    }
 
+    getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
     showMap() {
         console.log(this.state.lat)
     }
 
     componentDidMount = () => {
-        // this.checkLogin();
+        this.checkLogin();
         this.initDetailPost();
+
+    }
+    showRating(){
+        var number=document.getElementById("rating").value;
+        console.log(number)
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.showMap}></button>
+
                 <Grid className={"column"} container>
                     <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}
@@ -78,7 +102,7 @@ class Detail extends React.Component {
                         {
                             this.state.loginState ? (
                                 <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
-                                    <Button fullWidth variant="contained" href={"/Login"}>
+                                    <Button fullWidth variant="outlined" href={"/Login"}>
                                         <div>{this.state.userName}</div>
                                     </Button>
                                     <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
@@ -125,7 +149,14 @@ class Detail extends React.Component {
                     </Stack>
                     <Stack direction={"row"}>
                         <Stack>
-                            Score
+                            <span id="ratingNumber">
+
+                            <Star/>
+                            </span>
+                            <span id="showRating">
+                                <Rating onClick={this.showRating} id={"rating"} size={"large"}></Rating>
+
+                            </span>
                         </Stack>
                         <Stack>
                             <Button fullWidth variant="contained">Write Review</Button>
