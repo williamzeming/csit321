@@ -16,9 +16,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Footer from './Footer';
 import Map from './Map'
+import key from "./key.json";
 
 class Detail extends React.Component{
+    state = {
+        lat:null,
+        lng:null
+    }
 
+    initDetailPost = () => {
+        const params = {
+            uid: this.getCookie("uid")
+        }
+        axios.post(url + "5000/initDetail", params).then((res) => {
+            var lat = this.state.lat;
+            var lng = this.state.lng;
+        })
+    }
     render() {
         return(
             <div>
@@ -38,7 +52,7 @@ class Detail extends React.Component{
                                 Introduction
                             </Stack>
                             <Stack>
-                                <Map></Map>
+                                <Map lat={-34.4218852121606} lng={150.90963698229393}></Map>
                             </Stack>
                         </Stack>
                         <Stack>
