@@ -24,6 +24,7 @@ import logo1 from './logo.png'
 import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Footer from './Footer';
+import Map from "./Map";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

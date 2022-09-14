@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from "react-dom/client";
 import {default as axios} from "axios";
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -17,28 +18,46 @@ import Typography from '@mui/material/Typography';
 import Footer from './Footer';
 import Map from './Map'
 import key from "./key.json";
+import logo1 from './logo.png'
 
-class Detail extends React.Component{
+const url = "http://localhost:";
+
+class Detail extends React.Component {
     state = {
-        lat:null,
-        lng:null
+        lat: 0,
+        lng: 0,
+        loginState: false
     }
 
     initDetailPost = () => {
         const params = {
-            uid: this.getCookie("uid")
+            uid: 1
         }
-        axios.post(url + "5000/initDetail", params).then((res) => {
-            var lat = this.state.lat;
-            var lng = this.state.lng;
+        axios.post(url + "5000/initDetailPost", params).then((res) => {
+            this.setState({
+                lat: res.data.lat,
+                lng: res.data.lng
+            })
+            console.log(this.state.lat)
         })
     }
+
+    showMap() {
+        console.log(this.state.lat)
+    }
+
+    componentDidMount = () => {
+        // this.checkLogin();
+        this.initDetailPost();
+    }
+
     render() {
         return (
             <div>
+                <button onClick={this.showMap}></button>
                 <Grid className={"column"} container>
-                    <Grid  className={"topFirstColumn"} item xs={3} md={4} lg={4}>
-                        <img src={logo1} height={25} width={25} style={{paddingLeft: 10,marginBottom:3}}
+                    <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
+                        <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}
                              className={"center"}/>
                         <span className={"serif"}
                               style={{
@@ -51,7 +70,8 @@ class Detail extends React.Component{
                     </Grid>
                     <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5}
                           style={{paddingTop: 5, position: "relative"}}>
-                        <Link style={{paddingRight: 20,paddingLeft:190}} to="/" color={"white"} underline="hover">Home</Link>
+                        <Link style={{paddingRight: 20, paddingLeft: 190}} to="/" color={"white"}
+                              underline="hover">Home</Link>
                         <Link style={{paddingRight: 20}} to="/" color={"white"} underline="hover">Community</Link>
                     </Grid>
                     <Grid item xs={3} md={4} lg={3}>
@@ -65,9 +85,9 @@ class Detail extends React.Component{
                                     <Button fullWidth variant="outlined" onClick={this.logout}
                                             href={"/"}>Logout</Button>
                                 </Stack>) : (
-                                <Grid style={{paddingLeft:50,paddingRight: 10}}>
+                                <Grid style={{paddingLeft: 50, paddingRight: 10}}>
                                     <Stack spacing={2} direction="row">
-                                        <Button  size={"small"}fullWidth variant="outlined" href={"/Login"}>
+                                        <Button size={"small"} fullWidth variant="outlined" href={"/Login"}>
                                             Login
                                         </Button>
                                         <Button fullWidth variant="outlined"
@@ -75,52 +95,47 @@ class Detail extends React.Component{
                                     </Stack>
 
                                 </Grid>
-
-
                             )
                         }
-
                     </Grid>
-
                 </Grid>
-                    <Grid item md={10}>
-                        NAVI
-                    </Grid>
-                    <Grid item md={10}>
-                        Picture
-                    </Grid>
-                    <Grid item md={8}>
-                        <Stack direction={"row"}>
-                            <Stack>
-                                Introduction
-                            </Stack>
-                            <Stack>
-                                <Map lat={-34.4218852121606} lng={150.90963698229393}></Map>
-                            </Stack>
+                <Grid item md={10}>
+                    NAVI
+                </Grid>
+                <Grid item md={10}>
+                    Picture
+                </Grid>
+                <Grid item md={8}>
+                    <Stack direction={"row"}>
+                        <Stack>
+                            Introduction
+                        </Stack>
+                        <Stack id="mountainMap">
+                            <Map lat={this.state.lat} lng={this.state.lng}></Map>
+                        </Stack>
+                    </Stack>
+                    <Stack>
+                        Weather
+                    </Stack>
+                    <Stack>
+                        Weather detail
+                    </Stack>
+                    <Stack>
+                        Review Photos
+                    </Stack>
+                    <Stack direction={"row"}>
+                        <Stack>
+                            Score
                         </Stack>
                         <Stack>
-                            Weather
+                            <Button fullWidth variant="contained">Write Review</Button>
                         </Stack>
-                        <Stack>
-                            Weather detail
-                        </Stack>
-                        <Stack>
-                            Review Photos
-                        </Stack>
-                        <Stack direction={"row"}>
-                            <Stack>
-                                Score
-                            </Stack>
-                            <Stack>
-                                <Button fullWidth variant="contained">Write Review</Button>
-                            </Stack>
 
-                        </Stack>
-                        <Stack>
-                            The review
-                        </Stack>
-                    </Grid>
-
+                    </Stack>
+                    <Stack>
+                        The review
+                    </Stack>
+                </Grid>
 
 
                 <Footer>
