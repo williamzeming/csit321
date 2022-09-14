@@ -23,7 +23,7 @@ import logo1 from './logo.png'
 
 import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-
+import Footer from './Footer';
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -331,75 +331,9 @@ class Home extends React.Component {
                 </Grid>
                 <hr/>
                 {/*footer*/}
-                <Grid>
-                    <Grid class={"botton"}>
-                        <Grid style={{paddingTop: 50}}>
-                            <br/>
+               <Footer>
 
-                            <br/>
-                            <Grid textAlign={"center"} style={{fontSize: 20, color: "white"}}>
-                                Explore world with us
-                            </Grid>
-                            <br/>
-                            <Grid textAlign={"center"} style={{color: "white"}}>
-                                If you would like more information about our website, you can contact us by
-                                <br/>
-                                phone or follow us on our social media.
-                            </Grid>
-                            <br/>
-                            <Grid textAlign={"center"}>
-                                <Button variant="contained" href={"/Login"}>
-                                    About us
-                                </Button>
-                            </Grid>
-                            <br/>
-                        </Grid>
-
-
-                    </Grid>
-
-                    <Grid className={"backgroundBlack"}>
-                        <Grid className={"backgroundBlack_firstColumn"}>
-                            <img src={logo1} width={50} height={50} style={{paddingRight: 10, paddingLeft: 10}}/>
-                            <div style={{paddingTop: 10}}>We Climb</div>
-                        </Grid>
-                        <Grid className={"backgroundBlack_secondColumn"}>
-                            <Stack spacing={1}>
-                                <Link href="#" color="inherit" underline={'hover'}>
-                                    Environment
-                                </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
-                                    Press Releases
-                                </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
-                                    Privacy Policy
-                                </Link>
-                            </Stack>
-                        </Grid>
-                        <Grid className={"backgroundBlack_thirdColumn"}>
-                            <Stack spacing={1}>
-                                <Link href="#" color="inherit" underline={'hover'}>
-                                    Contact Us
-                                </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
-                                    041244321
-                                </Link>
-                            </Stack>
-                        </Grid>
-                        <Grid className={"backgroundBlack_fourthColumn"}>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                Learn More
-                            </Link>
-                        </Grid>
-                    </Grid>
-                    <Grid className={"backgroundBlack_row"}>
-                        <br/>
-                        <br/>
-                        <div className="link-top"></div>
-                        @ 2022 We Climb | All Rights Reserved
-                    </Grid>
-
-                </Grid>
+               </Footer>
             </div>
         );
     };

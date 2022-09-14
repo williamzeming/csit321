@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {default as axios} from "axios";
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -14,7 +14,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
-
+import Footer from './Footer';
 
 class Detail extends React.Component{
     render() {
@@ -64,9 +64,13 @@ class Detail extends React.Component{
 
 
                 </Grid>
+                <Footer>
+                </Footer>
             </div>
 
         )
     }
 }
+
+
 export default Detail;
