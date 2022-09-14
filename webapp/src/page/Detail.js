@@ -16,16 +16,105 @@ import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Footer from './Footer';
 import Map from './Map'
+import logo1 from './logo.png';
+import {colors} from "@mui/material";
 
-class Detail extends React.Component{
+const url = "http://localhost:";
 
+class Detail extends React.Component {
+    state = {
+        loginState: false,
+        userName: this.getCookie('fname')
+    }
+    componentDidMount = () => {
+        this.checkLogin();
+        this.initHomePost();
+    }
+    initHomePost = () => {
+        const params = {
+            uid: this.getCookie("uid")
+        }
+        axios.post(url + "5000/initHomePost", params).then((res) => {
+            var mountains = res.data.mountains
+            //itemData[1].img = "./imgM/"+mountains.mountain1.mountain+".jpg"
+            // itemData[1].img =require("./imgM/MountKosciuszko.jpg")
+            // console.log(itemData)
+        })
+    }
+    checkLogin() {
+        var userID = this.getCookie("uid");
+        if (userID !== "") {
+            this.setState({loginState: true})
+        } else {
+            this.setState({loginState: false})
+        }
+    }
+
+    getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    logout() {
+        document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        this.setState({loginState: false})
+        document.location.reload();
+    }
     render() {
-        return(
+        return (
             <div>
-                <Grid container>
-                    <Grid item md={12}>
-                        header
+                <Grid className={"column"} container>
+                    <Grid  className={"topFirstColumn"} item xs={3} md={4} lg={4}>
+                        <img src={logo1} height={25} width={25} style={{paddingLeft: 10,marginBottom:3}}
+                             className={"center"}/>
+                        <span className={"serif"}
+                              style={{
+                                  position: "relative",
+                                  marginTop: 2,
+                                  paddingLeft: 15,
+                                  color: "white",
+                                  fontSize: 30
+                              }}>We Climb</span>
                     </Grid>
+                    <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5}
+                          style={{paddingTop: 5, position: "relative"}}>
+                        <Link style={{paddingRight: 20,paddingLeft:190}} to="/" color={"white"} underline="hover">Home</Link>
+                        <Link style={{paddingRight: 20}} to="/" color={"white"} underline="hover">Community</Link>
+                    </Grid>
+                    <Grid item xs={3} md={4} lg={3}>
+                        {
+                            this.state.loginState ? (
+                                <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
+                                    <Button fullWidth variant="contained" href={"/Login"}>
+                                        <div>{this.state.userName}</div>
+                                    </Button>
+                                    <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                    <Button fullWidth variant="outlined" onClick={this.logout}
+                                            href={"/"}>Logout</Button>
+                                </Stack>) : (
+                                <Grid style={{paddingRight: 10}}>
+                                    <Stack spacing={2} direction="row">
+                                        <Button  size={"small"}fullWidth variant="outlined" href={"/Login"}>
+                                            Login
+                                        </Button>
+                                        <Button fullWidth variant="outlined"
+                                                href={"/Register"}>Register</Button>
+                                    </Stack>
+
+                                </Grid>
+
+
+                            )
+                        }
+
+                    </Grid>
+
+                </Grid>
                     <Grid item md={10}>
                         NAVI
                     </Grid>
@@ -48,7 +137,7 @@ class Detail extends React.Component{
                             Weather detail
                         </Stack>
                         <Stack>
-                            Review      Photos
+                            Review Photos
                         </Stack>
                         <Stack direction={"row"}>
                             <Stack>
@@ -57,7 +146,6 @@ class Detail extends React.Component{
                             <Stack>
                                 <Button fullWidth variant="contained">Write Review</Button>
                             </Stack>
-
                         </Stack>
                         <Stack>
                             The review
@@ -65,7 +153,7 @@ class Detail extends React.Component{
                     </Grid>
 
 
-                </Grid>
+
                 <Footer>
                 </Footer>
             </div>

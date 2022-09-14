@@ -1,0 +1,38 @@
+.column{
+    padding-top: 5px;
+    height: 50px;
+    background-size: 10% 10%;
+    background-color: #0A0A0A;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+}
+.topFirstColumn{
+    align-content:center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+
+
+}
+.topSecondColumn{
+    align-content:center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+
+    padding-top: 250px;
+
+
+}
+.topThirdColumn{
+    align-content:center;
+    justify-content: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+
+
+}

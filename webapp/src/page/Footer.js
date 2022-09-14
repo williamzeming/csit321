@@ -27,8 +27,6 @@ class Footer extends React.Component{
     render(){
         return(<div>
                 <Grid>
-
-
                     <Grid className={"backgroundBlack"}>
                         <Grid className={"backgroundBlack_firstColumn"}>
                             <img src={logo1} width={50} height={50} style={{paddingRight: 10, paddingLeft: 10}}/>
