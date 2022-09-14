@@ -27,29 +27,7 @@ class Footer extends React.Component{
     render(){
         return(<div>
                 <Grid>
-                    <Grid class={"botton"}>
-                        <Grid style={{paddingTop: 50}}>
-                            <br/>
 
-                            <br/>
-                            <Grid textAlign={"center"} style={{fontSize: 20, color: "white"}}>
-                                Explore world with us
-                            </Grid>
-                            <br/>
-                            <Grid textAlign={"center"} style={{color: "white"}}>
-                                If you would like more information about our website, you can contact us by
-                                <br/>
-                                phone or follow us on our social media.
-                            </Grid>
-                            <br/>
-                            <Grid textAlign={"center"}>
-                                <Button variant="contained" href={"/Login"}>
-                                    About us
-                                </Button>
-                            </Grid>
-                            <br/>
-                        </Grid>
-                    </Grid>
 
                     <Grid className={"backgroundBlack"}>
                         <Grid className={"backgroundBlack_firstColumn"}>
