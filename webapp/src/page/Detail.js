@@ -15,8 +15,10 @@ import CardContent from '@mui/material/CardContent';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Footer from './Footer';
+import Map from './Map'
 
 class Detail extends React.Component{
+
     render() {
         return(
             <div>
@@ -36,7 +38,7 @@ class Detail extends React.Component{
                                 Introduction
                             </Stack>
                             <Stack>
-                                google
+                                <Map></Map>
                             </Stack>
                         </Stack>
                         <Stack>
