@@ -93,7 +93,7 @@ app.post('/initHomePost', jsonParser, (req, res) => {
 })
 
 app.post('/initDetailPost', jsonParser, (req, res) => {
-    console.log(req.body.uid)
+    console.log(req.body.loc)
     res.status(200).json({
         lat:-34.42036296539061,
         lng:150.8968482112078

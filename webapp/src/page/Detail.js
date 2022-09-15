@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom/client";
 import {default as axios} from "axios";
+import { useParams  } from "react-router-dom";
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -29,14 +30,12 @@ class Detail extends React.Component {
         lng: 0,
         loginState: false,
         userName: this.getCookie('fname'),
-        rateValue:0,
-        newValue:0
+        rateValue:0
     };
 
 
     initDetailPost = () => {
         const params = {
-            uid: 1
         }
         axios.post(url + "5000/initDetailPost", params).then((res) => {
             this.setState({
@@ -64,8 +63,9 @@ class Detail extends React.Component {
         }
         return "";
     }
-    showMap() {
-        console.log(this.state.lat)
+    showURL= () => {
+        let { loc } = useParams();
+        console.log(loc)
     }
 
     componentDidMount = () => {
@@ -81,6 +81,7 @@ class Detail extends React.Component {
     render() {
         return (
             <div>
+                <Button onClick={this.showURL}>show url</Button>
                 <Grid className={"column"} container>
                     <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}

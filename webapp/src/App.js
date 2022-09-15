@@ -21,7 +21,11 @@ class App extends Component {
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/Login" element={<Login/>}></Route>
                     <Route path="/Register" element={<Register/>} component={Register}></Route>
-                    <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
+                    <Route path="/Detail">
+                        <Route path=":loc" element={<Detail/>} component={Detail}></Route>
+                        <Route path="" element={<Home/>} component={Home}></Route>
+                    </Route>
+
                     <Route path="/Footer" element={<Footer/>} component={Footer}></Route>
                     <Route path="/Map" element={<Map/>} component={Map}></Route>
                     <Route path="/Star" element={<Star/>} component={Star}></Route>

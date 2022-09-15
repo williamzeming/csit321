@@ -57,17 +57,20 @@ const bull = (
 var itemData = [
     {
         img: img1,
-        title: 'Bouddi, Australia',
+        title: 'Bouddi',
+        nation: 'Australia',
         name: 'Bouddi National Park',
     },
     {
         img: img2,
-        title: 'Tasmanian, Australia',
+        title: 'Tasmanian',
+        nation: 'Australia',
         name: 'Cradle Mountain',
     },
     {
         img: img3,
-        title: 'Alpine, Australia',
+        title: 'Alpine',
+        nation: 'Australia',
         name: 'Mount Kosciuszko',
     }
 ]
@@ -291,14 +294,11 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                {/*<img src={`${item.img}?w=248&fit=crop&auto=format`}*/}
-                                                {/*     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}*/}
-                                                {/*     alt={item.title}*/}
-                                                {/*     loading="lazy"*/}
-                                                {/*/>*/}
-                                                < img src={item.img} alt={item.title} loading="lazy"/>
+                                                <ButtonBase href = {`/Detail/${item.title}`}>
+                                                    < img src={item.img} alt={item.title} loading="lazy"/>
+                                                </ButtonBase>
                                                 <ImageListItemBar align={"center"}
-                                                                  title={item.title}
+                                                                  title={item.title+" , "+item.nation}
                                                                   subtitle={item.name}
                                                 />
                                             </ImageListItem>
