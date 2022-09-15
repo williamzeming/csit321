@@ -28,8 +28,11 @@ class Detail extends React.Component {
         lat: 0,
         lng: 0,
         loginState: false,
-        userName: this.getCookie('fname')
-    }
+        userName: this.getCookie('fname'),
+        rateValue:0,
+        newValue:0
+    };
+
 
     initDetailPost = () => {
         const params = {
@@ -70,15 +73,14 @@ class Detail extends React.Component {
         this.initDetailPost();
 
     }
-    showRating(){
-        var number=document.getElementById("rating").value;
-        console.log(number)
+
+    showRating= () =>{
+         console.log(this.state.rateValue)
     }
 
     render() {
         return (
             <div>
-
                 <Grid className={"column"} container>
                     <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}
@@ -149,13 +151,11 @@ class Detail extends React.Component {
                     </Stack>
                     <Stack direction={"row"}>
                         <Stack>
-                            <span id="ratingNumber">
-
-                            <Star/>
-                            </span>
-                            <span id="showRating">
-                                <Rating onClick={this.showRating} id={"rating"} size={"large"}></Rating>
-
+                            <span>
+                                <Rating  name="rate" size={"large"} onChange={(event, newValue) => {
+                                    this.setState({rateValue:newValue})}} ></Rating>
+                                <br/>
+                                <Button variant="contained" onClick={this.showRating}>submit</Button>
                             </span>
                         </Stack>
                         <Stack>
