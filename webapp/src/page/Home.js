@@ -25,6 +25,7 @@ import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/materi
 import IconButton from "@mui/material/IconButton";
 import Footer from './Footer';
 import Map from "./Map";
+import {useNavigate} from "react-router";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -127,6 +128,9 @@ class Home extends React.Component {
         document.location.reload();
     }
 
+    setRouteCookie(loc){
+        document.cookie = "loc="+loc;
+    }
     render() {
         return (<div>
                 <Grid className={"topColumn"} container>
@@ -294,7 +298,7 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                <ButtonBase href = {`/Detail/${item.title}`}>
+                                                <ButtonBase onClick={this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
                                                     < img src={item.img} alt={item.title} loading="lazy"/>
                                                 </ButtonBase>
                                                 <ImageListItemBar align={"center"}

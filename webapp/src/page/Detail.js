@@ -22,7 +22,10 @@ import key from "./key.json";
 import logo1 from './logo.png'
 import Star from './Star'
 import Rating from "@mui/material/Rating";
+import { BrowserRouter as Router, Switch, useLocation } from 'react-router-dom'
+import { useSearchParams } from "react-router-dom";
 const url = "http://localhost:";
+
 
 class Detail extends React.Component {
     state = {
@@ -36,6 +39,7 @@ class Detail extends React.Component {
 
     initDetailPost = () => {
         const params = {
+            loc : this.getCookie("loc")
         }
         axios.post(url + "5000/initDetailPost", params).then((res) => {
             this.setState({
@@ -64,8 +68,8 @@ class Detail extends React.Component {
         return "";
     }
     showURL= () => {
-        let { loc } = useParams();
-        console.log(loc)
+        let location = this.getCookie("loc")
+        console.log(location);
     }
 
     componentDidMount = () => {
