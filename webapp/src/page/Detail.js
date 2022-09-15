@@ -22,10 +22,7 @@ import key from "./key.json";
 import logo1 from './logo.png'
 import Star from './Star'
 import Rating from "@mui/material/Rating";
-import { BrowserRouter as Router, Switch, useLocation } from 'react-router-dom'
-import { useSearchParams } from "react-router-dom";
 const url = "http://localhost:";
-
 
 class Detail extends React.Component {
     state = {
@@ -130,50 +127,64 @@ class Detail extends React.Component {
                         }
                     </Grid>
                 </Grid>
-                <Grid item md={10}>
-                    NAVI
-                </Grid>
-                <Grid item md={10}>
-                    Picture
-                </Grid>
-                <Grid item md={8}>
-                    <Stack direction={"row"}>
-                        <Stack>
-                            Introduction
-                        </Stack>
-                        <Stack id="mountainMap">
-                            <Map lat={this.state.lat} lng={this.state.lng}></Map>
-                        </Stack>
-                    </Stack>
-                    <Stack>
-                        Weather
-                    </Stack>
-                    <Stack>
-                        Weather detail
-                    </Stack>
-                    <Stack>
-                        Review Photos
-                    </Stack>
-                    <Stack direction={"row"}>
-                        <Stack>
+
+                <Grid container className={"container"}>
+                    <Grid item md={1} ></Grid>
+                    <Grid item md={10} className={"circle"}>
+                        <img src={require("./imgM/mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
+                        <span style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
+                        <span style={{fontSize:100,left:290,top:150,position:"absolute"}}>
+                            <Rating size={"large"} value={4} readOnly={true}></Rating>
+                        </span>
+                    </Grid>
+                    <Grid item md={1} ></Grid>
+
+
+                    <Grid container md={12}><br/></Grid>
+
+                <Grid container >
+                    <Grid item md={1} ></Grid>
+                    <Grid item md={7}className={"circle"}>
+                        <Stack direction="column">
+                            <Stack style={{fontSize:20}}>
+                            Try this 6.8km loop trail near Mount Keira, New South Wales.<br/>
+                            Generally considered a moderately challenging route, it takes an average of 2h 20min to complete.
+                            </Stack>
+                            <br/>
+
+
+                            <Stack className={"temp"}>
+                             Weather
+                            </Stack>
+                            <Stack>
+                             Weather content
+                            </Stack>
+                            <Stack>
+                                Reviews
+                            </Stack>
                             <span>
                                 <Rating  name="rate" size={"large"} onChange={(event, newValue) => {
                                     this.setState({rateValue:newValue})}} ></Rating>
-                                <br/>
-                                <Button variant="contained" onClick={this.showRating}>submit</Button>
+                                <Button variant="contained" onClick={this.showRating}>Write Review</Button>
+                            </span>
+                            <span>
+                                history
                             </span>
                         </Stack>
-                        <Stack>
-                            <Button fullWidth variant="contained">Write Review</Button>
-                        </Stack>
 
-                    </Stack>
-                    <Stack>
-                        The review
-                    </Stack>
+
+                    </Grid>
+
+                    <Grid item md={3}  className={"circle1"}>
+                            <Map lat={this.state.lat} lng={this.state.lng}></Map>
+                    </Grid>
+                    <Grid item md={1} ></Grid>
                 </Grid>
 
 
+
+                </Grid>
+                <br/>
                 <Footer>
                 </Footer>
             </div>
