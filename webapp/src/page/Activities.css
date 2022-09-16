@@ -1,0 +1,79 @@
+.navBar{
+    background-color: black;
+}
+.navBar1{
+    text-align: center;
+}
+.tab{
+    background-color: #F8F5F5;
+    text-align: center;
+    margin-left: 90px;
+    margin-right: auto;
+    border: 2px solid #F8F5F5;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px darkgray;
+}
+.search{
+    margin: 20px 20px 20px 90px;
+    box-shadow: 10px 10px 5px lightgray;
+}
+.vl{
+    border-left:3px solid black;
+
+}
+.input-text{
+    font-weight: bold;
+    font-family: Times, "Times New Roman", Georgia, serif;
+    font-size: large;
+}
+.mapImage{
+    background-image: url('./imgM/map-example.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.backgroundBlack{
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_firstColumn{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_secondColumn{
+    padding-top: 20px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+}
+.backgroundBlack_thirdColumn{
+    padding-top: 20px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_fourthColumn{
+    padding-top: 20px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.backgroundBlack_row{
+    background-color: #000000;
+    color: white;
+    text-align: center;
+}

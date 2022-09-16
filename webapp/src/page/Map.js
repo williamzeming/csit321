@@ -25,16 +25,16 @@ function MyComponent({lat, lng}) {
         googleMapsApiKey: key.mapkey
     })
 
-    const [map, setMap] = React.useState(null)
+    // const [map, setMap] = React.useState(null)
 
     const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds(center);
         map.fitBounds(bounds);
-        setMap(map)
+        // setMap(map)
     }, [])
 
     const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
+        // setMap(null)
     }, [])
 
     return isLoaded ? (
@@ -44,7 +44,7 @@ function MyComponent({lat, lng}) {
             center={center}
             zoom={10}
             // onLoad={onLoad}
-            onUnmount={onUnmount}
+            // onUnmount={onUnmount}
 
         >
             <Marker

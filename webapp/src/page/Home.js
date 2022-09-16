@@ -24,6 +24,8 @@ import logo1 from './logo.png'
 import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Footer from './Footer';
+import Map from "./Map";
+import {useNavigate} from "react-router";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -56,17 +58,20 @@ const bull = (
 var itemData = [
     {
         img: img1,
-        title: 'Bouddi, Australia',
+        title: 'Bouddi',
+        nation: 'Australia',
         name: 'Bouddi National Park',
     },
     {
         img: img2,
-        title: 'Tasmanian, Australia',
+        title: 'Tasmanian',
+        nation: 'Australia',
         name: 'Cradle Mountain',
     },
     {
         img: img3,
-        title: 'Alpine, Australia',
+        title: 'Alpine',
+        nation: 'Australia',
         name: 'Mount Kosciuszko',
     }
 ]
@@ -123,6 +128,9 @@ class Home extends React.Component {
         document.location.reload();
     }
 
+    setRouteCookie(loc){
+        document.cookie = "loc="+loc;
+    }
     render() {
         return (<div>
                 <Grid className={"topColumn"} container>
@@ -196,7 +204,6 @@ class Home extends React.Component {
                                             <Button fullWidth variant="outlined"
                                                     href={"/Register"}>Register</Button>
 
-
                                         </Stack>
                                     </Grid>
 
@@ -228,7 +235,8 @@ class Home extends React.Component {
                                     </Grid>) : (
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
-                                        <Button variant="contained">Sign Up</Button>
+                                        <Button variant="contained" href={"/Register"}>Sign Up</Button>
+    <br/><Button variant="contained" href={"/Activities"}>Activities</Button>
                                     </Grid>
                                 )
                             }
@@ -290,14 +298,11 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                {/*<img src={`${item.img}?w=248&fit=crop&auto=format`}*/}
-                                                {/*     srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}*/}
-                                                {/*     alt={item.title}*/}
-                                                {/*     loading="lazy"*/}
-                                                {/*/>*/}
-                                                < img src={item.img} alt={item.title} loading="lazy"/>
+                                                <ButtonBase onClick={this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
+                                                    < img src={item.img} alt={item.title} loading="lazy"/>
+                                                </ButtonBase>
                                                 <ImageListItemBar align={"center"}
-                                                                  title={item.title}
+                                                                  title={item.title+" , "+item.nation}
                                                                   subtitle={item.name}
                                                 />
                                             </ImageListItem>

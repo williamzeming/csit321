@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom/client";
 import {default as axios} from "axios";
-import { useParams  } from "react-router-dom";
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -20,23 +19,19 @@ import Footer from './Footer';
 import Map from './Map'
 import key from "./key.json";
 import logo1 from './logo.png'
-import Star from './Star'
-import Rating from "@mui/material/Rating";
+import Detail from "./Detail";
+
 const url = "http://localhost:";
 
-class Detail extends React.Component {
+class Test extends React.Component {
     state = {
         lat: 0,
         lng: 0,
-        loginState: false,
-        userName: this.getCookie('fname'),
-        rateValue:0
-    };
-
-
+        loginState: false
+    }
     initDetailPost = () => {
         const params = {
-            loc : this.getCookie("loc")
+            uid: 1
         }
         axios.post(url + "5000/initDetailPost", params).then((res) => {
             this.setState({
@@ -46,43 +41,22 @@ class Detail extends React.Component {
             console.log(this.state.lat)
         })
     }
-    checkLogin() {
-        var userID = this.getCookie("uid");
-        if (userID !== "") {
-            this.setState({loginState: true})
-        } else {
-            this.setState({loginState: false})
-        }
-    }
 
-    getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i].trim();
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-        }
-        return "";
+    showMap = () => {
+        console.log(this.state.lat)
+        // document.getElementById("mountainMap").innerHTML=""
+        // const container = ReactDOM.createRoot(document.getElementById("mountainMap"))
+        // container.render(<Map lat={this.state.lat} lng={this.state.lng}/>)
     }
-    showURL= () => {
-        let location = this.getCookie("loc")
-        console.log(location);
-    }
-
     componentDidMount = () => {
-        this.checkLogin();
+        // this.checkLogin();
         this.initDetailPost();
-
-    }
-
-    showRating= () =>{
-         console.log(this.state.rateValue)
     }
 
     render() {
         return (
             <div>
-                <Button onClick={this.showURL}>show url</Button>
+                <button onClick={this.showMap}>123123</button>
                 <Grid className={"column"} container>
                     <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}
@@ -106,7 +80,7 @@ class Detail extends React.Component {
                         {
                             this.state.loginState ? (
                                 <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
-                                    <Button fullWidth variant="outlined" href={"/Login"}>
+                                    <Button fullWidth variant="contained" href={"/Login"}>
                                         <div>{this.state.userName}</div>
                                     </Button>
                                     <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
@@ -123,75 +97,60 @@ class Detail extends React.Component {
                                     </Stack>
 
                                 </Grid>
+
+
                             )
                         }
+
                     </Grid>
+
                 </Grid>
-
-                <Grid container className={"container"}>
-                    <Grid item md={1} ></Grid>
-                    <Grid item md={10} className={"circle"}>
-                        <img src={require("./imgM/mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
-                        <span style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
-                        <span style={{fontSize:100,left:290,top:150,position:"absolute"}}>
-                            <Rating size={"large"} value={4} readOnly={true}></Rating>
-                        </span>
-                    </Grid>
-                    <Grid item md={1} ></Grid>
-
-
-                    <Grid container md={12}><br/></Grid>
-
-                <Grid container >
-                    <Grid item md={1} ></Grid>
-                    <Grid item md={7}className={"circle"}>
-                        <Stack direction="column">
-                            <Stack style={{fontSize:20}}>
-                            Try this 6.8km loop trail near Mount Keira, New South Wales.<br/>
-                            Generally considered a moderately challenging route, it takes an average of 2h 20min to complete.
-                            </Stack>
-                            <br/>
-
-
-                            <Stack className={"temp"}>
-                             Weather
-                            </Stack>
-                            <Stack>
-                             Weather content
-                            </Stack>
-                            <Stack>
-                                Reviews
-                            </Stack>
-                            <span>
-                                <Rating  name="rate" size={"large"} onChange={(event, newValue) => {
-                                    this.setState({rateValue:newValue})}} ></Rating>
-                                <Button variant="contained" onClick={this.showRating}>Write Review</Button>
-                            </span>
-                            <span>
-                                history
-                            </span>
+                <Grid item md={10}>
+                    NAVI
+                </Grid>
+                <Grid item md={10}>
+                    Picture
+                </Grid>
+                <Grid item md={8}>
+                    <Stack direction={"row"}>
+                        <Stack>
+                            Introduction
+                        </Stack>
+                        <Stack>
+                            <Map lat={this.state.lat} lng={this.state.lng}></Map>
+                        </Stack>
+                    </Stack>
+                    <Stack>
+                        Weather
+                    </Stack>
+                    <Stack>
+                        Weather detail
+                    </Stack>
+                    <Stack>
+                        Review Photos
+                    </Stack>
+                    <Stack direction={"row"}>
+                        <Stack>
+                            Score
+                        </Stack>
+                        <Stack>
+                            <Button fullWidth variant="contained">Write Review</Button>
                         </Stack>
 
-
-                    </Grid>
-
-                    <Grid item md={3}  className={"circle1"}>
-                            <Map lat={this.state.lat} lng={this.state.lng}></Map>
-                    </Grid>
-                    <Grid item md={1} ></Grid>
+                    </Stack>
+                    <Stack>
+                        The review
+                    </Stack>
                 </Grid>
 
 
-
-                </Grid>
-                <br/>
                 <Footer>
                 </Footer>
             </div>
-
         )
+
     }
 }
 
 
-export default Detail;
+export default Test;
