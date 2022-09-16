@@ -11,8 +11,6 @@ import Register from './page/Register';
 import Detail from './page/Detail';
 import Activities from './page/Activities'
 
-
-import Detail from './page/Detail';
 import Footer from './page/Footer';
 import Star from './page/Star';
 import Map from './page/Map';

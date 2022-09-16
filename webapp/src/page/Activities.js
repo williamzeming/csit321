@@ -19,6 +19,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import Footer from './Footer'
 
 
 function BasicDatePicker() {
@@ -50,7 +51,7 @@ class Activities extends React.Component {
                     </Grid>
                 </Grid>
                 <Grid item xs={6} className={"navBar1"}>
-                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/Home" underline="hover">Home</Button>
+                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Home</Button>
                     <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Community</Button>
                     <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Setting</Button>
                 </Grid>
@@ -168,48 +169,8 @@ class Activities extends React.Component {
                     <Grid item xs={7} className={"mapImage"}/>
                 </Grid><br/><br/>
 
-            {/*  bottom ys={3}*/}
-                <Grid container  className={"backgroundBlack"}>
-                    <Grid className={"backgroundBlack_firstColumn"}>
-                        <img src={logo1} width={50} height={50} style={{paddingRight: 10, paddingLeft: 10}}/>
-                        <div style={{paddingTop: 10}}>We Climb</div>
-                    </Grid>
-                    <Grid className={"backgroundBlack_secondColumn"}>
-                        <Stack spacing={1}>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                Environment
-                            </Link>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                Press Releases
-                            </Link>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                Privacy Policy
-                            </Link>
-                        </Stack>
-                    </Grid>
-                    <Grid className={"backgroundBlack_thirdColumn"}>
-                        <Stack spacing={1}>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                Contact Us
-                            </Link>
-                            <Link href="#" color="inherit" underline={'hover'}>
-                                041244321
-                            </Link>
-                        </Stack>
-                    </Grid>
-                    <Grid className={"backgroundBlack_fourthColumn"}>
-                        <Link href="#" color="inherit" underline={'hover'}>
-                            Learn More
-                        </Link>
-                    </Grid>
-                </Grid>
-                <Grid className={"backgroundBlack_row"}>
-                    <br/>
-                    <br/>
-                    <div className="link-top"></div>
-                    @ 2022 We Climb | All Rights Reserved
-                </Grid>
-
+            {/*  footer ys={3}*/}
+                <Footer/>
             </div>
         );
     };
