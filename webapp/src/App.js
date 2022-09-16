@@ -9,6 +9,10 @@ import Home from './page/Home';
 import Login from './page/Login';
 import Register from './page/Register';
 import Detail from './page/Detail';
+import Activities from './page/Activities'
+
+
+import Detail from './page/Detail';
 import Footer from './page/Footer';
 import Star from './page/Star';
 import Map from './page/Map';
@@ -21,6 +25,8 @@ class App extends Component {
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/Login" element={<Login/>}></Route>
                     <Route path="/Register" element={<Register/>} component={Register}></Route>
+                    <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
+                    <Route path="/Activities" element={<Activities/>} component={Activities}></Route>
 
 
                     <Route path="/Detail/:loc" element={<Detail/>}></Route>

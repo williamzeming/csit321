@@ -204,7 +204,6 @@ class Home extends React.Component {
                                             <Button fullWidth variant="outlined"
                                                     href={"/Register"}>Register</Button>
 
-
                                         </Stack>
                                     </Grid>
 
@@ -236,7 +235,8 @@ class Home extends React.Component {
                                     </Grid>) : (
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
-                                        <Button variant="contained">Sign Up</Button>
+                                        <Button variant="contained" href={"/Register"}>Sign Up</Button>
+    <br/><Button variant="contained" href={"/Activities"}>Activities</Button>
                                     </Grid>
                                 )
                             }
