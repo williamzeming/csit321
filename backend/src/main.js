@@ -83,13 +83,17 @@ app.post('/register', jsonParser, (req, res) => {
 
 app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
-    res.status(200).json({
-        mountains: {
-            mountain1: {mountain: "Mount Kosciuszko", city: "Canberra", state: "NSW"},
-            mountain2: {mountain: "Cradle Mountain", city: "Tasmania", state: "TAS"},
-            mountain3: {mountain: "Bluff Knoll", city: "Sterling ridge", state: "WA"}
-        }
+    mysql.popularSelect().then(res1 => {
+        res.status(200).json({
+            mountains: {
+                mountain1: {mountain: res1[0].MountName, city: res1[0].CITY, state: res1[0].STATE},
+                mountain2: {mountain: res1[1].MountName, city: res1[1].CITY, state: res1[1].STATE},
+                mountain3: {mountain: res1[2].MountName, city: res1[2].CITY, state: res1[2].STATE}
+            }
+        })
+        // console.log(res.body)
     })
+
 })
 
 app.post('/initDetailPost', jsonParser, (req, res) => {
@@ -97,6 +101,19 @@ app.post('/initDetailPost', jsonParser, (req, res) => {
     res.status(200).json({
         lat:-34.42036296539061,
         lng:150.8968482112078
+    })
+})
+
+
+app.post('/postComment', jsonParser, (req, res) => {
+    time = new Date();
+    time = time.toLocaleString();
+    mysql.insertComment(req.body.uid, req.body.loc, time, req.body.score , req.body.comment).then(res1 => {
+        console.log(res1)
+        res.status(200).json({
+            error: res1
+        })
+        console.log(res.body)
     })
 })
 //最后

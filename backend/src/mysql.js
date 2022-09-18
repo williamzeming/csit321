@@ -89,6 +89,59 @@ checkEmail = function (email) {
     });
     return promise;
 }
+exports.popularSelect = function () {
+    var promise = new Promise(function (resolve, reject) {
+        let createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'SELECT MountName, CITY, STATE FROM mountains order by Score desc limit 3';
+        createConnect.query(sql, function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                return;
+            }
+            result = JSON.parse(JSON.stringify(result));
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+exports.insertComment = function (uid,location,time,score,comments) {
+    var promise = new Promise(function (resolve, reject) {
+        var name = "James";
+        let createConnect = connectSQL();
+        createConnect.connect();
+        // get userNum
+        var sql = 'SELECT firstName FROM userInfo where userNum = ?';
+        createConnect.query(sql,[uid],function (err, result) {
+            if(err){
+                console.log('[SELECT ERROR] - ',err.message);
+            }
+            result = JSON.parse(JSON.stringify(result));
+            name = result[0]['firstName'];
+        });
+        var sql1 = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
+        createConnect.query(sql1,[name,location,time,score,comments],function (err, result) {
+            if(err){
+                console.log('[INSERT ERROR] - ',err.message);
+                resolve("insert fail");
+            }
+            console.log('insert success');
+            resolve("insert success");
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
 // promise template
 // var promise = new Promise(function (resolve, reject) {
 //

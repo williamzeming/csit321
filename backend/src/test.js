@@ -1,14 +1,14 @@
-// connectSQL = function () {
-//     var mysql = require('mysql');
-//     var connection = mysql.createConnection({
-//         host: '192.168.0.122',
-//         user: 'william',
-//         password: '123456',
-//         port: '3306',
-//         database: 'csit321'
-//     });
-//     return connection;
-// }
+connectSQL = function () {
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({
+        host: '192.168.0.122',
+        user: 'william',
+        password: '123456',
+        port: '3306',
+        database: 'csit321'
+    });
+    return connection;
+}
 //
 // checkEmail = function (email) {
 //     var promise = new Promise(function (resolve, reject) {
@@ -34,42 +34,78 @@
 //     console.log(res)
 // })
 
-function sendEmail(me,name, email,location,startDate,endDate,message) {
-    const nodemailer = require('nodemailer');
+// function sendEmail(me,name, email,location,startDate,endDate,message) {
+//     const nodemailer = require('nodemailer');
+//
+//     let transporter = nodemailer.createTransport({
+//         host: 'smtp.gmail.com', port: 465, secure: true, // use SSL
+//         auth: {
+//             user: 'deltaness118@gmail.com', pass: 'uviorgbzohwemzbj'
+//         }
+//     });
+//
+//     var mailOptions = {
+//         from: '"We Climb" <deltaness118@gmail.com>', // sender address
+//         to: email, // list of receivers
+//         subject: me+"'s trip to "+location, // Subject line
+//         text: 'Hello '+name+
+//             ":\nIt is me, "+me+". "
+//             +message+
+//             " \nfrom "+ startDate+
+//             " \nuntil "+ endDate +". "+
+//             "\nIf my trip goes right, you will receive another email to indicate you that I have back. "+
+//             "If not, please contact the police for help."
+//         // html: '<b>Hello world!</b>' // html body
+//     };
+//
+//     transporter.sendMail(mailOptions, function(error, info){
+//         if(error){
+//             return console.log(error);
+//         }
+//         console.log('Message sent: ' + info.response);
+//     });
+// }
+// sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
 
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com', port: 465, secure: true, // use SSL
-        auth: {
-            user: 'deltaness118@gmail.com', pass: 'uviorgbzohwemzbj'
+
+
+insertComment = function (uid,location,time,score,comments) {
+    var name = "James";
+    let createConnect = connectSQL();
+    createConnect.connect();
+    // get userNum
+    var sql = 'SELECT firstName FROM userInfo where userNum = ?';
+    createConnect.query(sql,[uid],function (err, result) {
+        if(err){
+            console.log('[SELECT ERROR] - ',err.message);
         }
+        result = JSON.parse(JSON.stringify(result));
+        name = result[0]['firstName'];
+        var sql1 = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
+        createConnect.query(sql1,[name,location,time,score,comments],function (err, result) {
+            if(err){
+                console.log('[INSERT ERROR] - ',err.message);
+            }
+            console.log('insert success');
+        });
+        createConnect.end();
     });
 
-    var mailOptions = {
-        from: '"We Climb" <deltaness118@gmail.com>', // sender address
-        to: email, // list of receivers
-        subject: me+"'s trip to "+location, // Subject line
-        text: 'Hello '+name+
-            ":\nIt is me, "+me+". "
-            +message+
-            " \nfrom "+ startDate+
-            " \nuntil "+ endDate +". "+
-            "\nIf my trip goes right, you will receive another email to indicate you that I have back. "+
-            "If not, please contact the police for help."
-        // html: '<b>Hello world!</b>' // html body
-    };
-
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            return console.log(error);
-        }
-        console.log('Message sent: ' + info.response);
-    });
+    //------------------insert comment------------------
+    // var sql = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
+    // createConnect.query(sql, [userName,location,time,score,comments], function (err, result) {
+    //     if (err) {
+    //         console.log('[INSERT ERROR] - ', err.message);
+    //         return;
+    //     }else{
+    //         console.log('insert success');
+    //     }
+    // });
 }
-sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
+time = new Date();
+time = time.toLocaleString();
 
-
-
-
+insertComment(27,"Melbourne",time,5,"good")
 
 
 
