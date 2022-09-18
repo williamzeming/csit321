@@ -67,23 +67,10 @@ connectSQL = function () {
 // }
 // sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
 
-selectDetailOnload = function (location) {
-    var connection = connectSQL();
-    connection.connect();
-    var sql = 'select coordinates,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
-    connection.query(sql, [location], function (err, result) {
-        if (err) {
-            console.log('[SELECT ERROR] - ', err.message);
-            return;
-        }
-        result = JSON.parse(JSON.stringify(result));
-
-        console.log(result);
-        return result;
-    });
+updateSetting = function (userNum,cusDOB, password, firstName, lastName, phone, email, gender){
+    var sql = 'UPDATE userInfo SET cusDOB = ?, password = ?, firstName = ?, lastName = ?, phoneNum = ?, email = ?,gender = ? WHERE userNum = ?';
+    con
 }
-
-selectDetailOnload("Mount Kosciuszko")
 
 
 

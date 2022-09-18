@@ -145,7 +145,7 @@ exports.selectDetailOnload = function (location) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();
         createConnect.connect();
-        var sql = 'select coordinates,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
+        var sql = 'select Longitude,Latitude,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
         createConnect.query(sql, [location], function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -186,12 +186,3 @@ exports.selectSettingOnload = function (uid) {
     return promise;
 }
 
-// promise template
-// var promise = new Promise(function (resolve, reject) {
-//
-// });
-// promise.then(function (value) {
-//     return value;
-// }, function (value) {
-// });
-// return promise;
