@@ -55,26 +55,7 @@ const bull = (
     </Box>
 );
 //images list
-var itemData = [
-    {
-        img: img1,
-        title: 'Bouddi',
-        nation: 'Australia',
-        name: 'Bouddi National Park',
-    },
-    {
-        img: img2,
-        title: 'Tasmanian',
-        nation: 'Australia',
-        name: 'Cradle Mountain',
-    },
-    {
-        img: img3,
-        title: 'Alpine',
-        nation: 'Australia',
-        name: 'Mount Kosciuszko',
-    }
-]
+
 
 class Home extends React.Component {
     state = {
@@ -82,7 +63,26 @@ class Home extends React.Component {
         loginState: false,
         userName: this.getCookie('fname')
     }
-
+    itemData = [
+        {
+            img: img1,
+            title: 'Bouddi',
+            nation: 'Australia',
+            name: 'Bouddi National Park',
+        },
+        {
+            img: img2,
+            title: 'Tasmanian',
+            nation: 'Australia',
+            name: 'Cradle Mountain',
+        },
+        {
+            img: img3,
+            title: 'Alpine',
+            nation: 'Australia',
+            name: 'Mount Kosciuszko',
+        }
+    ]
     //加载自动运行
     componentDidMount = () => {
         this.checkLogin();
@@ -90,16 +90,19 @@ class Home extends React.Component {
 
 
     }
-
     initHomePost = () => {
         const params = {
             uid: this.getCookie("uid")
         }
         axios.post(url + "5000/initHomePost", params).then((res) => {
-            var mountains = res.data.mountains
-            //itemData[1].img = "./imgM/"+mountains.mountain1.mountain+".jpg"
-            // itemData[1].img =require("./imgM/MountKosciuszko.jpg")
-            // console.log(itemData)
+            for (var i = 0;i<3;i++){
+                var mountains = res.data.res1[i]
+                this.itemData[i].img = require('./imgM/'+mountains.MountName+'.jpg')
+                this.itemData[i].title = mountains.CITY
+                this.itemData[i].nation = mountains.STATE
+                this.itemData[i].name = mountains.MountName
+            }
+
         })
     }
 
@@ -306,7 +309,7 @@ class Home extends React.Component {
                                 <Grid item xs={1}/>
                                 <Grid item xs={10}>
                                     <ImageList cols={3} gap={8}>
-                                        {itemData.map((item) => (
+                                        {this.itemData.map((item) => (
                                             <ImageListItem key={item.img}>
                                                 <ButtonBase onClick={()=>this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
                                                     < img src={item.img} alt={item.title} loading="lazy"/>

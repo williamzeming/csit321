@@ -85,13 +85,14 @@ app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.popularSelect().then(res1 => {
         res.status(200).json({
-            mountains: {
-                mountain1: {mountain: res1[0].MountName, city: res1[0].CITY, state: res1[0].STATE},
-                mountain2: {mountain: res1[1].MountName, city: res1[1].CITY, state: res1[1].STATE},
-                mountain3: {mountain: res1[2].MountName, city: res1[2].CITY, state: res1[2].STATE}
-            }
+            // mountains: {
+            //     mountain1: {path:'imgM/'+res1[0].MountName+'.jpg',mountain: res1[0].MountName, city: res1[0].CITY, state: res1[0].STATE},
+            //     mountain2: {path:'imgM/'+res1[1].MountName+'.jpg',mountain: res1[1].MountName, city: res1[1].CITY, state: res1[1].STATE},
+            //     mountain3: {path:'imgM/'+res1[2].MountName+'.jpg',mountain: res1[2].MountName, city: res1[2].CITY, state: res1[2].STATE}
+            // }
+            res1
         })
-        // console.log(res.body)
+        console.log(res1)
     })
 
 })
