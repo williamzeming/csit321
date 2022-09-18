@@ -38,7 +38,7 @@ class Detail extends React.Component {
 
     initDetailPost = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
-        document.getElementById("mountImage").src=require("./imgM/Mount "+this.getCookie("loc")+".jpg");
+        document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
         const params = {
             loc : this.getCookie("loc")
         }

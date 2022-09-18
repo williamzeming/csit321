@@ -311,7 +311,7 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {this.itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                <ButtonBase onClick={()=>this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
+                                                <ButtonBase onClick={()=>this.setRouteCookie(item.name)} href = {`/Detail/${item.name}`}>
                                                     < img src={item.img} alt={item.title} loading="lazy"/>
                                                 </ButtonBase>
                                                 <ImageListItemBar align={"center"}

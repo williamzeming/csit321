@@ -113,7 +113,9 @@ app.post('/detailOnload', jsonParser, (req, res) => {
         res.status(200).json({
             info: res1
         })
+        console.log(res1)
     })
+
 })
 
 // 接口名称：/postComment
