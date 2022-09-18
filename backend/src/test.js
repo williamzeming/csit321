@@ -67,45 +67,23 @@ connectSQL = function () {
 // }
 // sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
 
-
-
-insertComment = function (uid,location,time,score,comments) {
-    var name = "James";
-    let createConnect = connectSQL();
-    createConnect.connect();
-    // get userNum
-    var sql = 'SELECT firstName FROM userInfo where userNum = ?';
-    createConnect.query(sql,[uid],function (err, result) {
-        if(err){
-            console.log('[SELECT ERROR] - ',err.message);
+selectDetailOnload = function (location) {
+    var connection = connectSQL();
+    connection.connect();
+    var sql = 'select coordinates,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
+    connection.query(sql, [location], function (err, result) {
+        if (err) {
+            console.log('[SELECT ERROR] - ', err.message);
+            return;
         }
         result = JSON.parse(JSON.stringify(result));
-        name = result[0]['firstName'];
-        var sql1 = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
-        createConnect.query(sql1,[name,location,time,score,comments],function (err, result) {
-            if(err){
-                console.log('[INSERT ERROR] - ',err.message);
-            }
-            console.log('insert success');
-        });
-        createConnect.end();
+
+        console.log(result);
+        return result;
     });
-
-    //------------------insert comment------------------
-    // var sql = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
-    // createConnect.query(sql, [userName,location,time,score,comments], function (err, result) {
-    //     if (err) {
-    //         console.log('[INSERT ERROR] - ', err.message);
-    //         return;
-    //     }else{
-    //         console.log('insert success');
-    //     }
-    // });
 }
-time = new Date();
-time = time.toLocaleString();
 
-insertComment(27,"Melbourne",time,5,"good")
+selectDetailOnload("Mount Kosciuszko")
 
 
 

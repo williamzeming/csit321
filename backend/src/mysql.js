@@ -141,6 +141,28 @@ exports.insertComment = function (uid,location,time,score,comments) {
     });
     return promise;
 }
+exports.selectDetailOnload = function (location) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select coordinates,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
+        createConnect.query(sql, [location], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                return;
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
 
 // promise template
 // var promise = new Promise(function (resolve, reject) {

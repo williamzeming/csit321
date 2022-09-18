@@ -103,8 +103,23 @@ app.post('/initDetailPost', jsonParser, (req, res) => {
         lng:150.8968482112078
     })
 })
+// 接口名称：/detailOnload
+// 接口参数：loc
+// 接口返回值：info[] 里面是所有的comment信息，用索引取值就行
+app.post('/detailOnload', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    mysql.selectDetailOnload(req.body.loc).then(res1 => {
+        res.status(200).json({
+            info: res1
+        })
+    })
+})
 
 
+
+// 接口名称：/detailOnload
+// 接口参数：uid, loc, score, comment
+// 接口返回值：error or success
 app.post('/postComment', jsonParser, (req, res) => {
     time = new Date();
     time = time.toLocaleString();
