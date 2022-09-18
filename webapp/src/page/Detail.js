@@ -23,6 +23,7 @@ import logo1 from './logo.png'
 import Star from './Star'
 import Rating from "@mui/material/Rating";
 import TextField from '@mui/material/TextField';
+import img3 from './imgM/MountKosciuszko.jpg';
 const url = "http://localhost:";
 
 class Detail extends React.Component {
@@ -36,14 +37,17 @@ class Detail extends React.Component {
 
 
     initDetailPost = () => {
+        document.getElementById("mountName").innerHTML=this.getCookie("loc");
+        document.getElementById("mountImage").src=require("./imgM/Mount "+this.getCookie("loc")+".jpg");
         const params = {
             loc : this.getCookie("loc")
         }
-        axios.post(url + "5000/initDetailPost", params).then((res) => {
+        axios.post(url + "5000/detailOnload", params).then((res) => {
             this.setState({
-                lat: res.data.lat,
-                lng: res.data.lng
+                // lat: res.data.lat,
+                // lng: res.data.lng
             })
+
             console.log(this.state.lat)
         })
     }
@@ -79,6 +83,10 @@ class Detail extends React.Component {
     }
 
     finish= () =>{
+        var userID = this.getCookie("uid");
+        if (userID == ""){
+            alert("Please login")
+        }
         var text=document.getElementById("text").value;
         console.log(this.state.rateValue+text)
     }
@@ -134,10 +142,10 @@ class Detail extends React.Component {
                 <Grid container className={"container"}>
                     <Grid item md={1} ></Grid>
                     <Grid item md={10} className={"circle"}>
-                        <img src={require("./imgM/"+"mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
-                        <span style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
+                        <img id="mountImage" src={require("./imgM/mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
+                        <span id="mountName" style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
                         <span style={{fontSize:100,left:290,top:150,position:"absolute"}}>
-                            <Rating size={"large"} value={4} readOnly={true}></Rating>
+                            <Rating id="showRating" size={"large"} value={4} readOnly={true}></Rating>
                         </span>
                     </Grid>
                     <Grid item md={1} ></Grid>
