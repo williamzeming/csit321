@@ -134,7 +134,7 @@ class Detail extends React.Component {
                 <Grid container className={"container"}>
                     <Grid item md={1} ></Grid>
                     <Grid item md={10} className={"circle"}>
-                        <img src={require("./imgM/mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
+                        <img src={require("./imgM/"+"mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
                         <span style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
                         <span style={{fontSize:100,left:290,top:150,position:"absolute"}}>
                             <Rating size={"large"} value={4} readOnly={true}></Rating>

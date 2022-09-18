@@ -128,9 +128,18 @@ class Home extends React.Component {
         document.location.reload();
     }
 
-    setRouteCookie(loc){
-        document.cookie = "loc="+loc;
+    setRouteCookie(loc) {
+        document.cookie = "loc="+loc
+        console.log(loc)
+        // window.location.href = `/Detail/${loc}`
     }
+
+    searchLoc() {
+        const loc = document.getElementById("searchBox").value
+        document.cookie = "loc="+loc
+        window.location.href = `/Detail/${loc}`
+    }
+
     render() {
         return (<div>
                 <Grid className={"topColumn"} container>
@@ -171,8 +180,9 @@ class Home extends React.Component {
                                 <InputBase
                                     sx={{ml: 1, flex: 1}}
                                     placeholder="Search"
+                                    id={"searchBox"}
                                 />
-                                <IconButton type="button" sx={{p: '10px'}} aria-label="search">
+                                <IconButton type="button" sx={{p: '10px'}} aria-label="search" onClick={this.searchLoc}>
                                     <SearchIcon/>
                                 </IconButton>
                             </Paper>
@@ -236,7 +246,7 @@ class Home extends React.Component {
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
                                         <Button variant="contained" href={"/Register"}>Sign Up</Button>
-    <br/><Button variant="contained" href={"/Activities"}>Activities</Button>
+                                        <br/><Button variant="contained" href={"/Activities"}>Activities</Button>
                                     </Grid>
                                 )
                             }
@@ -298,7 +308,7 @@ class Home extends React.Component {
                                     <ImageList cols={3} gap={8}>
                                         {itemData.map((item) => (
                                             <ImageListItem key={item.img}>
-                                                <ButtonBase onClick={this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
+                                                <ButtonBase onClick={()=>this.setRouteCookie(item.title)} href = {`/Detail/${item.title}`}>
                                                     < img src={item.img} alt={item.title} loading="lazy"/>
                                                 </ButtonBase>
                                                 <ImageListItemBar align={"center"}
