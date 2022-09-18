@@ -115,9 +115,7 @@ app.post('/detailOnload', jsonParser, (req, res) => {
     })
 })
 
-
-
-// 接口名称：/detailOnload
+// 接口名称：/postComment
 // 接口参数：uid, loc, score, comment
 // 接口返回值：error or success
 app.post('/postComment', jsonParser, (req, res) => {
@@ -131,6 +129,19 @@ app.post('/postComment', jsonParser, (req, res) => {
         console.log(res.body)
     })
 })
+
+// 接口名称：/settingOnload
+// 接口参数：uid
+// 接口返回值：user 的所有信息
+app.post('/settingOnload', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    mysql.selectSettingOnload(req.body.uid).then(res1 => {
+        res.status(200).json({
+             res1
+        })
+    })
+})
+
 //最后
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

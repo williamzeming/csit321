@@ -163,6 +163,28 @@ exports.selectDetailOnload = function (location) {
     });
     return promise;
 }
+exports.selectSettingOnload = function (uid) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select * from userInfo where userNum = ?';
+        createConnect.query(sql, [uid], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                return;
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
 
 // promise template
 // var promise = new Promise(function (resolve, reject) {
