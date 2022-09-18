@@ -22,6 +22,7 @@ import key from "./key.json";
 import logo1 from './logo.png'
 import Star from './Star'
 import Rating from "@mui/material/Rating";
+import TextField from '@mui/material/TextField';
 const url = "http://localhost:";
 
 class Detail extends React.Component {
@@ -54,7 +55,11 @@ class Detail extends React.Component {
             this.setState({loginState: false})
         }
     }
-
+    logout() {
+        document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        this.setState({loginState: false})
+        document.location.reload();
+    }
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -68,17 +73,15 @@ class Detail extends React.Component {
         let location = this.getCookie("loc")
         console.log(location);
     }
-
     componentDidMount = () => {
         this.checkLogin();
         this.initDetailPost();
-
     }
 
-    showRating= () =>{
-         console.log(this.state.rateValue)
+    finish= () =>{
+        var text=document.getElementById("text").value;
+        console.log(this.state.rateValue+text)
     }
-
     render() {
         return (
             <div>
@@ -146,30 +149,47 @@ class Detail extends React.Component {
                     <Grid item md={1} ></Grid>
                     <Grid item md={7}className={"circle"}>
                         <Stack direction="column">
-                            <Stack style={{fontSize:20}}>
+                            <Stack style={{fontSize:20}} >
                             Try this 6.8km loop trail near Mount Keira, New South Wales.<br/>
                             Generally considered a moderately challenging route, it takes an average of 2h 20min to complete.
                             </Stack>
                             <br/>
 
 
-                            <Stack className={"temp"}>
+                            <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
                              Weather
                             </Stack>
-                            <Stack>
+                            <br/>
+                            <Stack className={"temp"}>
                              Weather content
                             </Stack>
-                            <Stack>
-                                Reviews
+                            <br/>
+                            <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
+                                Reviews History
                             </Stack>
-                            <span>
+                            <br/>
+                            <Stack>
+                                history
+                            </Stack>
+                            <br/>
+                            <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
+                                Your Review
+                            </Stack>
+                            <br/>
+                            <Stack>
                                 <Rating  name="rate" size={"large"} onChange={(event, newValue) => {
                                     this.setState({rateValue:newValue})}} ></Rating>
-                                <Button variant="contained" onClick={this.showRating}>Write Review</Button>
-                            </span>
-                            <span>
-                                history
-                            </span>
+
+                            </Stack>
+                            <br/>
+                            <Stack>
+                                <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
+                                    <TextField id="text" label="Please write your comment" variant="outlined" fullWidth multiline maxRows={5}></TextField>
+                                    <Button  variant="outlined" onClick={this.finish}
+                                           >Finish</Button>
+                                </Stack>
+
+                            </Stack>
                         </Stack>
 
 
