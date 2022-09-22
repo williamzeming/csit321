@@ -20,7 +20,10 @@ import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Footer from './Footer'
+import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material/styles";
 
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 function BasicDatePicker() {
     const [value, setValue] = React.useState<Dayjs | null>(null);
@@ -59,9 +62,9 @@ class Activities extends React.Component {
                     <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Help</Button>
                 </Grid>
             </Grid><br/>
-     {/*tab bar ys={2}*/}
+     {/*tab bar ys={2} sx={{ width: '30%' }}*/}
                 <Grid container >
-                    <Box sx={{ width: '30%' }} className={"tab"}>
+                    <Box  className={"tab"}>
                         <Tabs
                             value={ColorTab.value}
                             onChange={(event: React.SyntheticEvent, newValue: string) => {
@@ -70,16 +73,17 @@ class Activities extends React.Component {
                             indicatorColor="secondary"
                             aria-label="secondary tabs example"
                         >
+                            <Tab value="home" label="Home" href={"/"}/>
                             <Tab value="profile" label="Profile" href={"/"}/>
                             <Tab value="activities" label="Activities" href={"/Activities"}/>
-                            <Tab value="completed" label="Completed" href={"/"}/>
-                            <Tab value="review" label="Review" href={"/"}/>
+                            {/*  <Tab value="completed" label="Completed" href={"/"}/>
+                            <Tab value="review" label="Review" href={"/"}/> */}
                         </Tabs>
                     </Box>
                 </Grid><br/>
                 <hr/>
   {/*search bar xs={2} */}
-                <Grid container xs={2} className={"search"}>
+                {/*  <Grid container xs={2} className={"search"}>
                     <Paper
                         component="form"
                         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
@@ -93,8 +97,8 @@ class Activities extends React.Component {
                         <SearchIcon />
                     </IconButton>
                     </Paper>
-                </Grid> <hr/><br/>
-   {/*main ys={4}*/}
+                </Grid> <hr/><br/> */}
+   {/*main ys={4}*/}<br/>
                 <Grid container>
                     <Grid item xs={1} />
                     <Grid item xs={3}>
@@ -108,30 +112,40 @@ class Activities extends React.Component {
                         >
                         <div>
                             <div className={"input-text"}>Name:</div>
-                            <TextField
+                            {/* <TextField
                                 required
                                 id="outlined-required"
                                 margin="dense"
-                            /></div><br/>
+                            />*/}
+                            <ThemeProvider theme={theme}>
+                                <TextField required={true} fullWidth id="name" variant="standard"/>
+                            </ThemeProvider>
+                        </div><br/>
                             <div>
                                 <div className={"input-text"}>Emergency Contact:</div>
-                            <TextField
+                                {/* <TextField
                                 required
                                 id="standard-required"
                                 margin="dense"
-                            /></div><br/>
+                            />*/}
+                                <ThemeProvider theme={theme}>
+                                    <TextField required={true} fullWidth id="emergency contact" variant="standard"/>
+                                </ThemeProvider></div><br/>
                             <div>
                                 <div className={"input-text"}>Climbing Location:</div>
-                            <TextField
+                                {/*<TextField
                                 required
                                 id="standard-required"
                                 margin="dense"
-                            />
+                            />*/}
+                                <ThemeProvider theme={theme}>
+                                    <TextField required={true} fullWidth id="climbing location" variant="standard"/>
+                                </ThemeProvider>
                             </div>
                         </Box><br/>
                         <div>
                             <div className={"input-text"}>Start Date: </div><br/>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
                                     value={BasicDatePicker.value}
                                     onChange={(newValue) => {
@@ -139,11 +153,15 @@ class Activities extends React.Component {
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
-                            </LocalizationProvider>
+                            </LocalizationProvider> */}
+                            <TextField style={{width:230}} InputLabelProps={{
+                                shrink: true,
+                            }} required={true} id="start date"
+                                       variant="standard" type="date"/>
                         </div><br/>
                         <div>
                             <div className={"input-text"}>End Date: </div><br/>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
                                     value={BasicDatePicker.value}
                                     onChange={(newValue) => {
@@ -151,15 +169,23 @@ class Activities extends React.Component {
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
-                            </LocalizationProvider>
+                            </LocalizationProvider> */}
+                            <TextField style={{width:230}} InputLabelProps={{
+                                shrink: true,
+                            }} required={true} id="end date"
+                                       variant="standard" type="date"/>
                         </div><br/>
                         <div>
                             <div className={"input-text"}>Notes: </div><br/>
-                        <TextareaAutosize
+                            {/*  <TextareaAutosize
                             aria-label="minimum height"
                             minRows={3}
                             placeholder="Optional..."
                             style={{ width: 200 }}
+                        /> */}  <TextField
+                            id="outlined-multiline-static"
+                            multiline
+                            rows={4}
                         />
                         </div><br/>
                         <Button variant="contained">Check In</Button>
