@@ -44,3 +44,9 @@ update mountains set Score = (Score*19 + 4.9)/20 where MountName = 'Mount Kosciu
 alter table mountains change Score Score double not null;
 
 alter table mountains add constraint scoreCheck check (Score >= 0 and Score <= 5);
+
+create trigger updateScore after insert on comment
+    for each row
+    begin
+        update mountains set Score = (Score*19 + new.score)/20 where MountName = new.location;
+    end;
