@@ -39,6 +39,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import Sunny from './sunny.png';
 import Rainy from './rainy.png';
 import Cloudy from './cloudy.png';
+
 const url = "http://localhost:";
 const Img = styled('img')({
     margin: 'auto',
@@ -46,6 +47,7 @@ const Img = styled('img')({
     maxWidth: '100%',
     maxHeight: '100%',
 });
+
 class Detail extends React.Component {
     state = {
         lat: 0,
@@ -97,7 +99,8 @@ class Detail extends React.Component {
     ]
     initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
-        document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
+        // document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
+        document.getElementById("mountImage").src=require("./imgM/test.jpg");
         const params = {
             loc : this.getCookie("loc")
 
@@ -121,7 +124,9 @@ class Detail extends React.Component {
             var comments = res.data.res1;
             if (this.commentItemData.length !== comments.length){
                 for (var i = 0;i<comments.length;i++){
-                    var singleCom = {name:comments[i].userName,data:comments[i].time,comment:comments[i].comments}
+                    var date = new Date(comments[i].time)
+                    var time = date.getMonth()+"/"+date.getDate();
+                    var singleCom = {name:comments[i].userName,data:time,comment:comments[i].comments}
                     this.commentItemData.push(singleCom)
                 }
             }
@@ -131,7 +136,7 @@ class Detail extends React.Component {
     }
     postComment= () =>{
         var userID = this.getCookie("uid");
-        if (userID == ""){
+        if (userID === ""){
             alert("Please login")
         }
         var text=document.getElementById("text").value;
@@ -164,7 +169,7 @@ class Detail extends React.Component {
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i].trim();
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
         }
         return "";
     }
@@ -172,7 +177,11 @@ class Detail extends React.Component {
         let location = this.getCookie("loc")
         console.log(location);
     }
-
+    setRouteCookie(loc) {
+        document.cookie = "loc="+loc
+        console.log(loc)
+        // window.location.href = `/Detail/${loc}`
+    }
     componentDidMount = () => {
         this.checkLogin();
         this.initDetailOnload();
@@ -206,7 +215,6 @@ class Detail extends React.Component {
     render() {
         return (
             <div>
-                <Button onClick={this.showURL}>show url</Button>
                 <Grid className={"column"} container>
                     <Grid className={"topFirstColumn"} item xs={3} md={4} lg={4}>
                         <img src={logo1} height={25} width={25} style={{paddingLeft: 10, marginBottom: 3}}
@@ -380,7 +388,7 @@ class Detail extends React.Component {
                                 >
                                     <Grid container spacing={2}>
                                         <Grid item>
-                                            <ButtonBase sx={{ width: 128, height: 128 }}>
+                                            <ButtonBase sx={{ width: 128, height: 128 }} href={`/Detail/${item.name}`} onClick={()=>this.setRouteCookie(item.name)}>
                                                 <Img alt="complex" src={item.img}/>
                                             </ButtonBase>
                                         </Grid>

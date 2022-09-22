@@ -25,10 +25,7 @@ class App extends Component {
                     <Route path="/Register" element={<Register/>} component={Register}></Route>
                     <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
                     <Route path="/Activities" element={<Activities/>} component={Activities}></Route>
-
-
                     <Route path="/Detail/:loc" element={<Detail/>}></Route>
-
 
                     {/*<Route path="/Detail">*/}
                     {/*    <Route path=":loc" element={<Detail/>} component={Detail}></Route>*/}

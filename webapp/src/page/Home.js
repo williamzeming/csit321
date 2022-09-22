@@ -120,7 +120,7 @@ class Home extends React.Component {
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i].trim();
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
         }
         return "";
     }
@@ -195,8 +195,8 @@ class Home extends React.Component {
                     <Grid item xs={3} md={4} lg={3}>
                         <Stack direction="row" spacing={2}>
                             <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
-                                <Link style={{paddingRight: 20}} to="/" underline="hover">Home</Link>
-                                <Link style={{paddingRight: 20}} to="/" underline="hover">Community</Link>
+                                <Link style={{paddingRight: 20}} href="/" underline="hover">Home</Link>
+                                <Link style={{paddingRight: 20}} href="/Activities" underline="hover">Activities</Link>
                             </Stack>
                             {
                                 this.state.loginState ? (
@@ -249,7 +249,7 @@ class Home extends React.Component {
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
                                         <Button variant="contained" href={"/Register"}>Sign Up</Button>
-                                        <br/><Button variant="contained" href={"/Activities"}>Activities</Button>
+                                        {/*<br/><Button variant="contained" href={"/Activities"}>Activities</Button>*/}
                                     </Grid>
                                 )
                             }
