@@ -41,41 +41,45 @@ class Detail extends React.Component {
         lng: 0,
         loginState: false,
         userName: this.getCookie('fname'),
-        rateValue:0
+        rateValue:0,
+        Score:5
     };
     commentItemData = [
-        {
-            name:"userName",
-            data:"data",
-            comment: "comment"
-        },
-        {
-            name:"userName",
-            data:"data",
-            comment: "comment"
-        }
     ]
 
     initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
         document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
         const params = {
-            // loc : this.getCookie("loc")
-            loc : "Mount Kosciuszko"
+            loc : this.getCookie("loc")
+
         }
-        axios.post(url + "5000/initDetailOnload", params).then((res) => {
-            var detail = res.data.res1[1];
+        axios.post(url + "5000/mountainDetailOnload", params).then((res) => {
+            var detail = res.data.res1[0];
             console.log(detail)
             this.setState({
                 lat: parseFloat(detail.Latitude),
-                lng: parseFloat(detail.Longitude)
-
+                lng: parseFloat(detail.Longitude),
+                Score:detail.Score
             })
 
         })
     }
-    loadComments= () =>{
+    commentDetailOnload(){
+        const params = {
+            loc : this.getCookie("loc")
+        }
+        axios.post(url + "5000/commentDetailOnload", params).then((res) => {
+            var comments = res.data.res1;
+            if (this.commentItemData.length !== comments.length){
+                for (var i = 0;i<comments.length;i++){
+                    var singleCom = {name:comments[i].userName,data:comments[i].time,comment:comments[i].comments}
+                    this.commentItemData.push(singleCom)
+                }
+            }
 
+        })
+        console.log(this.commentItemData)
     }
     postComment= () =>{
         var userID = this.getCookie("uid");
@@ -123,7 +127,7 @@ class Detail extends React.Component {
     componentDidMount = () => {
         this.checkLogin();
         this.initDetailOnload();
-        this.loadComments();
+        this.commentDetailOnload()
     }
 
     render() {
@@ -181,7 +185,7 @@ class Detail extends React.Component {
                         <img id="mountImage" src={require("./imgM/mountKeira.jpg")} className={"image"} title={"Mount Keira"} style={{borderRadius:20}}/>
                         <span id="mountName" style={{color:"white",fontSize:80,left:290,top:100,position:"absolute"}}>Mount Keira</span>
                         <span style={{fontSize:100,left:290,top:150,position:"absolute"}}>
-                            <Rating id="showRating" size={"large"} value={4} readOnly={true}></Rating>
+                            <Rating id="showRating" size={"large"} value={this.state.Score} readOnly={true}></Rating>
                         </span>
                     </Grid>
                     <Grid item md={1} ></Grid>
@@ -191,7 +195,7 @@ class Detail extends React.Component {
 
                 <Grid container >
                     <Grid item md={1} ></Grid>
-                    <Grid item md={7}className={"circle"}>
+                    <Grid item md={7} className={"circle"}>
                         <Stack direction="column">
                             <Stack style={{fontSize:20}} >
                             Try this 6.8km loop trail near Mount Keira, New South Wales.<br/>
