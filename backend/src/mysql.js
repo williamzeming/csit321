@@ -110,20 +110,10 @@ exports.popularSelect = function () {
     });
     return promise;
 }
-exports.insertComment = function (uid,location,time,score,comments) {
+exports.insertComment = function (name,location,time,score,comments) {
     var promise = new Promise(function (resolve, reject) {
-        var name = "James";
         let createConnect = connectSQL();
         createConnect.connect();
-        // get userNum
-        var sql = 'SELECT firstName FROM userInfo where userNum = ?';
-        createConnect.query(sql,[uid],function (err, result) {
-            if(err){
-                console.log('[SELECT ERROR] - ',err.message);
-            }
-            result = JSON.parse(JSON.stringify(result));
-            name = result[0]['firstName'];
-        });
         var sql1 = 'INSERT INTO comment (userName,location,time,score,comments) VALUE (?,?,?,?,?)';
         createConnect.query(sql1,[name,location,time,score,comments],function (err, result) {
             if(err){

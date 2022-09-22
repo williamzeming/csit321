@@ -40,3 +40,7 @@
 --     Lookout        varchar(50) not null
 -- );
 
+update mountains set Score = (Score*19 + 4.9)/20 where MountName = 'Mount Kosciuszko';
+alter table mountains change Score Score double not null;
+
+alter table mountains add constraint scoreCheck check (Score >= 0 and Score <= 5);
