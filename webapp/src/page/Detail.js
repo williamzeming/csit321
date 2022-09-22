@@ -10,7 +10,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import ImageIcon from '@mui/icons-material/Image';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import WorkIcon from '@mui/icons-material/Work';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Divider from '@mui/material/Divider';
@@ -33,8 +33,15 @@ import Star from './Star'
 import Rating from "@mui/material/Rating";
 import TextField from '@mui/material/TextField';
 import img3 from './imgM/MountKosciuszko.jpg';
+import img1 from "./imgM/Ironstone Mountain.jpg";
+import img2 from "./imgM/Mother Cummings Peak.jpg";
 const url = "http://localhost:";
-
+const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+});
 class Detail extends React.Component {
     state = {
         lat: 0,
@@ -45,6 +52,26 @@ class Detail extends React.Component {
         Score:5
     };
     commentItemData = [
+    ]
+    recommends = [
+        {
+            img: img1,
+            title: 'Bouddi',
+            nation: 'Australia',
+            name: 'Bouddi National Park',
+        },
+        {
+            img: img2,
+            title: 'Tasmanian',
+            nation: 'Australia',
+            name: 'Cradle Mountain',
+        },
+        {
+            img: img3,
+            title: 'Alpine',
+            nation: 'Australia',
+            name: 'Mount Kosciuszko',
+        }
     ]
 
     initDetailOnload = () => {
@@ -85,10 +112,12 @@ class Detail extends React.Component {
         var userID = this.getCookie("uid");
         if (userID == ""){
             alert("Please login")
+            return;
         }
         var text=document.getElementById("text").value;
         const params = {
             uid: userID,
+            fname: this.getCookie("fname"),
             loc:this.getCookie("loc"),
             score:this.state.rateValue,
             comment: text
@@ -229,7 +258,7 @@ class Detail extends React.Component {
                                             <ListItem>
                                                 <ListItemAvatar>
                                                     <Avatar>
-                                                        <ImageIcon />
+                                                        <AccountCircleIcon />
                                                     </Avatar>
                                                 </ListItemAvatar>
                                                 <ListItemText primary={item.name+"    "+item.data} secondary={item.comment} />
@@ -265,8 +294,47 @@ class Detail extends React.Component {
                     </Grid>
 
                     <Grid item md={3}  className={"circle1"}>
+                        <div>
                             <Map lat={this.state.lat} lng={this.state.lng}></Map>
+                            <br/>
+                        </div>
+
+
+                        <Paper
+                            sx={{
+                                p: 2,
+                                margin: 'auto',
+                                maxWidth: 350,
+                                flexGrow: 1,
+                                // backgroundColor: (theme) =>
+                                //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                            }}
+                        >
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    <ButtonBase sx={{ width: 128, height: 128 }}>
+                                        <Img alt="complex" src={this.recommends[0].img} />
+                                    </ButtonBase>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <Grid item xs container direction="column" spacing={2}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom variant="subtitle1" component="div">
+                                                {this.recommends[0].name}
+                                            </Typography>
+                                            <Typography variant="body2" gutterBottom>
+                                                {this.recommends[0].title}
+                                                {this.recommends[0].nation}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+
+                            </Grid>
+                        </Paper>
+
                     </Grid>
+
                     <Grid item md={1} ></Grid>
                 </Grid>
 
