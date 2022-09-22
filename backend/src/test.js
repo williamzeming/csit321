@@ -68,9 +68,20 @@ connectSQL = function () {
 // sendEmail("James","Lydia","xingjian_lee@126.com","Melbourne","2018-01-01","2018-01-10","I'm going to Melbourne for 10 days")
 
 updateSetting = function (userNum,cusDOB, password, firstName, lastName, phone, email, gender){
+    var connection = connectSQL();
+    connection.connect();
     var sql = 'UPDATE userInfo SET cusDOB = ?, password = ?, firstName = ?, lastName = ?, phoneNum = ?, email = ?,gender = ? WHERE userNum = ?';
-    con
+    connection.query(sql, [cusDOB, password, firstName, lastName, phone, email, gender,userNum], function (err, result) {
+        if (err) {
+            console.log('[UPDATE ERROR] - ', err.message);
+            return;
+        }
+        console.log('--------------------------UPDATE----------------------------');
+        console.log('UPDATE affectedRows', result.affectedRows);
+        console.log('-----------------------------------------------------------------\n\n');
+    });
 }
+updateSetting(28,"1998-01-01","1234567","Zihao","Luo","0411223344","luozihao@gmail.com",'male')
 
 
 

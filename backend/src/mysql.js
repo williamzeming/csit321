@@ -141,12 +141,58 @@ exports.insertComment = function (uid,location,time,score,comments) {
     });
     return promise;
 }
-exports.selectDetailOnload = function (location) {
+exports.selectMountainDetailOnload = function (location) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();
         createConnect.connect();
-        var sql = 'select Longitude,Latitude,m.Score,userName,location,time,c.score,comments from comment c , mountains m where c.location = m.MountName and m.MountName = ?';
+        var sql = 'select * from mountains where MountName = ?';
         createConnect.query(sql, [location], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                reject(err);
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
+exports.selectCommentDetailOnload = function (location) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select * from comment where location = ?';
+        createConnect.query(sql, [location], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                reject('No comment');
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
+exports.selectSettingOnload = function (uid) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select * from userInfo where userNum = ?';
+        createConnect.query(sql, [uid], function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);
                 return;
@@ -163,21 +209,22 @@ exports.selectDetailOnload = function (location) {
     });
     return promise;
 }
-exports.selectSettingOnload = function (uid) {
+exports.updateSetting = function (uid,cusDOB, password, firstName, lastName, phone, email, gender) {
     var promise = new Promise(function (resolve, reject) {
-        var createConnect = connectSQL();
-        createConnect.connect();
-        var sql = 'select * from userInfo where userNum = ?';
-        createConnect.query(sql, [uid], function (err, result) {
+        var connection = connectSQL();
+        connection.connect();
+        var sql = 'UPDATE userInfo SET cusDOB = ?, password = ?, firstName = ?, lastName = ?, phoneNum = ?, email = ?,gender = ? WHERE userNum = ?';
+        connection.query(sql, [cusDOB, password, firstName, lastName, phone, email, gender, uid], function (err, result) {
             if (err) {
-                console.log('[SELECT ERROR] - ', err.message);
-                return;
+                console.log('[UPDATE ERROR] - ', err.message);
+                resolve("update fail");
             }
-            result = JSON.parse(JSON.stringify(result));
-            // console.log(result);
-            resolve(result);
+            console.log('--------------------------UPDATE----------------------------');
+            console.log('UPDATE affectedRows', result.affectedRows);
+            resolve("update success");
+            console.log('-----------------------------------------------------------------\n\n');
         });
-        createConnect.end();
+        connection.end();
     });
     promise.then(function (value) {
         return value;

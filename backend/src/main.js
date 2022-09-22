@@ -85,11 +85,6 @@ app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.popularSelect().then(res1 => {
         res.status(200).json({
-            // mountains: {
-            //     mountain1: {path:'imgM/'+res1[0].MountName+'.jpg',mountain: res1[0].MountName, city: res1[0].CITY, state: res1[0].STATE},
-            //     mountain2: {path:'imgM/'+res1[1].MountName+'.jpg',mountain: res1[1].MountName, city: res1[1].CITY, state: res1[1].STATE},
-            //     mountain3: {path:'imgM/'+res1[2].MountName+'.jpg',mountain: res1[2].MountName, city: res1[2].CITY, state: res1[2].STATE}
-            // }
             res1
         })
         console.log(res1)
@@ -97,19 +92,35 @@ app.post('/initHomePost', jsonParser, (req, res) => {
 
 })
 
+app.post('/initDetailPost', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    res.status(200).json({
+        lat:-34.42036296539061,
+        lng:150.8968482112078
+    })
+})
 // 接口名称：/detailOnload
 // 接口参数：loc
 // 接口返回值：info[] 里面是所有的comment信息，用索引取值就行
 // 目前没有天气信息
-app.post('/initDetailOnload', jsonParser, (req, res) => {
+app.post('/mountainDetailOnload', jsonParser, (req, res) => {
     console.log(req.body.loc)
-    mysql.selectDetailOnload(req.body.loc).then(res1 => {
+    mysql.selectMountainDetailOnload(req.body.loc).then(res1 => {
         res.status(200).json({
             res1
         })
         console.log(res1)
     })
+})
 
+app.post('/commentDetailOnload', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    mysql.selectCommentDetailOnload(req.body.loc).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+        console.log(res1)
+    })
 })
 
 // 接口名称：/postComment
@@ -135,6 +146,16 @@ app.post('/settingOnload', jsonParser, (req, res) => {
     mysql.selectSettingOnload(req.body.uid).then(res1 => {
         res.status(200).json({
              res1
+        })
+    })
+})
+
+//
+app.post('/settingUpdate', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    mysql.updateSetting(req.body.uid, req.body.cusDOB, req.body.password, req.body.firstName, req.body.lastName, req.body.phoneNum, req.body.email, req.body.gender).then(res1 => {
+        res.status(200).json({
+            res1
         })
     })
 })
