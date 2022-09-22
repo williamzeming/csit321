@@ -129,7 +129,17 @@ app.post('/commentDetailOnload', jsonParser, (req, res) => {
 app.post('/postComment', jsonParser, (req, res) => {
     time = new Date();
     time = time.toLocaleString();
-    mysql.insertComment(req.body.uid, req.body.loc, time, req.body.score , req.body.comment).then(res1 => {
+    mysql.insertComment(req.body.fname, req.body.loc, time, req.body.score , req.body.comment).then(res1 => {
+        console.log(res1)
+        res.status(200).json({
+            error: res1
+        })
+        console.log(res.body)
+    })
+})
+
+app.post('/updateScore', jsonParser, (req, res) => {
+    mysql.updateScore(req.body.loc, req.body.score).then(res1 => {
         console.log(res1)
         res.status(200).json({
             error: res1

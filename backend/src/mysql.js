@@ -131,6 +131,29 @@ exports.insertComment = function (name,location,time,score,comments) {
     });
     return promise;
 }
+
+exports.updateScore = function (location, score) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'update mountains set Score = ? where MountName = ?';
+        score = (score*19 + 4.9)/20;
+        createConnect.query(sql, [score, location], function (err, result) {
+            if (err) {
+                console.log('[UPDATE ERROR] - ', err.message);
+                reject(err);
+            }
+            resolve("update success");
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
 exports.selectMountainDetailOnload = function (location) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();

@@ -137,13 +137,14 @@ class Detail extends React.Component {
         var text=document.getElementById("text").value;
         const params = {
             uid: userID,
+            fname: this.getCookie("fname"),
             loc:this.getCookie("loc"),
             score:this.state.rateValue,
             comment: text
         }
         axios.post(url + "5000/postComment", params).then((res) => {
             window.location.reload();
-            })
+        })
     }
     checkLogin() {
         var userID = this.getCookie("uid");
