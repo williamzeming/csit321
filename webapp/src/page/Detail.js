@@ -33,6 +33,12 @@ import Star from './Star'
 import Rating from "@mui/material/Rating";
 import TextField from '@mui/material/TextField';
 import img3 from './imgM/MountKosciuszko.jpg';
+import img1 from "./imgM/Ironstone Mountain.jpg";
+import img2 from "./imgM/Mother Cummings Peak.jpg";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import Sunny from './sunny.png';
+import Rainy from './rainy.png';
+import Cloudy from './cloudy.png';
 const url = "http://localhost:";
 
 class Detail extends React.Component {
@@ -46,7 +52,23 @@ class Detail extends React.Component {
     };
     commentItemData = [
     ]
-
+    weather=[
+        {
+            date: "9/23",
+            picture: Cloudy,
+            wind: '5 km/h'
+        },
+        {
+            date: "9/24",
+            picture: Sunny,
+            wind: '15 km/h'
+        },
+        {
+            date: "9/25",
+            picture: Rainy,
+            wind: '10 km/h'
+        }
+    ]
     initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
         document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
@@ -128,8 +150,32 @@ class Detail extends React.Component {
         this.checkLogin();
         this.initDetailOnload();
         this.commentDetailOnload()
+        this.setWeather();
     }
 
+    setWeather=()=>{
+        //Today date
+        var date = new Date();
+        var today = date.getMonth()+"/"+date.getDate();
+        //Tomorrow date
+        var dateTomorrow = date.setDate(date.getDate()+1);
+        dateTomorrow = new Date(dateTomorrow);
+        var tomorrow = dateTomorrow.getMonth()+"/"+dateTomorrow.getDate();
+        // //set today's parameter
+        // document.getElementById("weatherTodayDate").innerHTML=today;
+        // document.getElementById("weatherTodayImg").innerHTML="Sunny";
+        // document.getElementById("weatherTodayWind").innerHTML="today's wind speed";
+        // //set tomorrow's parameter
+        // document.getElementById("weatherTomorrowDate").innerHTML=tomorrow;
+        // document.getElementById("weatherTomorrowImg").innerHTML="Rainy";
+        // document.getElementById("weatherTomorrowWind").innerHTML="tomorrow's wind speed";
+        for(var i=0;i<this.weather.length;i++){
+            this.weather[i].date=today;
+
+
+        }
+
+    }
     render() {
         return (
             <div>
@@ -208,8 +254,30 @@ class Detail extends React.Component {
                              Weather
                             </Stack>
                             <br/>
-                            <Stack className={"temp"}>
-                             Weather content
+                            <Stack className={"temp"} direction="row" spacing={10}>
+                                {/*<Stack>*/}
+                                {/*    <span id="weatherTodayDate">date</span>*/}
+                                {/*    <span id="weatherTodayImg">img</span>*/}
+                                {/*    <span id="weatherTodayWind">wind speed</span>*/}
+
+                                {/*</Stack>*/}
+                                {/*<Stack>*/}
+                                {/*    <span id="weatherTomorrowDate">date</span>*/}
+                                {/*    <span id="weatherTomorrowImg">img</span>*/}
+                                {/*    <span id="weatherTomorrowWind">wind speed</span>*/}
+                                {/*</Stack>*/}
+
+                                    {this.weather.map((item) => (
+                                        <div>
+                                            <Stack>
+                                                <ListItemText primary={item.date}></ListItemText>
+                                                < img src={item.picture}  style={{height:50,width:50}}/>
+                                                <ListItemText primary={item.wind}></ListItemText>
+                                            </Stack>
+
+                                        </div>
+                                    ))}
+
                             </Stack>
                             <br/>
                             <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
