@@ -35,8 +35,6 @@ import TextField from '@mui/material/TextField';
 import img3 from './imgM/MountKosciuszko.jpg';
 import img1 from "./imgM/Ironstone Mountain.jpg";
 import img2 from "./imgM/Mother Cummings Peak.jpg";
-import img1 from "./imgM/Ironstone Mountain.jpg";
-import img2 from "./imgM/Mother Cummings Peak.jpg";
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import Sunny from './sunny.png';
 import Rainy from './rainy.png';
@@ -325,7 +323,7 @@ class Detail extends React.Component {
                                             <ListItem>
                                                 <ListItemAvatar>
                                                     <Avatar>
-                                                        <ImageIcon />
+                                                        <AccountCircleIcon />
                                                     </Avatar>
                                                 </ListItemAvatar>
                                                 <ListItemText primary={item.name+"    "+item.data} secondary={item.comment} />
@@ -361,45 +359,48 @@ class Detail extends React.Component {
                     </Grid>
 
                     <Grid item md={3}  className={"circle1"}>
+
                         <div>
                             <Map lat={this.state.lat} lng={this.state.lng}></Map>
                             <br/>
                         </div>
 
-
-                        <Paper
-                            sx={{
-                                p: 2,
-                                margin: 'auto',
-                                maxWidth: 350,
-                                flexGrow: 1,
-                                // backgroundColor: (theme) =>
-                                //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                            }}
-                        >
-                            <Grid container spacing={2}>
-                                <Grid item>
-                                    <ButtonBase sx={{ width: 128, height: 128 }}>
-                                        <Img alt="complex" src={this.recommends[0].img} />
-                                    </ButtonBase>
-                                </Grid>
-                                <Grid item xs={12} sm container>
-                                    <Grid item xs container direction="column" spacing={2}>
-                                        <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                                {this.recommends[0].name}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                {this.recommends[0].title}
-                                                {this.recommends[0].nation}
-                                            </Typography>
+                        {this.recommends.map((item) => (
+                            <div>
+                                <Paper
+                                    sx={{
+                                        p: 2,
+                                        margin: 'left',
+                                        maxWidth: 350,
+                                        flexGrow: 1,
+                                        // backgroundColor: (theme) =>
+                                        //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                    }}
+                                >
+                                    <Grid container spacing={2}>
+                                        <Grid item>
+                                            <ButtonBase sx={{ width: 128, height: 128 }}>
+                                                <Img alt="complex" src={item.img}/>
+                                            </ButtonBase>
                                         </Grid>
+                                        <Grid item xs={12} sm container>
+                                            <Grid item xs container direction="column" spacing={2}>
+                                                <Grid item xs>
+                                                    <Typography gutterBottom variant="subtitle1" component="div">
+                                                        {item.name}
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        {item.title}
+                                                        {item.nation}
+                                                    </Typography>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+
                                     </Grid>
-                                </Grid>
-
-                            </Grid>
-                        </Paper>
-
+                                </Paper>
+                                <br/>
+                            </div>))}
                     </Grid>
 
                     <Grid item md={1} ></Grid>
