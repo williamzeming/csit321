@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import {default as axios} from "axios";
 import { useParams  } from "react-router-dom";
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -34,22 +43,55 @@ class Detail extends React.Component {
         userName: this.getCookie('fname'),
         rateValue:0
     };
+    commentItemData = [
+        {
+            name:"userName",
+            data:"data",
+            comment: "comment"
+        },
+        {
+            name:"userName",
+            data:"data",
+            comment: "comment"
+        }
+    ]
 
-
-    initDetailPost = () => {
+    initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
         document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
         const params = {
-            loc : this.getCookie("loc")
+            // loc : this.getCookie("loc")
+            loc : "Mount Kosciuszko"
         }
-        axios.post(url + "5000/detailOnload", params).then((res) => {
+        axios.post(url + "5000/initDetailOnload", params).then((res) => {
+            var detail = res.data.res1[1];
+            console.log(detail)
             this.setState({
-                // lat: res.data.lat,
-                // lng: res.data.lng
+                lat: parseFloat(detail.Latitude),
+                lng: parseFloat(detail.Longitude)
+
             })
 
-            console.log(this.state.lat)
         })
+    }
+    loadComments= () =>{
+
+    }
+    postComment= () =>{
+        var userID = this.getCookie("uid");
+        if (userID == ""){
+            alert("Please login")
+        }
+        var text=document.getElementById("text").value;
+        const params = {
+            uid: userID,
+            loc:this.getCookie("loc"),
+            score:this.state.rateValue,
+            comment: text
+        }
+        axios.post(url + "5000/postComment", params).then((res) => {
+            window.location.reload();
+            })
     }
     checkLogin() {
         var userID = this.getCookie("uid");
@@ -77,19 +119,13 @@ class Detail extends React.Component {
         let location = this.getCookie("loc")
         console.log(location);
     }
+
     componentDidMount = () => {
         this.checkLogin();
-        this.initDetailPost();
+        this.initDetailOnload();
+        this.loadComments();
     }
 
-    finish= () =>{
-        var userID = this.getCookie("uid");
-        if (userID == ""){
-            alert("Please login")
-        }
-        var text=document.getElementById("text").value;
-        console.log(this.state.rateValue+text)
-    }
     render() {
         return (
             <div>
@@ -177,7 +213,28 @@ class Detail extends React.Component {
                             </Stack>
                             <br/>
                             <Stack>
-                                history
+                                <List
+                                    sx={{
+                                        width: '100%',
+                                        maxWidth: 360,
+                                        bgcolor: 'background.paper',
+                                    }}
+                                >
+                                    {this.commentItemData.map((item) => (
+                                        <div>
+                                            <ListItem>
+                                                <ListItemAvatar>
+                                                    <Avatar>
+                                                        <ImageIcon />
+                                                    </Avatar>
+                                                </ListItemAvatar>
+                                                <ListItemText primary={item.name+"    "+item.data} secondary={item.comment} />
+                                            </ListItem>
+                                            <Divider variant="inset" component="li" />
+                                        </div>
+                                    ))}
+
+                                </List>
                             </Stack>
                             <br/>
                             <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
@@ -193,8 +250,8 @@ class Detail extends React.Component {
                             <Stack>
                                 <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
                                     <TextField id="text" label="Please write your comment" variant="outlined" fullWidth multiline maxRows={5}></TextField>
-                                    <Button  variant="outlined" onClick={this.finish}
-                                           >Finish</Button>
+                                    <Button  variant="outlined" onClick={this.postComment}
+                                           >Comment</Button>
                                 </Stack>
 
                             </Stack>

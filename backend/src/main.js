@@ -97,18 +97,11 @@ app.post('/initHomePost', jsonParser, (req, res) => {
 
 })
 
-app.post('/initDetailPost', jsonParser, (req, res) => {
-    console.log(req.body.loc)
-    res.status(200).json({
-        lat:-34.42036296539061,
-        lng:150.8968482112078
-    })
-})
 // 接口名称：/detailOnload
 // 接口参数：loc
 // 接口返回值：info[] 里面是所有的comment信息，用索引取值就行
 // 目前没有天气信息
-app.post('/detailOnload', jsonParser, (req, res) => {
+app.post('/initDetailOnload', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.selectDetailOnload(req.body.loc).then(res1 => {
         res.status(200).json({
