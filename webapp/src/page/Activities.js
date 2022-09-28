@@ -21,7 +21,9 @@ import Link from "@mui/material/Link";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Footer from './Footer'
 import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material/styles";
+import {default as axios} from "axios";
 
+const url = "http://localhost:";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
@@ -33,6 +35,80 @@ function ColorTab() {
 }
 
 class Activities extends React.Component {
+    state = {
+        show:false
+    };
+    componentDidMount = () => {
+        this.initActivityOnload();
+    }
+    getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+    initActivityOnload= () =>{
+        var userID = this.getCookie("uid");
+        const params = {
+            uid: userID
+        }
+        axios.post(url + "5000/activityOnload", params).then((res) => {
+            //have record
+            if(res.data.state==1){
+                this.setState({
+                    show:true
+                })
+
+            }
+
+
+        })
+
+    }
+
+    checkIn= () =>{
+        this.setState({
+            show:true
+        })
+        var userID = this.getCookie("uid");
+        var name = document.getElementById("name").value;
+        var eContact = document.getElementById("emergency contact").value;
+        var location = document.getElementById("climbing location").value;
+        var startDate = document.getElementById("start date").value;
+        var endData = document.getElementById("end date").value;
+        var note = document.getElementById("note").value;
+        const params = {
+            uid: userID,
+            name:name,
+            eContact:eContact,
+            location:location,
+            startDate:startDate,
+            endData:endData,
+            note:note
+        }
+        axios.post(url + "5000/activityCheckIn", params).then((res) => {
+
+
+
+        })
+
+    }
+    checkOut= () =>{
+        var userID = this.getCookie("uid");
+        this.setState({
+            show:false
+        })
+        const params = {
+            uid: userID
+        }
+        axios.post(url + "5000/activityPostCheckOut", params).then((res) => {
+
+        })
+    }
+
 
     render() {
         return (<div>
@@ -183,12 +259,19 @@ class Activities extends React.Component {
                             placeholder="Optional..."
                             style={{ width: 200 }}
                         /> */}  <TextField
-                            id="outlined-multiline-static"
+                            id="note"
                             multiline
                             rows={4}
                         />
                         </div><br/>
-                        <Button variant="contained">Check In</Button>
+                        { this.state.show?(
+                            <Button variant="contained" onClick={this.checkOut}>Check Out</Button>
+                            ):(
+                            <Button variant="contained" onClick={this.checkIn}>Check In</Button>
+                        )
+
+                        }
+
                     </Grid>
                     <Grid item xs={1}/>
 
