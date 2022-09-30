@@ -170,6 +170,29 @@ app.post('/settingUpdate', jsonParser, (req, res) => {
     })
 })
 
+//------------------------activity------------------------
+app.post('/activityOnload', jsonParser, (req, res) => {
+
+})
+
+app.post('/setActivity', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    mysql.insertActivity(req.body.uid, req.body.userName, req.body.emergencyContact, req.body.location, req.body.startDate, req.body.endDate, req.body.notes).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+    })
+})
+
+app.post('/finishActivity', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    mysql.updateActivity(req.body.uid,req.body.location,req.body.endDate).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+    })
+})
+
 
 //最后
 app.listen(port, () => {

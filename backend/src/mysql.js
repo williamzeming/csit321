@@ -245,4 +245,50 @@ exports.updateSetting = function (uid,cusDOB, password, firstName, lastName, pho
     });
     return promise;
 }
+// --------------------------activity--------------------------
+exports.insertActivity = function (uid, userName, emergencyContact, location, startDate, endDate, notes) {
+var promise = new Promise(function (resolve, reject) {
+        let createConnect = connectSQL();
+        createConnect.connect();
+        var sql1 = 'INSERT INTO activity (userNum, userName, emergencyContact, location, startDate, endDate, notes, active) VALUE (?,?,?,?,?,?,?,?)';
+        createConnect.query(sql1,[uid, userName, emergencyContact, location, startDate, endDate, notes, 'active'],function (err, result) {
+            if(err){
+                console.log('[INSERT ERROR] - ',err.message);
+                resolve("insert fail");
+            }
+            console.log('insert success');
+            resolve("insert success");
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
+exports.updateActivity = function (uid,location, endDate) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'update activity set active = ? where userNum = ? and location = ? and endDate = ?';
+        createConnect.query(sql, ['inactive', uid, location, endDate], function (err, result) {
+            if (err) {
+                console.log('[UPDATE ERROR] - ', err.message);
+                reject(err);
+            }
+            resolve("update success");
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
+
+
 
