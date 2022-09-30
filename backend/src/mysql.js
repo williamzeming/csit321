@@ -246,6 +246,35 @@ exports.updateSetting = function (uid,cusDOB, password, firstName, lastName, pho
     return promise;
 }
 // --------------------------activity--------------------------
+exports.selectActivityOnload = function (uid) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select * from activity where userNum = ? and active = ? ';
+        createConnect.query(sql, [uid,'active'], function (err, result) {
+            if (err) {
+                console.log('none');
+                // resolve({status: 'none'});
+                return;
+            }
+            if (result.length == 0) {
+                resolve({status: 'none'});
+            } else {
+                result = JSON.parse(JSON.stringify(result));
+                // console.log(result);
+                resolve(result);
+            }
+
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
 exports.insertActivity = function (uid, userName, emergencyContact, location, startDate, endDate, notes) {
 var promise = new Promise(function (resolve, reject) {
         let createConnect = connectSQL();

@@ -50,3 +50,6 @@ create trigger updateScore after insert on comment
     begin
         update mountains set Score = (Score*19 + new.score)/20 where MountName = new.location;
     end;
+
+select * from activity
+where exists (select * from activity where userNum = 1 and active = 'active');

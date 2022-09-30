@@ -172,7 +172,12 @@ app.post('/settingUpdate', jsonParser, (req, res) => {
 
 //------------------------activity------------------------
 app.post('/activityOnload', jsonParser, (req, res) => {
-
+    console.log(req.body.uid)
+    mysql.selectActivityOnload(req.body.uid).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+    })
 })
 
 app.post('/setActivity', jsonParser, (req, res) => {
