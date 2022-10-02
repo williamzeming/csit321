@@ -125,7 +125,7 @@ class Detail extends React.Component {
             if (this.commentItemData.length !== comments.length){
                 for (var i = 0;i<comments.length;i++){
                     var date = new Date(comments[i].time)
-                    var time = date.getMonth()+"/"+date.getDate();
+                    var time = date.getMonth()+1+"/"+date.getDate();
                     var singleCom = {name:comments[i].userName,data:time,comment:comments[i].comments}
                     this.commentItemData.push(singleCom)
                 }
@@ -192,7 +192,7 @@ class Detail extends React.Component {
     setWeather=()=>{
         //Today date
         var date = new Date();
-        var today = date.getMonth()+"/"+date.getDate();
+        var today = date.getMonth()+1+"/"+date.getDate();
         //Tomorrow date
         var dateTomorrow = date.setDate(date.getDate()+1);
         dateTomorrow = new Date(dateTomorrow);

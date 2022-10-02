@@ -55,14 +55,35 @@ class Activities extends React.Component {
         const params = {
             uid: userID
         }
+
         axios.post(url + "5000/activityOnload", params).then((res) => {
             //have record
-            if(res.data.state==1){
+
+            if(res.data.res1.status=="none"){
+                console.log("123")
+                this.setState({
+                    show:false
+                })
+
+            }else {
                 this.setState({
                     show:true
                 })
+                var startDate=new Date(res.data.res1[0].startDate)
+                var startMonth=startDate.getMonth()+1
+
+                var endDate=new Date(res.data.res1[0].endDate)
+                var endMonth=endDate.getMonth()+1
+                document.getElementById("name").value=res.data.res1[0].userName
+                document.getElementById("emergency contact").value=res.data.res1[0].emergencyContact
+                document.getElementById("climbing location").value=res.data.res1[0].location
+                document.getElementById("start date").outerText=startDate.getFullYear()+"/"+startMonth+"/"+startDate.getDate()
+                document.getElementById("end date").outerText=endDate.getFullYear()+"/"+endMonth+"/"+endDate.getDate()
+                document.getElementById("note").value=res.data.res1[0].notes
 
             }
+
+
 
 
         })
@@ -78,20 +99,21 @@ class Activities extends React.Component {
         var eContact = document.getElementById("emergency contact").value;
         var location = document.getElementById("climbing location").value;
         var startDate = document.getElementById("start date").value;
-        var endData = document.getElementById("end date").value;
+        var endDate = document.getElementById("end date").value;
         var note = document.getElementById("note").value;
         const params = {
             uid: userID,
-            name:name,
-            eContact:eContact,
+            userName:name,
+            emergencyContact:eContact,
             location:location,
             startDate:startDate,
-            endData:endData,
-            note:note
+            endDate:endDate,
+            notes:note
         }
-        axios.post(url + "5000/activityCheckIn", params).then((res) => {
 
+        axios.post(url + "5000/setActivity", params).then((res) => {
 
+            console.log("115"+res.data.res1)
 
         })
 
@@ -104,8 +126,8 @@ class Activities extends React.Component {
         const params = {
             uid: userID
         }
-        axios.post(url + "5000/activityPostCheckOut", params).then((res) => {
-
+        axios.post(url + "5000/finishActivity", params).then((res) => {
+            console.log(res.data.res1)
         })
     }
 
