@@ -200,6 +200,29 @@ exports.selectCommentDetailOnload = function (location) {
     return promise;
 }
 
+exports.selectWeather = function (location) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select CITY from mountains where MountName = ?';
+        createConnect.query(sql, [location], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                reject(err);
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
 exports.selectSettingOnload = function (uid) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();

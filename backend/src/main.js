@@ -3,6 +3,7 @@ const cors = require('cors')
 const mysql = require("./mysql");
 const {response} = require("express");
 var bodyParser = require('body-parser')
+const fs = require("fs");
 const app = express()
 const port = 5000
 
@@ -118,8 +119,34 @@ app.post('/commentDetailOnload', jsonParser, (req, res) => {
     mysql.selectCommentDetailOnload(req.body.loc).then(res1 => {
         res.status(200).json({
             res1
+
         })
         console.log(res1)
+    })
+})
+
+app.post('/getWeatherInfo', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    mysql.selectWeather(req.body.loc).then(res1 => {
+        const fs = require('fs');
+        const data = fs.readFileSync('./weather.json', 'utf8');
+
+        // parse JSON string to JSON object
+        const config = JSON.parse(data);
+        for (let i = 0; i < config.length; i++) {
+            if (config[i].name === res1[0].CITY) {
+                config[i].main.feels_like -= 273.15;
+                config[i].main.temp -= 273.15;
+                config[i].main.temp_max -= 273.15;
+                config[i].main.temp_min -= 273.15;
+                // console.log(config[i].main);
+                const weather = config[i];
+                res.status(200).json({
+                    weather
+                })
+                break;
+            }
+        }
     })
 })
 

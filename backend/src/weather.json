@@ -1,0 +1,2653 @@
+[
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -42,
+        "lon": 147
+    },
+    "dt": 1664790382,
+    "id": 2147291,
+    "main": {
+        "feels_like": 277.81,
+        "grnd_level": 903,
+        "humidity": 91,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 279.25,
+        "temp_max": 279.25,
+        "temp_min": 279.25
+    },
+    "name": "Tasmania",
+    "sys": {
+        "country": "AU",
+        "id": 2035328,
+        "sunrise": 1664739779,
+        "sunset": 1664785155,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 235,
+        "gust": 5,
+        "speed": 1.99
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 84
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -21.0333,
+        "lon": 148.9
+    },
+    "dt": 1664790382,
+    "id": 2160914,
+    "main": {
+        "feels_like": 293.63,
+        "grnd_level": 1009,
+        "humidity": 86,
+        "pressure": 1017,
+        "sea_level": 1017,
+        "temp": 293.31,
+        "temp_max": 293.31,
+        "temp_min": 293.31
+    },
+    "name": "Kuttabul",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739848,
+        "sunset": 1664784174
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 116,
+        "gust": 7.65,
+        "speed": 2.87
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 81
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.6333,
+        "lon": 147.1
+    },
+    "dt": 1664790382,
+    "id": 2147265,
+    "main": {
+        "feels_like": 283.14,
+        "grnd_level": 977,
+        "humidity": 92,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 283.14,
+        "temp_max": 283.14,
+        "temp_min": 283.14
+    },
+    "name": "Tawonga",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739918,
+        "sunset": 1664784968
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 146,
+        "gust": 0.62,
+        "speed": 0.72
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 99
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.3867,
+        "lon": 148.1896
+    },
+    "dt": 1664790383,
+    "id": 2146760,
+    "main": {
+        "feels_like": 282.87,
+        "grnd_level": 961,
+        "humidity": 98,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 282.87,
+        "temp_max": 282.87,
+        "temp_min": 282.87
+    },
+    "name": "Geehi",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739663,
+        "sunset": 1664784699
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 48,
+        "gust": 0.98,
+        "speed": 0.74
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 84
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -21.0333,
+        "lon": 148.9
+    },
+    "dt": 1664790382,
+    "id": 2160914,
+    "main": {
+        "feels_like": 293.63,
+        "grnd_level": 1009,
+        "humidity": 86,
+        "pressure": 1017,
+        "sea_level": 1017,
+        "temp": 293.31,
+        "temp_max": 293.31,
+        "temp_min": 293.31
+    },
+    "name": "Kuttabul",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739848,
+        "sunset": 1664784174
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 116,
+        "gust": 7.65,
+        "speed": 2.87
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 10
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -28.3667,
+        "lon": 153.2167
+    },
+    "dt": 1664790383,
+    "id": 2145641,
+    "main": {
+        "feels_like": 288.67,
+        "grnd_level": 1011,
+        "humidity": 96,
+        "pressure": 1023,
+        "sea_level": 1023,
+        "temp": 288.57,
+        "temp_max": 288.57,
+        "temp_min": 286.34
+    },
+    "name": "Tyalgum",
+    "sys": {
+        "country": "AU",
+        "id": 9486,
+        "sunrise": 1664738658,
+        "sunset": 1664783292,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 174,
+        "gust": 0.85,
+        "speed": 0.39
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 10
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -28.3667,
+        "lon": 153.2167
+    },
+    "dt": 1664790383,
+    "id": 2145641,
+    "main": {
+        "feels_like": 288.67,
+        "grnd_level": 1011,
+        "humidity": 96,
+        "pressure": 1023,
+        "sea_level": 1023,
+        "temp": 288.57,
+        "temp_max": 288.57,
+        "temp_min": 286.34
+    },
+    "name": "Tyalgum",
+    "sys": {
+        "country": "AU",
+        "id": 9486,
+        "sunrise": 1664738658,
+        "sunset": 1664783292,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 174,
+        "gust": 0.85,
+        "speed": 0.39
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 50
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -28.1833,
+        "lon": 152.7167
+    },
+    "dt": 1664790384,
+    "id": 2158657,
+    "main": {
+        "feels_like": 289.27,
+        "grnd_level": 997,
+        "humidity": 91,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 289.23,
+        "temp_max": 289.23,
+        "temp_min": 289.23
+    },
+    "name": "Maroon",
+    "sys": {
+        "country": "AU",
+        "id": 2012743,
+        "sunrise": 1664738782,
+        "sunset": 1664783408,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 162,
+        "gust": 1.23,
+        "speed": 0.53
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -37.3,
+        "lon": 142.7667
+    },
+    "dt": 1664790384,
+    "id": 2156441,
+    "main": {
+        "feels_like": 284.96,
+        "grnd_level": 990,
+        "humidity": 88,
+        "pressure": 1020,
+        "sea_level": 1020,
+        "temp": 285.38,
+        "temp_max": 285.38,
+        "temp_min": 285.38
+    },
+    "name": "Moyston",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664740938,
+        "sunset": 1664786027
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 130,
+        "gust": 2.2,
+        "speed": 2.17
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 33.4696,
+        "lon": -86.7286
+    },
+    "dt": 1664790385,
+    "id": 4069696,
+    "main": {
+        "feels_like": 287.11,
+        "humidity": 80,
+        "pressure": 1016,
+        "temp": 287.53,
+        "temp_max": 289.12,
+        "temp_min": 285.4
+    },
+    "name": "Wellington Park",
+    "sys": {
+        "country": "US",
+        "id": 2007706,
+        "sunrise": 1664797350,
+        "sunset": 1664839748,
+        "type": 2
+    },
+    "timezone": -18000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 1.54
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 53.1333,
+        "lon": -1.2
+    },
+    "dt": 1664790385,
+    "id": 2643097,
+    "main": {
+        "feels_like": 285.12,
+        "humidity": 91,
+        "pressure": 1025,
+        "temp": 285.46,
+        "temp_max": 287.72,
+        "temp_min": 284.09
+    },
+    "name": "Mansfield",
+    "sys": {
+        "country": "GB",
+        "id": 2012283,
+        "sunrise": 1664777357,
+        "sunset": 1664818696,
+        "type": 2
+    },
+    "timezone": 3600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04d",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 197,
+        "gust": 5.69,
+        "speed": 3.37
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 33.4696,
+        "lon": -86.7286
+    },
+    "dt": 1664790385,
+    "id": 4069696,
+    "main": {
+        "feels_like": 287.11,
+        "humidity": 80,
+        "pressure": 1016,
+        "temp": 287.53,
+        "temp_max": 289.12,
+        "temp_min": 285.4
+    },
+    "name": "Wellington Park",
+    "sys": {
+        "country": "US",
+        "id": 2007706,
+        "sunrise": 1664797350,
+        "sunset": 1664839748,
+        "type": 2
+    },
+    "timezone": -18000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 1.54
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 38.8682,
+        "lon": -77.0254
+    },
+    "dt": 1664790385,
+    "id": 4366164,
+    "main": {
+        "feels_like": 278.01,
+        "humidity": 88,
+        "pressure": 1020,
+        "temp": 281.58,
+        "temp_max": 283.25,
+        "temp_min": 280.45
+    },
+    "name": "Southwest",
+    "rain": {
+        "1h": 0.16
+    },
+    "sys": {
+        "country": "US",
+        "id": 3787,
+        "sunrise": 1664795143,
+        "sunset": 1664837298,
+        "type": 1
+    },
+    "timezone": -14400,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10n",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 7.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 38.8682,
+        "lon": -77.0254
+    },
+    "dt": 1664790385,
+    "id": 4366164,
+    "main": {
+        "feels_like": 278.01,
+        "humidity": 88,
+        "pressure": 1020,
+        "temp": 281.58,
+        "temp_max": 283.25,
+        "temp_min": 280.45
+    },
+    "name": "Southwest",
+    "rain": {
+        "1h": 0.16
+    },
+    "sys": {
+        "country": "US",
+        "id": 3787,
+        "sunrise": 1664795143,
+        "sunset": 1664837298,
+        "type": 1
+    },
+    "timezone": -14400,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10n",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 7.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 91
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -17.35,
+        "lon": 145.9167
+    },
+    "dt": 1664790386,
+    "id": 2177402,
+    "main": {
+        "feels_like": 298.81,
+        "grnd_level": 1013,
+        "humidity": 80,
+        "pressure": 1015,
+        "sea_level": 1015,
+        "temp": 298.16,
+        "temp_max": 298.16,
+        "temp_min": 298.16
+    },
+    "name": "Babinda",
+    "sys": {
+        "country": "AU",
+        "id": 2003498,
+        "sunrise": 1664740634,
+        "sunset": 1664784820,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 116,
+        "gust": 4.99,
+        "speed": 2.48
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 3
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -26.4178,
+        "lon": 152.9115
+    },
+    "dt": 1664790386,
+    "id": 2170437,
+    "main": {
+        "feels_like": 287.69,
+        "grnd_level": 1008,
+        "humidity": 75,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 288.17,
+        "temp_max": 290.26,
+        "temp_min": 288.17
+    },
+    "name": "Cooroy",
+    "sys": {
+        "country": "AU",
+        "id": 2012127,
+        "sunrise": 1664738775,
+        "sunset": 1664783322,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 140,
+        "gust": 2.63,
+        "speed": 1.34
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 91
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -17.35,
+        "lon": 145.9167
+    },
+    "dt": 1664790386,
+    "id": 2177402,
+    "main": {
+        "feels_like": 298.81,
+        "grnd_level": 1013,
+        "humidity": 80,
+        "pressure": 1015,
+        "sea_level": 1015,
+        "temp": 298.16,
+        "temp_max": 298.16,
+        "temp_min": 298.16
+    },
+    "name": "Babinda",
+    "sys": {
+        "country": "AU",
+        "id": 2003498,
+        "sunrise": 1664740634,
+        "sunset": 1664784820,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 116,
+        "gust": 4.99,
+        "speed": 2.48
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 38.8682,
+        "lon": -77.0254
+    },
+    "dt": 1664790385,
+    "id": 4366164,
+    "main": {
+        "feels_like": 278.01,
+        "humidity": 88,
+        "pressure": 1020,
+        "temp": 281.58,
+        "temp_max": 283.25,
+        "temp_min": 280.45
+    },
+    "name": "Southwest",
+    "rain": {
+        "1h": 0.16
+    },
+    "sys": {
+        "country": "US",
+        "id": 3787,
+        "sunrise": 1664795143,
+        "sunset": 1664837298,
+        "type": 1
+    },
+    "timezone": -14400,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10n",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 7.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 16
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -27.4679,
+        "lon": 153.0281
+    },
+    "dt": 1664790193,
+    "id": 2174003,
+    "main": {
+        "feels_like": 289.56,
+        "humidity": 70,
+        "pressure": 1021,
+        "temp": 289.99,
+        "temp_max": 291.96,
+        "temp_min": 288.23
+    },
+    "name": "Brisbane",
+    "sys": {
+        "country": "AU",
+        "id": 2005393,
+        "sunrise": 1664738724,
+        "sunset": 1664783317,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "few clouds",
+            "icon": "02n",
+            "id": 801,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 110,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -42.6833,
+        "lon": 146.7833
+    },
+    "dt": 1664790387,
+    "id": 2143998,
+    "main": {
+        "feels_like": 280.89,
+        "grnd_level": 1007,
+        "humidity": 92,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 281.6,
+        "temp_max": 283.15,
+        "temp_min": 281.6
+    },
+    "name": "Westerway",
+    "sys": {
+        "country": "AU",
+        "id": 2031307,
+        "sunrise": 1664739808,
+        "sunset": 1664785230,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 255,
+        "gust": 2.41,
+        "speed": 1.63
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 37.0891,
+        "lon": -122.0863
+    },
+    "dt": 1664790387,
+    "id": 5327522,
+    "main": {
+        "feels_like": 285.35,
+        "humidity": 81,
+        "pressure": 1015,
+        "temp": 285.9,
+        "temp_max": 287.98,
+        "temp_min": 284.42
+    },
+    "name": "Ben Lomond",
+    "sys": {
+        "country": "US",
+        "id": 2031364,
+        "sunrise": 1664805922,
+        "sunset": 1664848144,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 86,
+        "gust": 1.34,
+        "speed": 0.89
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 91
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -17.35,
+        "lon": 145.9167
+    },
+    "dt": 1664790386,
+    "id": 2177402,
+    "main": {
+        "feels_like": 298.81,
+        "grnd_level": 1013,
+        "humidity": 80,
+        "pressure": 1015,
+        "sea_level": 1015,
+        "temp": 298.16,
+        "temp_max": 298.16,
+        "temp_min": 298.16
+    },
+    "name": "Babinda",
+    "sys": {
+        "country": "AU",
+        "id": 2003498,
+        "sunrise": 1664740634,
+        "sunset": 1664784820,
+        "type": 2
+    },
+    "timezone": 36000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 116,
+        "gust": 4.99,
+        "speed": 2.48
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 82
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -31.9833,
+        "lon": 151.7
+    },
+    "dt": 1664790388,
+    "id": 2152034,
+    "main": {
+        "feels_like": 282.5,
+        "grnd_level": 967,
+        "humidity": 95,
+        "pressure": 1023,
+        "sea_level": 1023,
+        "temp": 282.5,
+        "temp_max": 282.5,
+        "temp_min": 282.5
+    },
+    "name": "Rawdon Vale",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664738937,
+        "sunset": 1664783742
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 351,
+        "gust": 0.9,
+        "speed": 0.54
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 38.8682,
+        "lon": -77.0254
+    },
+    "dt": 1664790385,
+    "id": 4366164,
+    "main": {
+        "feels_like": 278.01,
+        "humidity": 88,
+        "pressure": 1020,
+        "temp": 281.58,
+        "temp_max": 283.25,
+        "temp_min": 280.45
+    },
+    "name": "Southwest",
+    "rain": {
+        "1h": 0.16
+    },
+    "sys": {
+        "country": "US",
+        "id": 3787,
+        "sunrise": 1664795143,
+        "sunset": 1664837298,
+        "type": 1
+    },
+    "timezone": -14400,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10n",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 7.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 32.6848,
+        "lon": -114.0222
+    },
+    "dt": 1664790388,
+    "id": 5320160,
+    "main": {
+        "feels_like": 299.48,
+        "grnd_level": 998,
+        "humidity": 53,
+        "pressure": 1010,
+        "sea_level": 1010,
+        "temp": 299.48,
+        "temp_max": 301.2,
+        "temp_min": 298.34
+    },
+    "name": "Noah",
+    "sys": {
+        "country": "US",
+        "id": 2034292,
+        "sunrise": 1664803887,
+        "sunset": 1664846309,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 256,
+        "gust": 1.38,
+        "speed": 1.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 89
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.9831,
+        "lon": 147.144
+    },
+    "dt": 1664790388,
+    "id": 2163897,
+    "main": {
+        "feels_like": 274.97,
+        "grnd_level": 831,
+        "humidity": 87,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 274.97,
+        "temp_max": 274.97,
+        "temp_min": 274.97
+    },
+    "name": "Hotham Heights",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739897,
+        "sunset": 1664784967
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 16,
+        "gust": 0.95,
+        "speed": 0.6
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 99
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.3867,
+        "lon": 148.1896
+    },
+    "dt": 1664790383,
+    "id": 2146760,
+    "main": {
+        "feels_like": 282.87,
+        "grnd_level": 961,
+        "humidity": 98,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 282.87,
+        "temp_max": 282.87,
+        "temp_min": 282.87
+    },
+    "name": "Geehi",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739663,
+        "sunset": 1664784699
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 48,
+        "gust": 0.98,
+        "speed": 0.74
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 92
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.4167,
+        "lon": 148.6333
+    },
+    "dt": 1664790389,
+    "id": 2162255,
+    "main": {
+        "feels_like": 281.19,
+        "grnd_level": 916,
+        "humidity": 90,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 281.19,
+        "temp_max": 281.19,
+        "temp_min": 281.19
+    },
+    "name": "Jindabyne",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739556,
+        "sunset": 1664784594
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 227,
+        "gust": 1.82,
+        "speed": 1.33
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 76
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 51.3323,
+        "lon": -2.8312
+    },
+    "dt": 1664790389,
+    "id": 2638593,
+    "main": {
+        "feels_like": 287.39,
+        "humidity": 85,
+        "pressure": 1026,
+        "temp": 287.66,
+        "temp_max": 289.2,
+        "temp_min": 286.67
+    },
+    "name": "Sandford",
+    "sys": {
+        "country": "GB",
+        "id": 2043648,
+        "sunrise": 1664777683,
+        "sunset": 1664819153,
+        "type": 2
+    },
+    "timezone": 3600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04d",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 160,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 95
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.7333,
+        "lon": 145.6
+    },
+    "dt": 1664790390,
+    "id": 2145923,
+    "main": {
+        "feels_like": 278.28,
+        "grnd_level": 1002,
+        "humidity": 98,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 278.28,
+        "temp_max": 278.28,
+        "temp_min": 278.28
+    },
+    "name": "Tullah",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664740123,
+        "sunset": 1664785482
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 197,
+        "gust": 1.91,
+        "speed": 1.29
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 37.0891,
+        "lon": -122.0863
+    },
+    "dt": 1664790387,
+    "id": 5327522,
+    "main": {
+        "feels_like": 285.35,
+        "humidity": 81,
+        "pressure": 1015,
+        "temp": 285.9,
+        "temp_max": 287.98,
+        "temp_min": 284.42
+    },
+    "name": "Ben Lomond",
+    "sys": {
+        "country": "US",
+        "id": 2031364,
+        "sunrise": 1664805922,
+        "sunset": 1664848144,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 86,
+        "gust": 1.34,
+        "speed": 0.89
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 89
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.9831,
+        "lon": 147.144
+    },
+    "dt": 1664790388,
+    "id": 2163897,
+    "main": {
+        "feels_like": 274.97,
+        "grnd_level": 831,
+        "humidity": 87,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 274.97,
+        "temp_max": 274.97,
+        "temp_min": 274.97
+    },
+    "name": "Hotham Heights",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739897,
+        "sunset": 1664784967
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 16,
+        "gust": 0.95,
+        "speed": 0.6
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 20
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 45.0097,
+        "lon": -93.3491
+    },
+    "dt": 1664790390,
+    "id": 5028163,
+    "main": {
+        "feels_like": 288.01,
+        "humidity": 71,
+        "pressure": 1025,
+        "temp": 288.56,
+        "temp_max": 289.37,
+        "temp_min": 287.09
+    },
+    "name": "Golden Valley",
+    "sys": {
+        "country": "US",
+        "id": 2021124,
+        "sunrise": 1664799227,
+        "sunset": 1664841049,
+        "type": 2
+    },
+    "timezone": -18000,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "few clouds",
+            "icon": "02n",
+            "id": 801,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 160,
+        "speed": 3.09
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.3833,
+        "lon": 147.3
+    },
+    "dt": 1664790390,
+    "id": 2154722,
+    "main": {
+        "feels_like": 281.37,
+        "humidity": 82,
+        "pressure": 1017,
+        "temp": 282.68,
+        "temp_max": 283.19,
+        "temp_min": 282.68
+    },
+    "name": "Nunamara",
+    "sys": {
+        "country": "AU",
+        "id": 9549,
+        "sunrise": 1664739727,
+        "sunset": 1664785063,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 90,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -37.35,
+        "lon": 144.15
+    },
+    "dt": 1664790391,
+    "id": 2169281,
+    "main": {
+        "feels_like": 283.7,
+        "grnd_level": 950,
+        "humidity": 96,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 284.05,
+        "temp_max": 285.96,
+        "temp_min": 283.83
+    },
+    "name": "Daylesford",
+    "sys": {
+        "country": "AU",
+        "id": 2045780,
+        "sunrise": 1664740605,
+        "sunset": 1664785697,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 163,
+        "gust": 3.37,
+        "speed": 1.33
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 37.0891,
+        "lon": -122.0863
+    },
+    "dt": 1664790387,
+    "id": 5327522,
+    "main": {
+        "feels_like": 285.35,
+        "humidity": 81,
+        "pressure": 1015,
+        "temp": 285.9,
+        "temp_max": 287.98,
+        "temp_min": 284.42
+    },
+    "name": "Ben Lomond",
+    "sys": {
+        "country": "US",
+        "id": 2031364,
+        "sunrise": 1664805922,
+        "sunset": 1664848144,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 86,
+        "gust": 1.34,
+        "speed": 0.89
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 37.0891,
+        "lon": -122.0863
+    },
+    "dt": 1664790387,
+    "id": 5327522,
+    "main": {
+        "feels_like": 285.35,
+        "humidity": 81,
+        "pressure": 1015,
+        "temp": 285.9,
+        "temp_max": 287.98,
+        "temp_min": 284.42
+    },
+    "name": "Ben Lomond",
+    "sys": {
+        "country": "US",
+        "id": 2031364,
+        "sunrise": 1664805922,
+        "sunset": 1664848144,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 86,
+        "gust": 1.34,
+        "speed": 0.89
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 97
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.7833,
+        "lon": 145.5167
+    },
+    "dt": 1664790391,
+    "id": 2151127,
+    "main": {
+        "feels_like": 278.53,
+        "grnd_level": 1005,
+        "humidity": 98,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 278.53,
+        "temp_max": 278.53,
+        "temp_min": 278.53
+    },
+    "name": "Rosebery",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664740142,
+        "sunset": 1664785504
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 196,
+        "gust": 1.52,
+        "speed": 1.14
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 0
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 37.0891,
+        "lon": -122.0863
+    },
+    "dt": 1664790387,
+    "id": 5327522,
+    "main": {
+        "feels_like": 285.35,
+        "humidity": 81,
+        "pressure": 1015,
+        "temp": 285.9,
+        "temp_max": 287.98,
+        "temp_min": 284.42
+    },
+    "name": "Ben Lomond",
+    "sys": {
+        "country": "US",
+        "id": 2031364,
+        "sunrise": 1664805922,
+        "sunset": 1664848144,
+        "type": 2
+    },
+    "timezone": -25200,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "clear sky",
+            "icon": "01n",
+            "id": 800,
+            "main": "Clear"
+        }
+    ],
+    "wind": {
+        "deg": 86,
+        "gust": 1.34,
+        "speed": 0.89
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 56
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 13.25,
+        "lon": -16.3333
+    },
+    "dt": 1664790392,
+    "id": 2411683,
+    "main": {
+        "feels_like": 296.66,
+        "grnd_level": 1013,
+        "humidity": 76,
+        "pressure": 1013,
+        "sea_level": 1013,
+        "temp": 296.3,
+        "temp_max": 296.3,
+        "temp_min": 296.3
+    },
+    "name": "West Coast",
+    "rain": {
+        "1h": 0.33
+    },
+    "sys": {
+        "country": "GM",
+        "id": 2367,
+        "sunrise": 1664780077,
+        "sunset": 1664823239,
+        "type": 1
+    },
+    "timezone": 0,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10d",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 13,
+        "gust": 3.5,
+        "speed": 2.81
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 38.8682,
+        "lon": -77.0254
+    },
+    "dt": 1664790385,
+    "id": 4366164,
+    "main": {
+        "feels_like": 278.01,
+        "humidity": 88,
+        "pressure": 1020,
+        "temp": 281.58,
+        "temp_max": 283.25,
+        "temp_min": 280.45
+    },
+    "name": "Southwest",
+    "rain": {
+        "1h": 0.16
+    },
+    "sys": {
+        "country": "US",
+        "id": 3787,
+        "sunrise": 1664795143,
+        "sunset": 1664837298,
+        "type": 1
+    },
+    "timezone": -14400,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10n",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 20,
+        "speed": 7.2
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 56
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 13.25,
+        "lon": -16.3333
+    },
+    "dt": 1664790392,
+    "id": 2411683,
+    "main": {
+        "feels_like": 296.66,
+        "grnd_level": 1013,
+        "humidity": 76,
+        "pressure": 1013,
+        "sea_level": 1013,
+        "temp": 296.3,
+        "temp_max": 296.3,
+        "temp_min": 296.3
+    },
+    "name": "West Coast",
+    "rain": {
+        "1h": 0.33
+    },
+    "sys": {
+        "country": "GM",
+        "id": 2367,
+        "sunrise": 1664780077,
+        "sunset": 1664823239,
+        "type": 1
+    },
+    "timezone": 0,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10d",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 13,
+        "gust": 3.5,
+        "speed": 2.81
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 56
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 13.25,
+        "lon": -16.3333
+    },
+    "dt": 1664790392,
+    "id": 2411683,
+    "main": {
+        "feels_like": 296.66,
+        "grnd_level": 1013,
+        "humidity": 76,
+        "pressure": 1013,
+        "sea_level": 1013,
+        "temp": 296.3,
+        "temp_max": 296.3,
+        "temp_min": 296.3
+    },
+    "name": "West Coast",
+    "rain": {
+        "1h": 0.33
+    },
+    "sys": {
+        "country": "GM",
+        "id": 2367,
+        "sunrise": 1664780077,
+        "sunset": 1664823239,
+        "type": 1
+    },
+    "timezone": 0,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "light rain",
+            "icon": "10d",
+            "id": 500,
+            "main": "Rain"
+        }
+    ],
+    "wind": {
+        "deg": 13,
+        "gust": 3.5,
+        "speed": 2.81
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 80
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.5,
+        "lon": 149
+    },
+    "dt": 1664790393,
+    "id": 2177478,
+    "main": {
+        "feels_like": 282.46,
+        "grnd_level": 915,
+        "humidity": 79,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 282.97,
+        "temp_max": 283.99,
+        "temp_min": 282.11
+    },
+    "name": "Australian Capital Territory",
+    "sys": {
+        "country": "AU",
+        "id": 2010551,
+        "sunrise": 1664739493,
+        "sunset": 1664784481,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 241,
+        "gust": 1.2,
+        "speed": 1.63
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 80
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.5,
+        "lon": 149
+    },
+    "dt": 1664790393,
+    "id": 2177478,
+    "main": {
+        "feels_like": 282.46,
+        "grnd_level": 915,
+        "humidity": 79,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 282.97,
+        "temp_max": 283.99,
+        "temp_min": 282.11
+    },
+    "name": "Australian Capital Territory",
+    "sys": {
+        "country": "AU",
+        "id": 2010551,
+        "sunrise": 1664739493,
+        "sunset": 1664784481,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 241,
+        "gust": 1.2,
+        "speed": 1.63
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -33.8983,
+        "lon": 149.9344
+    },
+    "dt": 1664790394,
+    "id": 2152677,
+    "main": {
+        "feels_like": 278.81,
+        "grnd_level": 878,
+        "humidity": 91,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 278.81,
+        "temp_max": 278.81,
+        "temp_min": 278.81
+    },
+    "name": "Gingkin",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664739312,
+        "sunset": 1664784214
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 50,
+        "gust": 0.65,
+        "speed": 0.44
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 100
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -36.9667,
+        "lon": 141.0833
+    },
+    "dt": 1664790394,
+    "id": 2177784,
+    "main": {
+        "feels_like": 286.29,
+        "grnd_level": 1006,
+        "humidity": 83,
+        "pressure": 1019,
+        "sea_level": 1019,
+        "temp": 286.71,
+        "temp_max": 286.71,
+        "temp_min": 286.71
+    },
+    "name": "Apsley",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664741351,
+        "sunset": 1664786422
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 126,
+        "gust": 3.74,
+        "speed": 3.03
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 98
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.6432,
+        "lon": 146.5021
+    },
+    "dt": 1664790394,
+    "id": 2169113,
+    "main": {
+        "feels_like": 280.01,
+        "grnd_level": 978,
+        "humidity": 78,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 281.38,
+        "temp_max": 281.38,
+        "temp_min": 281.38
+    },
+    "name": "Western Creek",
+    "sys": {
+        "country": "AU",
+        "id": 2036159,
+        "sunrise": 1664739910,
+        "sunset": 1664785263,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 178,
+        "gust": 3.78,
+        "speed": 2.33
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 98
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.6432,
+        "lon": 146.5021
+    },
+    "dt": 1664790394,
+    "id": 2169113,
+    "main": {
+        "feels_like": 280.01,
+        "grnd_level": 978,
+        "humidity": 78,
+        "pressure": 1021,
+        "sea_level": 1021,
+        "temp": 281.38,
+        "temp_max": 281.38,
+        "temp_min": 281.38
+    },
+    "name": "Western Creek",
+    "sys": {
+        "country": "AU",
+        "id": 2036159,
+        "sunrise": 1664739910,
+        "sunset": 1664785263,
+        "type": 2
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 178,
+        "gust": 3.78,
+        "speed": 2.33
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -35.2835,
+        "lon": 149.1281
+    },
+    "dt": 1664790159,
+    "id": 2172517,
+    "main": {
+        "feels_like": 284.25,
+        "humidity": 72,
+        "pressure": 1021,
+        "temp": 285.12,
+        "temp_max": 286.23,
+        "temp_min": 284.32
+    },
+    "name": "Canberra",
+    "sys": {
+        "country": "AU",
+        "id": 9588,
+        "sunrise": 1664739468,
+        "sunset": 1664784444,
+        "type": 1
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03n",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 360,
+        "speed": 2.57
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 97
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -41.7833,
+        "lon": 145.5167
+    },
+    "dt": 1664790391,
+    "id": 2151127,
+    "main": {
+        "feels_like": 278.53,
+        "grnd_level": 1005,
+        "humidity": 98,
+        "pressure": 1022,
+        "sea_level": 1022,
+        "temp": 278.53,
+        "temp_max": 278.53,
+        "temp_min": 278.53
+    },
+    "name": "Rosebery",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664740142,
+        "sunset": 1664785504
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "overcast clouds",
+            "icon": "04n",
+            "id": 804,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 196,
+        "gust": 1.52,
+        "speed": 1.14
+    }
+}
+,
+{
+    "base": "stations",
+    "clouds": {
+        "all": 51
+    },
+    "cod": 200,
+    "coord": {
+        "lat": -30.4,
+        "lon": 152.35
+    },
+    "dt": 1664790395,
+    "id": 2167829,
+    "main": {
+        "feels_like": 277.88,
+        "grnd_level": 874,
+        "humidity": 97,
+        "pressure": 1023,
+        "sea_level": 1023,
+        "temp": 277.88,
+        "temp_max": 277.88,
+        "temp_min": 277.88
+    },
+    "name": "Ebor",
+    "sys": {
+        "country": "AU",
+        "sunrise": 1664738819,
+        "sunset": 1664783547
+    },
+    "timezone": 39600,
+    "visibility": 10000,
+    "weather": [
+        {
+            "description": "broken clouds",
+            "icon": "04n",
+            "id": 803,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 46,
+        "gust": 1.54,
+        "speed": 0.93
+    }
+}
+]
