@@ -136,7 +136,7 @@ class Activities extends React.Component {
 
 
     render() {
-        return (<div>
+        return (<div className={"sty"}>
                 {/*navigation bar  ys={1}*/}
             <Grid container className={"navBar"} >
                 <Grid item xs={3}>
@@ -164,7 +164,7 @@ class Activities extends React.Component {
                 </Grid>
             </Grid><br/>
      {/*tab bar ys={2} sx={{ width: '30%' }}*/}
-                <Grid container >
+                <Grid className={"row1"} container >
                     <Box  className={"tab"}>
                         <Tabs
                             value={ColorTab.value}
@@ -200,7 +200,7 @@ class Activities extends React.Component {
                     </Paper>
                 </Grid> <hr/><br/> */}
    {/*main ys={4}*/}<br/>
-                <Grid container>
+                <Grid className={"row2"} container >
                     <Grid item xs={1} />
                     <Grid item xs={3}>
                         <Box
@@ -301,10 +301,10 @@ class Activities extends React.Component {
                     <Grid item xs={1}/>
 
                     <Grid item xs={7} className={"mapImage"}/>
-                </Grid><br/><br/>
+                </Grid>
 
             {/*  footer ys={3}*/}
-                <Footer/>
+                <Footer />
             </div>
         );
     };

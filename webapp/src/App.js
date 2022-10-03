@@ -17,7 +17,7 @@ import Map from './page/Map';
 
 class App extends Component {
     render() {
-        return <div>
+        return <div className={"sty"}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>

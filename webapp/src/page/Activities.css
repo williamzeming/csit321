@@ -1,5 +1,6 @@
 .navBar{
     background-color: black;
+    height: 6%;
 }
 .navBar1{
     text-align: center;
@@ -29,6 +30,26 @@
 .mapImage{
     background-image: url('./imgM/map-example.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 400px,400px;
+}
+.sty{
+    height: 100%;
+
+}
+.row1{
+    height: 4%;
+}
+.row2{
+    height:70%;
+}
+Body{
+    height: 100%;
+}
+#root{
+    height: 100%;
+}
+hr{
+    padding: 0;
+    margin: 0;
 }
 
