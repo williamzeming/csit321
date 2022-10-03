@@ -39,6 +39,12 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import Sunny from './sunny.png';
 import Rainy from './rainy.png';
 import Cloudy from './cloudy.png';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 const url = "http://localhost:";
 const Img = styled('img')({
@@ -113,7 +119,7 @@ class Detail extends React.Component {
             if (this.commentItemData.length !== comments.length){
                 for (var i = 0;i<comments.length;i++){
                     var date = new Date(comments[i].time)
-                    var time = date.getMonth()+1+"/"+date.getDate();
+                    var time = +date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
                     var singleCom = {name:comments[i].userName,data:time,comment:comments[i].comments}
                     this.commentItemData.push(singleCom)
                 }
@@ -188,31 +194,49 @@ class Detail extends React.Component {
         dateTomorrow = new Date(dateTomorrow);
         var tomorrow = dateTomorrow.getMonth()+"/"+dateTomorrow.getDate();
         // //set today's parameter
-        document.getElementById("weatherTodayDate").innerHTML=today;
+       // document.getElementById("weatherTodayDate").innerHTML=today;
 
 
         let location = this.getCookie("loc")
         const params = {
             loc: location
         }
+
+
+
         axios.post(url + "5000/getWeatherInfo", params).then((res) => {
 
             if(res.data.weather.weather[0].main=="Clouds"){
                 document.getElementById("weatherTodayImg").src=Cloudy;
 
             }
+            var sunRiseData=res.data.weather.sys.sunrise;
+            var sunRise = new Date(sunRiseData*1000);//如果date为13位不需要乘1000
+            var h = (sunRise.getHours() < 10 ? '0' + sunRise.getHours() : sunRise.getHours()) + ':';
+            var m = (sunRise.getMinutes() <10 ? '0' + sunRise.getMinutes() : sunRise.getMinutes()) ;
+            document.getElementById("sunRise").innerText=h+m;
+
+            var sunRiseData=res.data.weather.sys.sunset;
+            var sunSet = new Date(sunRiseData*1000);//如果date为13位不需要乘1000
+            var h1 = (sunSet.getHours() < 10 ? '0' + sunSet.getHours() : sunSet.getHours()) + ':';
+            var m1 = (sunSet.getMinutes() <10 ? '0' + sunSet.getMinutes() : sunSet.getMinutes()) ;
+
+            document.getElementById("sunSet").innerText=h1+m1;
+
             var temperature=res.data.weather.main.temp;
             var feelsLike=res.data.weather.main.feels_like;
             var min=res.data.weather.main.temp_min;
             var max=res.data.weather.main.temp_max;
-            document.getElementById("temperature").innerHTML=temperature.toFixed(2)+"&#176"+"C";
-            document.getElementById("weatherTodayWind").innerHTML="Winds speed: "+res.data.weather.wind.speed+"km/h";
-            document.getElementById("visibility").innerHTML="Visibility: "+res.data.weather.visibility+"m";
-            document.getElementById("humidity").innerHTML="Humidity: "+res.data.weather.main.humidity+"%";
-            document.getElementById("pressure").innerHTML="Pressure: "+res.data.weather.main.pressure+"Pa";
-            document.getElementById("feelsLike").innerHTML="Feels Like: "+feelsLike.toFixed(2)+"&#176"+"C";
-            document.getElementById("lowestTemperature").innerHTML="Min temperature: "+min.toFixed(2)+"&#176"+"C";
-            document.getElementById("maximumTemperature").innerHTML="Max temperature: "+max.toFixed(2)+"&#176"+"C";
+            var mn=max.toFixed(2)+"/"+min.toFixed(2)
+            console.log(max)
+            document.getElementById("temperature").innerHTML=temperature.toFixed(2)+"°C";
+            document.getElementById("weatherTodayWind").innerHTML=res.data.weather.wind.speed+"km/h";
+            document.getElementById("visibility").innerHTML=res.data.weather.visibility+"m";
+            document.getElementById("humidity").innerHTML=res.data.weather.main.humidity+"%";
+            document.getElementById("pressure").innerHTML=res.data.weather.main.pressure+"hPa";
+            document.getElementById("feelsLike").innerHTML=feelsLike.toFixed(2)+"°C";
+            document.getElementById("max/min").innerHTML=mn+"°C";
+
             console.log(res.data.weather.wind.speed)
         })
 
@@ -294,28 +318,76 @@ class Detail extends React.Component {
                             <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
                              Weather
                             </Stack>
-                            <br/>
-                            <Stack className={"temp"}   direction="row" spacing={20}>
-                                <Stack  style={{paddingLeft:10,textAlign:"center"}}>
-                                    <span id="weatherTodayDate">date</span>
-                                    <img id="weatherTodayImg" style={{height:50,width:50}}/>
-                                    <span id="temperature">temperature</span>
 
-                                </Stack>
-                                <Stack >
-                                    <span id="weatherTodayWind">wind speed</span>
-                                    <span id="visibility">visibility</span>
-                                    <span id="humidity">humidity</span>
-                                    <span id="pressure">pressure</span>
+                            <Stack className={"temp"}   direction="row" >
+                                {/*<Stack  style={{paddingLeft:10,textAlign:"center"}}>*/}
+                                {/*    <span id="weatherTodayDate">date</span>*/}
+                                {/*    <img id="weatherTodayImg" style={{height:50,width:50}}/>*/}
+                                {/*    <span id="temperature">temperature</span>*/}
 
-                                </Stack>
-                                <Stack >
-                                    <span id="feelsLike">feelsLike</span>
-                                    <span id="lowestTemperature">lowest temperature</span>
-                                    <span id="maximumTemperature">maximum temperature</span>
+                                {/*</Stack>*/}
+                                {/*<Stack >*/}
+                                {/*    <span id="weatherTodayWind">wind speed</span>*/}
+                                {/*    <span id="visibility">visibility</span>*/}
+                                {/*    <span id="humidity">humidity</span>*/}
+                                {/*    <span id="pressure">pressure</span>*/}
+
+                                {/*</Stack>*/}
+                                {/*<Stack >*/}
+                                {/*    <span id="feelsLike">feelsLike</span>*/}
+                                {/*    <span id="lowestTemperature">lowest temperature</span>*/}
+                                {/*    <span id="maximumTemperature">maximum temperature</span>*/}
 
 
-                                </Stack>
+                                {/*</Stack>*/}
+
+                                <Grid >
+                                    <p style={{margin:0}}><img src={Rainy} id="weatherTodayImg" style={{height:100,width:100}}/></p>
+                                    <p style={{margin:0,fontSize:26,textAlign:"center"}}>2/10</p>
+
+                                </Grid>
+
+
+                                <Grid item md={12} xs={12} lg={12}>
+
+                                    <Table >
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell>Wind Speed:</TableCell>
+                                                <TableCell id="weatherTodayWind">10/4</TableCell>
+                                                <TableCell>Pressure:</TableCell>
+                                                <TableCell id="pressure">10/4</TableCell>
+                                                <TableCell>Humidity:</TableCell>
+                                                <TableCell id="humidity">10/4</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>Visibility:</TableCell>
+                                                <TableCell id="visibility">100pa</TableCell>
+                                                <TableCell>Max/Min °C:</TableCell>
+                                                <TableCell id="max/min">10/4</TableCell>
+                                                <TableCell>Current °C:</TableCell>
+                                                <TableCell id="temperature">10/4</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>Feels Like °C:</TableCell>
+                                                <TableCell id="feelsLike">100pa</TableCell>
+                                                <TableCell>Sun Rise:</TableCell>
+                                                <TableCell id="sunRise">10/4</TableCell>
+                                                <TableCell>Sun Set:</TableCell>
+                                                <TableCell id="sunSet">10/4</TableCell>
+                                            </TableRow>
+
+                                        </TableBody>
+
+
+                                    </Table>
+                                </Grid>
+
+
+
+
+
+
 
 
                             </Stack>
