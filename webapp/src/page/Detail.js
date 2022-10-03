@@ -80,23 +80,6 @@ class Detail extends React.Component {
         }
     ]
 
-    weather=[
-        {
-            date: "9/23",
-            picture: Cloudy,
-            wind: '5 km/h'
-        },
-        {
-            date: "9/24",
-            picture: Sunny,
-            wind: '15 km/h'
-        },
-        {
-            date: "9/25",
-            picture: Rainy,
-            wind: '10 km/h'
-        }
-    ]
     initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
         // document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
@@ -198,18 +181,34 @@ class Detail extends React.Component {
         dateTomorrow = new Date(dateTomorrow);
         var tomorrow = dateTomorrow.getMonth()+"/"+dateTomorrow.getDate();
         // //set today's parameter
-        // document.getElementById("weatherTodayDate").innerHTML=today;
-        // document.getElementById("weatherTodayImg").innerHTML="Sunny";
-        // document.getElementById("weatherTodayWind").innerHTML="today's wind speed";
-        // //set tomorrow's parameter
-        // document.getElementById("weatherTomorrowDate").innerHTML=tomorrow;
-        // document.getElementById("weatherTomorrowImg").innerHTML="Rainy";
-        // document.getElementById("weatherTomorrowWind").innerHTML="tomorrow's wind speed";
-        for(var i=0;i<this.weather.length;i++){
-            this.weather[i].date=today;
+        document.getElementById("weatherTodayDate").innerHTML=today;
 
 
+        let location = this.getCookie("loc")
+        const params = {
+            loc: location
         }
+        axios.post(url + "5000/getWeatherInfo", params).then((res) => {
+
+            if(res.data.weather.weather[0].main=="Clouds"){
+                document.getElementById("weatherTodayImg").src=Cloudy;
+
+            }
+            var temperature=res.data.weather.main.temp;
+            var feelsLike=res.data.weather.main.feels_like;
+            var min=res.data.weather.main.temp_min;
+            var max=res.data.weather.main.temp_max;
+            document.getElementById("temperature").innerHTML=temperature.toFixed(2)+"&#176"+"C";
+            document.getElementById("weatherTodayWind").innerHTML="Winds speed: "+res.data.weather.wind.speed+"km/h";
+            document.getElementById("visibility").innerHTML="Visibility: "+res.data.weather.visibility+"m";
+            document.getElementById("humidity").innerHTML="Humidity: "+res.data.weather.main.humidity+"%";
+            document.getElementById("pressure").innerHTML="Pressure: "+res.data.weather.main.pressure+"Pa";
+            document.getElementById("feelsLike").innerHTML="Feels Like: "+feelsLike.toFixed(2)+"&#176"+"C";
+            document.getElementById("lowestTemperature").innerHTML="Min temperature: "+min.toFixed(2)+"&#176"+"C";
+            document.getElementById("maximumTemperature").innerHTML="Max temperature: "+max.toFixed(2)+"&#176"+"C";
+            console.log(res.data.weather.wind.speed)
+        })
+
 
     }
     render() {
@@ -289,29 +288,28 @@ class Detail extends React.Component {
                              Weather
                             </Stack>
                             <br/>
-                            <Stack className={"temp"} direction="row" spacing={10}>
-                                {/*<Stack>*/}
-                                {/*    <span id="weatherTodayDate">date</span>*/}
-                                {/*    <span id="weatherTodayImg">img</span>*/}
-                                {/*    <span id="weatherTodayWind">wind speed</span>*/}
+                            <Stack className={"temp"}   direction="row" spacing={20}>
+                                <Stack  style={{paddingLeft:10,textAlign:"center"}}>
+                                    <span id="weatherTodayDate">date</span>
+                                    <img id="weatherTodayImg" style={{height:50,width:50}}/>
+                                    <span id="temperature">temperature</span>
 
-                                {/*</Stack>*/}
-                                {/*<Stack>*/}
-                                {/*    <span id="weatherTomorrowDate">date</span>*/}
-                                {/*    <span id="weatherTomorrowImg">img</span>*/}
-                                {/*    <span id="weatherTomorrowWind">wind speed</span>*/}
-                                {/*</Stack>*/}
+                                </Stack>
+                                <Stack >
+                                    <span id="weatherTodayWind">wind speed</span>
+                                    <span id="visibility">visibility</span>
+                                    <span id="humidity">humidity</span>
+                                    <span id="pressure">pressure</span>
 
-                                    {this.weather.map((item) => (
-                                        <div>
-                                            <Stack>
-                                                <ListItemText primary={item.date}></ListItemText>
-                                                < img src={item.picture}  style={{height:50,width:50}}/>
-                                                <ListItemText primary={item.wind}></ListItemText>
-                                            </Stack>
+                                </Stack>
+                                <Stack >
+                                    <span id="feelsLike">feelsLike</span>
+                                    <span id="lowestTemperature">lowest temperature</span>
+                                    <span id="maximumTemperature">maximum temperature</span>
 
-                                        </div>
-                                    ))}
+
+                                </Stack>
+
 
                             </Stack>
                             <br/>
