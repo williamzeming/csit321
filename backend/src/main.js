@@ -150,6 +150,16 @@ app.post('/getWeatherInfo', jsonParser, (req, res) => {
     })
 })
 
+app.post('/getSimilarMountains', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    mysql.selectSimilarMountains(req.body.loc).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+        console.log(res1)
+    })
+})
+
 // 接口名称：/postComment
 // 接口参数：uid, loc, score, comment
 // 接口返回值：error or success

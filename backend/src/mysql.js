@@ -177,6 +177,29 @@ exports.selectMountainDetailOnload = function (location) {
     return promise;
 }
 
+exports.selectSimilarMountains = function (location) {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select MountName,CITY,STATE from mountains where MountName in ((select Similar1 from mountains where MountName = ?) ,(select Similar2 from mountains where MountName = ?),(select Similar3 from mountains where MountName = ?));'
+        createConnect.query(sql, [location,location,location], function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                reject(err);
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
+
 exports.selectCommentDetailOnload = function (location) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();

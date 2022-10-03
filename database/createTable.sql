@@ -53,3 +53,8 @@ create trigger updateScore after insert on comment
 
 select * from activity
 where exists (select * from activity where userNum = 1 and active = 'active');
+
+select MountName,CITY,STATE from mountains
+where MountName in ((select Similar1 from mountains where MountName = 'Mount Kosciuszko')
+,(select Similar2 from mountains where MountName = 'Mount Kosciuszko')
+,(select Similar3 from mountains where MountName = 'Mount Kosciuszko'));
