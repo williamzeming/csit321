@@ -81,7 +81,9 @@ app.post('/register', jsonParser, (req, res) => {
         })
     })
 })
-
+// url: /initHomePost
+// method: post
+// params: uid
 app.post('/initHomePost', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.popularSelect().then(res1 => {
@@ -92,7 +94,9 @@ app.post('/initHomePost', jsonParser, (req, res) => {
     })
 
 })
-
+// url: /initDetailPost
+// method: post
+// params: loc
 app.post('/initDetailPost', jsonParser, (req, res) => {
     console.log(req.body.loc)
     res.status(200).json({
@@ -100,10 +104,9 @@ app.post('/initDetailPost', jsonParser, (req, res) => {
         lng:150.8968482112078
     })
 })
-// 接口名称：/detailOnload
-// 接口参数：loc
-// 接口返回值：info[] 里面是所有的comment信息，用索引取值就行
-// 目前没有天气信息
+// url: /mountainDetailOnload
+// method: post
+// params: loc
 app.post('/mountainDetailOnload', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.selectMountainDetailOnload(req.body.loc).then(res1 => {
@@ -113,7 +116,9 @@ app.post('/mountainDetailOnload', jsonParser, (req, res) => {
         console.log(res1)
     })
 })
-
+// url: /commentDetailOnload
+// method: post
+// params: loc
 app.post('/commentDetailOnload', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.selectCommentDetailOnload(req.body.loc).then(res1 => {
@@ -124,7 +129,9 @@ app.post('/commentDetailOnload', jsonParser, (req, res) => {
         console.log(res1)
     })
 })
-
+// url: /getWeatherInfo
+// method: post
+// params: loc
 app.post('/getWeatherInfo', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.selectWeather(req.body.loc).then(res1 => {
@@ -149,7 +156,9 @@ app.post('/getWeatherInfo', jsonParser, (req, res) => {
         }
     })
 })
-
+// url: /getSimilarMountains
+// method: post
+// params: loc
 app.post('/getSimilarMountains', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.selectSimilarMountains(req.body.loc).then(res1 => {
@@ -160,9 +169,9 @@ app.post('/getSimilarMountains', jsonParser, (req, res) => {
     })
 })
 
-// 接口名称：/postComment
-// 接口参数：uid, loc, score, comment
-// 接口返回值：error or success
+// url: /postComment
+// method: post
+// params: fname, loc, score, comment
 app.post('/postComment', jsonParser, (req, res) => {
     time = new Date();
     time = time.toLocaleString();
@@ -174,7 +183,9 @@ app.post('/postComment', jsonParser, (req, res) => {
         console.log(res.body)
     })
 })
-
+// url: /updateScore
+// method: post
+// params: loc, score
 app.post('/updateScore', jsonParser, (req, res) => {
     mysql.updateScore(req.body.loc, req.body.score).then(res1 => {
         console.log(res1)
@@ -185,9 +196,9 @@ app.post('/updateScore', jsonParser, (req, res) => {
     })
 })
 
-// 接口名称：/settingOnload
-// 接口参数：uid
-// 接口返回值：user 的所有信息
+// url: /settingOnload
+// method: post
+// params: uid
 app.post('/settingOnload', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.selectSettingOnload(req.body.uid).then(res1 => {
@@ -197,7 +208,9 @@ app.post('/settingOnload', jsonParser, (req, res) => {
     })
 })
 
-//
+// url: /settingUpdate
+// method: post
+// params: uid, ficusDOBrstName, password, firstName, lastName, phoneNum, email, gender
 app.post('/settingUpdate', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.updateSetting(req.body.uid, req.body.cusDOB, req.body.password, req.body.firstName, req.body.lastName, req.body.phoneNum, req.body.email, req.body.gender).then(res1 => {
@@ -208,6 +221,9 @@ app.post('/settingUpdate', jsonParser, (req, res) => {
 })
 
 //------------------------activity------------------------
+// url: /activityOnload
+// method: post
+// params: uid
 app.post('/activityOnload', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.selectActivityOnload(req.body.uid).then(res1 => {
@@ -216,7 +232,9 @@ app.post('/activityOnload', jsonParser, (req, res) => {
         })
     })
 })
-
+// url: /setActivity
+// method: post
+// params: uid, userName, emergencyContact, location, startDate, endDate, notes
 app.post('/setActivity', jsonParser, (req, res) => {
     console.log(req.body.uid)
     mysql.insertActivity(req.body.uid, req.body.userName, req.body.emergencyContact, req.body.location, req.body.startDate, req.body.endDate, req.body.notes).then(res1 => {
@@ -225,16 +243,17 @@ app.post('/setActivity', jsonParser, (req, res) => {
         })
     })
 })
-
+// url: /finishActivity
+// method: post
+// params: uid, location, endDate,
 app.post('/finishActivity', jsonParser, (req, res) => {
     console.log(req.body.uid)
-    mysql.updateActivity(req.body.uid,req.body.location,req.body.endDate).then(res1 => {
+    mysql.updateActivity(req.body.uid, req.body.location, req.body.endDate).then(res1 => {
         res.status(200).json({
             res1
         })
     })
 })
-
 
 //最后
 app.listen(port, () => {
