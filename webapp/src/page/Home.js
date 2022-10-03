@@ -138,9 +138,19 @@ class Home extends React.Component {
     }
 
     searchLoc() {
-        const loc = document.getElementById("searchBox").value
-        document.cookie = "loc="+loc
-        window.location.href = `/Detail/${loc}`
+        const sLoc = document.getElementById("searchBox").value
+        const params = {
+            loc:sLoc
+        }
+        axios.post(url + "5000/searchMountains", params).then((res) => {
+            var mountain = res.data.res1[0].MountName
+            document.cookie = "loc="+mountain
+            window.location.href = `/Detail/${mountain}`
+        })
+    }
+    keyupadditem=(e)=>{
+        if (e.which !== 13) return
+        this.searchLoc()
     }
 
     render() {
@@ -184,6 +194,7 @@ class Home extends React.Component {
                                     sx={{ml: 1, flex: 1}}
                                     placeholder="Search"
                                     id={"searchBox"}
+                                    onKeyDown={this.keyupadditem}
                                 />
                                 <IconButton type="button" sx={{p: '10px'}} aria-label="search" onClick={this.searchLoc}>
                                     <SearchIcon/>

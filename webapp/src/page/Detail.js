@@ -62,19 +62,16 @@ class Detail extends React.Component {
     recommends = [
         {
             img: img1,
-            title: 'Bouddi',
             nation: 'Australia',
             name: 'Bouddi National Park',
         },
         {
             img: img2,
-            title: 'Tasmanian',
             nation: 'Australia',
             name: 'Cradle Mountain',
         },
         {
             img: img3,
-            title: 'Alpine',
             nation: 'Australia',
             name: 'Mount Kosciuszko',
         }
@@ -113,6 +110,14 @@ class Detail extends React.Component {
                 lng: parseFloat(detail.Longitude),
                 Score:detail.Score
             })
+            this.recommends[0].img =require('./imgM/'+detail.Similar1+'.jpg')
+            this.recommends[0].name = detail.Similar1
+            this.recommends[1].img =require('./imgM/'+detail.Similar2+'.jpg')
+            this.recommends[1].name = detail.Similar2
+            this.recommends[2].img =require('./imgM/'+detail.Similar3+'.jpg')
+            this.recommends[2].name = detail.Similar3
+
+
 
         })
     }
@@ -151,6 +156,8 @@ class Detail extends React.Component {
             window.location.reload();
         })
     }
+
+
     checkLogin() {
         var userID = this.getCookie("uid");
         if (userID !== "") {
@@ -178,14 +185,14 @@ class Detail extends React.Component {
         console.log(location);
     }
     setRouteCookie(loc) {
-        document.cookie = "loc="+loc
+        document.cookie = "loc="+loc+";"+"path=/"
         console.log(loc)
-        // window.location.href = `/Detail/${loc}`
+
     }
     componentDidMount = () => {
         this.checkLogin();
         this.initDetailOnload();
-        this.commentDetailOnload()
+        this.commentDetailOnload();
         this.setWeather();
     }
 
@@ -398,8 +405,7 @@ class Detail extends React.Component {
                                                     <Typography gutterBottom variant="subtitle1" component="div">
                                                         {item.name}
                                                     </Typography>
-                                                    <Typography variant="body2" gutterBottom>
-                                                        {item.title}
+                                                    <Typography variant="body1" gutterBottom>
                                                         {item.nation}
                                                     </Typography>
                                                 </Grid>
