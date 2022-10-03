@@ -127,6 +127,9 @@ class Activities extends React.Component {
             uid: userID
         }
         axios.post(url + "5000/finishActivity", params).then((res) => {
+            if(res.data.res1==="update success"){
+                window.location.reload();
+            }
             console.log(res.data.res1)
         })
     }

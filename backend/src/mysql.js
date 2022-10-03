@@ -343,16 +343,17 @@ var promise = new Promise(function (resolve, reject) {
     return promise;
 }
 
-exports.updateActivity = function (uid,location, endDate) {
+exports.updateActivity = function (uid) {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();
         createConnect.connect();
-        var sql = 'update activity set active = ? where userNum = ? and location = ? and endDate = ?';
-        createConnect.query(sql, ['inactive', uid, location, endDate], function (err, result) {
+        var sql = 'update activity set active = ? where userNum = ? and active = ?';
+        createConnect.query(sql, ['inactive', uid,'active'], function (err, result) {
             if (err) {
                 console.log('[UPDATE ERROR] - ', err.message);
                 reject(err);
             }
+            console.log("deg")
             resolve("update success");
         });
         createConnect.end();

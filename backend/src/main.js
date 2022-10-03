@@ -261,7 +261,7 @@ app.post('/setActivity', jsonParser, (req, res) => {
 // params: uid, location, endDate,
 app.post('/finishActivity', jsonParser, (req, res) => {
     console.log(req.body.uid)
-    mysql.updateActivity(req.body.uid, req.body.location, req.body.endDate).then(res1 => {
+    mysql.updateActivity(req.body.uid).then(res1 => {
         res.status(200).json({
             res1
         })
