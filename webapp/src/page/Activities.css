@@ -20,9 +20,13 @@
 }
 .vl{
     border-left:3px solid black;
-
 }
 .input-text{
+    font-weight: bold;
+    font-family: Times, "Times New Roman", Georgia, serif;
+    font-size: large;
+}
+.input-text2{
     font-weight: bold;
     font-family: Times, "Times New Roman", Georgia, serif;
     font-size: large;
@@ -52,4 +56,59 @@ hr{
     padding: 0;
     margin: 0;
 }
-
+.mainContent{
+    border: 1px solid gray;
+    border-radius: 75px 0 75px 0;
+    padding:5px;
+}
+.bgImg {
+    border: 1px solid gray;
+    border-radius: 75px 0 75px 0;
+    background-image: url('./imgM/profile_title_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:0.8;
+}
+.avatar{
+    padding:5px;
+    margin-left: 40px;
+    margin-top: 10px;
+    object-position: left;
+    float: left;
+}
+.profile-text{
+    text-decoration:underline;
+    color:gray;
+    font-size: small;
+}
+.profile-head{
+    padding-top: 15px;
+    padding-left: 30px;
+    overflow:hidden;
+}
+.input{
+    text-align: center;
+}
+.textField{
+    margin-left: 40px;
+    color:whitesmoke;
+}
+.button{
+    text-align: center;
+}
+label{
+    width:100vw;
+    height:2em;
+}
+label .input-text2{
+    width:30vw;
+    display:inline-block;
+    padding:10px;
+}
+label .input-text2 span{
+    color:white;
+    float:left;
+}
+label TextField{
+    width:55vw;
+}

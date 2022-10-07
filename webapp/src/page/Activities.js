@@ -1,5 +1,5 @@
 import "./Activities.css";
-import React from 'react';
+import React, {useState} from 'react';
 import logo1 from "./logo.png";
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -22,14 +22,15 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Footer from './Footer'
 import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material/styles";
 import {default as axios} from "axios";
+import Avatar from "@mui/material/Avatar";
 
 const url = "http://localhost:";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-
+/*
 function BasicDatePicker() {
     const [value, setValue] = React.useState<Dayjs | null>(null);
-}
+} */
 function ColorTab() {
     const [value, setValue] = React.useState('activities');
 }
@@ -134,6 +135,16 @@ class Activities extends React.Component {
         })
     }
 
+//show profile
+    showProfile(){
+        document.getElementById("profile").style.display="block";
+        document.getElementById("activities").style.display="none";
+    }
+//show activities
+    showActivities(){
+        document.getElementById("profile").style.display="none";
+        document.getElementById("activities").style.display="block";
+    }
 
     render() {
         return (<div className={"sty"}>
@@ -174,14 +185,16 @@ class Activities extends React.Component {
                             indicatorColor="secondary"
                             aria-label="secondary tabs example"
                         >
-                            <Tab value="home" label="Home" href={"/"}/>
-                            <Tab value="profile" label="Profile" href={"/"}/>
-                            <Tab value="activities" label="Activities" href={"/Activities"}/>
-                            {/*  <Tab value="completed" label="Completed" href={"/"}/>
-                            <Tab value="review" label="Review" href={"/"}/> */}
+                            <Button value="home" style={{color:"black",marginTop:5}} href={"/"} >Home</Button>
+                            <Button value="profile" style={{color:"black",marginTop:5}} onClick={this.showProfile}>Profile</Button>
+                            <Button value="activities" style={{color:"black",marginTop:5}} onClick={this.showActivities}>Activities</Button>
                         </Tabs>
                     </Box>
                 </Grid><br/>
+                <hr/><br/>
+   {/*main (activities)*/}
+                <div id="activities">
+                <Grid container>
                 <hr/>
   {/*search bar xs={2} */}
                 {/*  <Grid container xs={2} className={"search"}>
@@ -208,37 +221,21 @@ class Activities extends React.Component {
                             sx={{
                                 '& .MuiTextField-root': { m: 1, width: '25ch' },
                             }}
-                            /* noValidate */
                             autoComplete="off"
                         >
                         <div>
                             <div className={"input-text"}>Name:</div>
-                            {/* <TextField
-                                required
-                                id="outlined-required"
-                                margin="dense"
-                            />*/}
                             <ThemeProvider theme={theme}>
                                 <TextField required={true} fullWidth id="name" variant="standard"/>
                             </ThemeProvider>
                         </div><br/>
                             <div>
                                 <div className={"input-text"}>Emergency Contact:</div>
-                                {/* <TextField
-                                required
-                                id="standard-required"
-                                margin="dense"
-                            />*/}
                                 <ThemeProvider theme={theme}>
                                     <TextField required={true} fullWidth id="emergency contact" variant="standard"/>
                                 </ThemeProvider></div><br/>
                             <div>
                                 <div className={"input-text"}>Climbing Location:</div>
-                                {/*<TextField
-                                required
-                                id="standard-required"
-                                margin="dense"
-                            />*/}
                                 <ThemeProvider theme={theme}>
                                     <TextField required={true} fullWidth id="climbing location" variant="standard"/>
                                 </ThemeProvider>
@@ -246,15 +243,6 @@ class Activities extends React.Component {
                         </Box><br/>
                         <div>
                             <div className={"input-text"}>Start Date: </div><br/>
-                            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DatePicker
-                                    value={BasicDatePicker.value}
-                                    onChange={(newValue) => {
-                                        BasicDatePicker.setValue(newValue);
-                                    }}
-                                    renderInput={(params) => <TextField {...params} />}
-                                />
-                            </LocalizationProvider> */}
                             <TextField style={{width:230}} InputLabelProps={{
                                 shrink: true,
                             }} required={true} id="start date"
@@ -262,15 +250,6 @@ class Activities extends React.Component {
                         </div><br/>
                         <div>
                             <div className={"input-text"}>End Date: </div><br/>
-                            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DatePicker
-                                    value={BasicDatePicker.value}
-                                    onChange={(newValue) => {
-                                        BasicDatePicker.setValue(newValue);
-                                    }}
-                                    renderInput={(params) => <TextField {...params} />}
-                                />
-                            </LocalizationProvider> */}
                             <TextField style={{width:230}} InputLabelProps={{
                                 shrink: true,
                             }} required={true} id="end date"
@@ -278,12 +257,7 @@ class Activities extends React.Component {
                         </div><br/>
                         <div>
                             <div className={"input-text"}>Notes: </div><br/>
-                            {/*  <TextareaAutosize
-                            aria-label="minimum height"
-                            minRows={3}
-                            placeholder="Optional..."
-                            style={{ width: 200 }}
-                        /> */}  <TextField
+                            <TextField
                             id="note"
                             multiline
                             rows={4}
@@ -302,9 +276,67 @@ class Activities extends React.Component {
 
                     <Grid item xs={7} className={"mapImage"}/>
                 </Grid>
+                </Grid><br/><br/>
+                </div>
+
+   {/*main (profile)*/}
+                <br/><br/>
+                <div id="profile" style={{display:"none"}}>
+                    <Grid container>
+                        <Grid item xs={2}/>
+                        <Grid item xs={8} className={"mainContent"} >
+                              <Box className={"bgImg"}>
+                        <Grid item ys={3} />
+                            <Grid item ys={8} >
+                                <Grid item ys={2} >
+                                <Avatar src={logo1} className={"avatar"} sx={{ width: 56, height: 56 }}/>
+                                <div className={"profile-head"}>
+   {/*Profile change to username*/}
+                                    <Typography variant="h5" style={{fontWeight:"medium", color:"white"}}>Profile</Typography>
+                                    <i className={"profile-text"}>Update your personal details. </i>
+                                </div>
+                                </Grid><br/>
+                                <Grid ys={10} >
+                                <Grid item  className={"input"}>
+                                    <label>
+                                        <div className={"input-text2"}><span>Username: </span>
+                                        <TextField id="username" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>Phone Number:</span>
+                                        <TextField id="phone" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>Address:</span>
+                                        <TextField id="address" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>Email:</span>
+                                        <TextField id="email" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>New Password:</span>
+                                        <TextField id="password" variant="standard" type="password" required={true} className={"textField"}/></div>
+                                    </label><br/><br/>
 
             {/*  footer ys={3}*/}
                 <Footer />
+                                </Grid>
+                                    <Box style={{textAlign:"center"}}>
+                                    <Button variant="contained" >SAVE</Button>
+                                    </Box><br/>
+                                </Grid>
+
+                            </Grid>
+                             </Box>
+                        </Grid>
+                        <Grid item xs={2}/>
+                    </Grid>
+                </div><br/><br/><br/>
+
+{/*footer*/}
+                <br/><br/>
+                <Footer/>
             </div>
         );
     };

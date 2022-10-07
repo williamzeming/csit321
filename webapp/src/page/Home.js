@@ -108,7 +108,7 @@ class Home extends React.Component {
 
     checkLogin() {
         var userID = this.getCookie("uid");
-        if (userID !== "") {
+        if (userID != "") {
             this.setState({loginState: true})
         } else {
             this.setState({loginState: false})
