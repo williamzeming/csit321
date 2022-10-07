@@ -190,29 +190,12 @@ class Activities extends React.Component {
                             <Button value="activities" style={{color:"black",marginTop:5}} onClick={this.showActivities}>Activities</Button>
                         </Tabs>
                     </Box>
-                </Grid><br/>
-                <hr/><br/>
+                </Grid><br/><br/><br/>
+                <hr/>
    {/*main (activities)*/}
                 <div id="activities">
                 <Grid container>
-                <hr/>
-  {/*search bar xs={2} */}
-                {/*  <Grid container xs={2} className={"search"}>
-                    <Paper
-                        component="form"
-                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
-                    >
-                    <InputBase
-                        sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search activities..."
-                        inputProps={{ 'aria-label': 'search activities ' }}
-                    />
-                    <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                        <SearchIcon />
-                    </IconButton>
-                    </Paper>
-                </Grid> <hr/><br/> */}
-   {/*main ys={4}*/}<br/>
+                <hr/><br/>
                 <Grid className={"row2"} container >
                     <Grid item xs={1} />
                     <Grid item xs={3}>
@@ -319,8 +302,6 @@ class Activities extends React.Component {
                                         <TextField id="password" variant="standard" type="password" required={true} className={"textField"}/></div>
                                     </label><br/><br/>
 
-            {/*  footer ys={3}*/}
-                <Footer />
                                 </Grid>
                                     <Box style={{textAlign:"center"}}>
                                     <Button variant="contained" >SAVE</Button>
