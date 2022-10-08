@@ -209,6 +209,10 @@ class Detail extends React.Component {
             if(res.data.weather.weather[0].main=="Clouds"){
                 document.getElementById("weatherTodayImg").src=Cloudy;
 
+            }else if(res.data.weather.weather[0].main=="Clear"){
+                document.getElementById("weatherTodayImg").src=Sunny;
+            }else if(res.data.weather.weather[0].main=="Rain"){
+                document.getElementById("weatherTodayImg").src=Rainy;
             }
             var sunRiseData=res.data.weather.sys.sunrise;
             var sunRise = new Date(sunRiseData*1000);//如果date为13位不需要乘1000

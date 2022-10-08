@@ -41,7 +41,9 @@ class Activities extends React.Component {
     };
     componentDidMount = () => {
         this.initActivityOnload();
+        this.loadProfile();
     }
+
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -61,7 +63,7 @@ class Activities extends React.Component {
             //have record
 
             if(res.data.res1.status=="none"){
-                console.log("123")
+                console.log("noneActivity")
                 this.setState({
                     show:false
                 })
@@ -134,7 +136,49 @@ class Activities extends React.Component {
             console.log(res.data.res1)
         })
     }
+    loadProfile=()=>{
+        var userID = this.getCookie("uid");
+        const params = {
+            uid: userID
+        }
+        axios.post(url + "5000/settingOnload", params).then((res) => {
+            var date = new Date(res.data.res1[0].cusDOB);
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+            console.log(day+"/"+month+"/"+year);
+            document.getElementById("firstName").value=res.data.res1[0].firstName;
+            document.getElementById("lastName").value=res.data.res1[0].lastName;
+            document.getElementById("dob").value=day+"/"+month+"/"+year;
+            document.getElementById("email").value=res.data.res1[0].email;
+            document.getElementById("gender").value=res.data.res1[0].gender;
+            document.getElementById("phoneNumber").value=res.data.res1[0].phoneNum;
+        })
+    }
+    setProfile= () => {
+        var userID = this.getCookie("uid");
 
+        var firstName=document.getElementById("firstName").value;
+        var lastName=document.getElementById("lastName").value;
+        var cusDOB=document.getElementById("dob").value;
+        var email=document.getElementById("email").value;
+        var gender=document.getElementById("gender").value;
+        var phoneNum=document.getElementById("phoneNumber").value;
+        var password=document.getElementById("password").value;
+        const params = {
+            uid: userID,
+            firstName:firstName,
+            lastName:lastName,
+            cusDOB:cusDOB,
+            email:email,
+            gender:gender,
+            phoneNum:phoneNum,
+            password:password
+        }
+        axios.post(url + "5000/settingUpdate", params).then((res) =>{
+            console.log(res.data.res1);
+        })
+    }
 //show profile
     showProfile(){
         document.getElementById("profile").style.display="block";
@@ -197,6 +241,7 @@ class Activities extends React.Component {
                 <Grid container>
                 <hr/><br/>
                 <Grid className={"row2"} container >
+
                     <Grid item xs={1} />
                     <Grid item xs={3}>
                         <Box
@@ -282,20 +327,28 @@ class Activities extends React.Component {
                                 <Grid ys={10} >
                                 <Grid item  className={"input"}>
                                     <label>
-                                        <div className={"input-text2"}><span>Username: </span>
-                                        <TextField id="username" variant="standard" className={"textField"}/></div>
+                                        <div className={"input-text2"}><span>First Name: </span>
+                                        <TextField id="firstName" variant="standard" className={"textField"}/></div>
                                     </label><br/>
                                     <label>
-                                        <div className={"input-text2"}><span>Phone Number:</span>
-                                        <TextField id="phone" variant="standard" className={"textField"}/></div>
+                                        <div className={"input-text2"}><span>Last Name:</span>
+                                        <TextField id="lastName" variant="standard" className={"textField"}/></div>
                                     </label><br/>
                                     <label>
-                                        <div className={"input-text2"}><span>Address:</span>
-                                        <TextField id="address" variant="standard" className={"textField"}/></div>
+                                        <div className={"input-text2"}><span>Date of Birth:</span>
+                                        <TextField id="dob" variant="standard" className={"textField"}/></div>
                                     </label><br/>
                                     <label>
                                         <div className={"input-text2"}><span>Email:</span>
                                         <TextField id="email" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>Phone Number: </span>
+                                            <TextField id="phoneNumber" variant="standard" className={"textField"}/></div>
+                                    </label><br/>
+                                    <label>
+                                        <div className={"input-text2"}><span>Gender: </span>
+                                            <TextField id="gender" variant="standard" className={"textField"}/></div>
                                     </label><br/>
                                     <label>
                                         <div className={"input-text2"}><span>New Password:</span>
@@ -304,7 +357,7 @@ class Activities extends React.Component {
 
                                 </Grid>
                                     <Box style={{textAlign:"center"}}>
-                                    <Button variant="contained" >SAVE</Button>
+                                    <Button variant="contained" onClick={this.setProfile}>SAVE</Button>
                                     </Box><br/>
                                 </Grid>
 
