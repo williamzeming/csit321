@@ -261,12 +261,13 @@ class Detail extends React.Component {
                                   color: "white",
                                   fontSize: 30
                               }}>We Climb</span>
+                        <Link style={{paddingLeft:100,paddingTop:5}} to="/" color={"white"}
+                              underline="hover"href={"/"}>Home</Link>
                     </Grid>
                     <Grid className={"topSecondColumn"} item xs={2} md={4} lg={5}
                           style={{paddingTop: 5, position: "relative"}}>
-                        <Link style={{paddingRight: 20, paddingLeft: 190}} to="/" color={"white"}
-                              underline="hover">Home</Link>
-                        <Link style={{paddingRight: 20}} to="/" color={"white"} underline="hover">Community</Link>
+
+
                     </Grid>
                     <Grid item xs={3} md={4} lg={3}>
                         {

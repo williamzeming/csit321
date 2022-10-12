@@ -252,7 +252,7 @@ class Activities extends React.Component {
                             aria-label="secondary tabs example"
                         >
                             <Button value="home" style={{color:"black",marginTop:5}} href={"/"} >Home</Button>
-                            <Button value="profile" style={{color:"black",marginTop:5}} onClick={this.showProfile}>Profile</Button>
+                            <Button value="profile" style={{color:"black",marginTop:5}} href={"/PROFILE"}>Profile</Button>
                             <Button value="activities" style={{color:"black",marginTop:5}} onClick={this.showActivities}>Activities</Button>
                         </Tabs>
                     </Box>
@@ -334,66 +334,6 @@ class Activities extends React.Component {
                 </Grid><br/><br/>
                 </div>
 
-   {/*main (profile)*/}
-                <br/><br/>
-                <div id="profile" style={{display:"none"}}>
-                    <Grid container>
-                        <Grid item xs={2}/>
-                        <Grid item xs={8} className={"mainContent"} >
-                              <Box className={"bgImg"}>
-                        <Grid item ys={3} />
-                            <Grid item ys={8} >
-                                <Grid item ys={2} >
-                                <Avatar src={logo1} className={"avatar"} sx={{ width: 56, height: 56 }}/>
-                                <div className={"profile-head"}>
-   {/*Profile change to username*/}
-                                    <Typography variant="h5" style={{fontWeight:"medium", color:"white"}}>Profile</Typography>
-                                    <i className={"profile-text"}>Update your personal details. </i>
-                                </div>
-                                </Grid><br/>
-                                <Grid ys={10} >
-                                <Grid item  className={"input"}>
-                                    <label>
-                                        <div className={"input-text2"}><span>First Name: </span>
-                                        <TextField id="firstName" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>Last Name:</span>
-                                        <TextField id="lastName" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>Date of Birth:</span>
-                                        <TextField id="dob" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>Email:</span>
-                                        <TextField id="email" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>Phone Number: </span>
-                                            <TextField id="phoneNumber" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>Gender: </span>
-                                            <TextField id="gender" variant="standard" className={"textField"}/></div>
-                                    </label><br/>
-                                    <label>
-                                        <div className={"input-text2"}><span>New Password:</span>
-                                        <TextField id="password" variant="standard" type="password" required={true} className={"textField"}/></div>
-                                    </label><br/><br/>
-
-                                </Grid>
-                                    <Box style={{textAlign:"center"}}>
-                                    <Button variant="contained" onClick={this.setProfile}>SAVE</Button>
-                                    </Box><br/>
-                                </Grid>
-
-                            </Grid>
-                             </Box>
-                        </Grid>
-                        <Grid item xs={2}/>
-                    </Grid>
-                </div><br/><br/><br/>
 
 {/*footer*/}
                 <br/><br/>
