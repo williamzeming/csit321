@@ -169,18 +169,18 @@ app.post('/getWeatherInfo', jsonParser, (req, res) => {
         }
     })
 })
-// url: /getSimilarMountains
+// url: /allMountains
 // method: post
 // params: loc
-// app.post('/getSimilarMountains', jsonParser, (req, res) => {
-//     console.log(req.body.loc)
-//     mysql.selectSimilarMountains(req.body.loc).then(res1 => {
-//         res.status(200).json({
-//             res1
-//         })
-//         console.log(res1)
-//     })
-// })
+app.post('/allMountains', jsonParser, (req, res) => {
+    console.log(req.body.loc)
+    mysql.allMountains().then(res1 => {
+        res.status(200).json({
+            res1
+        })
+        console.log(res1)
+    })
+})
 
 // url: /postComment
 // method: post

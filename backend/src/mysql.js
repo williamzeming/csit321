@@ -388,6 +388,28 @@ exports.searchMountains = function (location) {
     return promise;
 }
 
+exports.allMountains = function () {
+    var promise = new Promise(function (resolve, reject) {
+        var createConnect = connectSQL();
+        createConnect.connect();
+        var sql = 'select MountName,STATE from mountains';
+        createConnect.query(sql, function (err, result) {
+            if (err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                reject(err);
+            }
+            result = JSON.parse(JSON.stringify(result));
+            // console.log(result);
+            resolve(result);
+        });
+        createConnect.end();
+    });
+    promise.then(function (value) {
+        return value;
+    }, function (value) {
+    });
+    return promise;
+}
 
 
 
