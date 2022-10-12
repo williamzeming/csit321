@@ -66,9 +66,9 @@ class Home extends React.Component {
     itemData = [
         {
             img: img1,
-            title: 'Bouddi',
+            title: 'Canberra',
             nation: 'Australia',
-            name: 'Bouddi National Park',
+            name: 'Mount Bimberi',
         },
         {
             img: img2,
