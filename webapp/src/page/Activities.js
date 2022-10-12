@@ -125,11 +125,21 @@ class Activities extends React.Component {
     }
     checkOut= () =>{
         var userID = this.getCookie("uid");
+        var name = document.getElementById("name").value;
+        var eContact = document.getElementById("emergency contact").value;
+        var location = document.getElementById("climbing location").value;
+        var startDate = document.getElementById("start date").value;
+        var endDate = document.getElementById("end date").value;
         this.setState({
             show:false
         })
         const params = {
-            uid: userID
+            uid: userID,
+            userName:name,
+            emergencyContact:eContact,
+            location:location,
+            startDate:startDate,
+            endDate:endDate,
         }
         axios.post(url + "5000/finishActivity", params).then((res) => {
             if(res.data.res1==="update success"){

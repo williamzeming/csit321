@@ -251,6 +251,9 @@ app.post('/activityOnload', jsonParser, (req, res) => {
 // params: uid, userName, emergencyContact, location, startDate, endDate, notes
 app.post('/setActivity', jsonParser, (req, res) => {
     console.log(req.body.uid)
+    checkIn(req.body.userName,req.body.emergencyContact, req.body.location, req.body.startDate, req.body.endDate)
+    req.body.startDate = new Date(dateTransfer(req.body.startDate));
+    req.body.endDate = new Date(dateTransfer(req.body.endDate));
     mysql.insertActivity(req.body.uid, req.body.userName, req.body.emergencyContact, req.body.location, req.body.startDate, req.body.endDate, req.body.notes).then(res1 => {
         res.status(200).json({
             res1
@@ -262,6 +265,7 @@ app.post('/setActivity', jsonParser, (req, res) => {
 // params: uid, location, endDate,
 app.post('/finishActivity', jsonParser, (req, res) => {
     console.log(req.body.uid)
+    checkOut(req.body.userName,req.body.emergencyContact, req.body.location, req.body.endDate)
     mysql.updateActivity(req.body.uid).then(res1 => {
         res.status(200).json({
             res1
@@ -276,6 +280,14 @@ app.post('/getLoc', jsonParser, (req, res) => {
         })
     })
 })
+// date transfer
+function dateTransfer(date) {
+    var temp = date.split("/");
+    dd = temp[0];
+    mm = temp[1];
+    yyyy = temp[2];
+    return yyyy + "-" + mm + "-" + dd;
+}
 // method to send email
 // sendMail("receiver", "subject", "content")
 key = require('./email.json')
@@ -301,6 +313,28 @@ var sendMail = function (recipient, subject, html) {
         }
         console.log('发送成功')
     });
+}
+// send email when checked in
+checkIn = function (userName,contact, loc, startDate, endDate) {
+    var html = '<p>Dear friend,</p>' +
+        '<p>This message is send to from '+userName+' via <strong>WeClimb.com</strong> </p>' +
+        '<p>I am going to climb '+loc+' from '+startDate+' to '+endDate+'.</p>' +
+        '<p>If you don\'t  receive another email from WeClimb to inform you that I have got back after '+endDate+'.</p>' +
+        '<p>Please find me some resecue!</p>' +
+        '<p>Thank you very much.</p>' +
+        '<p>Best Regards,</p>' +
+        '<p> '+userName+' </p>'
+    sendMail(contact, userName+"'s travel info", html)
+}
+// send email when checked out
+checkOut = function (userName,contact, loc, endDate) {
+    var html = '<p>Dear friend,</p>' +
+        '<p>This message is send to from '+userName+' via <strong>WeClimb.com</strong> </p>' +
+        '<p>I have got back from '+loc+' on '+endDate+' safely.</p>' +
+        '<p>Thank you very much.</p>' +
+        '<p>Best Regards,</p>' +
+        '<p> '+userName+' </p>'
+    sendMail(contact, userName+" is safely back home", html)
 }
 
 
