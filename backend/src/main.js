@@ -171,7 +171,7 @@ app.post('/getWeatherInfo', jsonParser, (req, res) => {
 })
 // url: /allMountains
 // method: post
-// params: loc
+// params:
 app.post('/allMountains', jsonParser, (req, res) => {
     console.log(req.body.loc)
     mysql.allMountains().then(res1 => {
@@ -335,6 +335,30 @@ checkOut = function (userName,contact, loc, endDate) {
         '<p>Best Regards,</p>' +
         '<p> '+userName+' </p>'
     sendMail(contact, userName+" is safely back home", html)
+}
+// when not checked out, send email to emergency contact
+emergency = function (userName,contact, loc, endDate) {
+    var createConnect = connectSQL();
+    createConnect.connect();
+    var sql = 'select MountName,STATE from mountains';
+    createConnect.query(sql, function (err, result) {
+        if (err) {
+            console.log('[SELECT ERROR] - ', err.message);
+            reject(err);
+        }
+        result = JSON.parse(JSON.stringify(result));
+        // console.log(result);
+        resolve(result);
+    });
+    createConnect.end();
+    // var html = '<p>Dear friend,</p>' +
+    //     '<p>This message is send to from '+userName+' via <strong>WeClimb.com</strong> </p>' +
+    //     '<p>I have not got back from '+loc+' on '+endDate+'.</p>' +
+    //     '<p>Please find me some resecue!</p>' +
+    //     '<p>Thank you very much.</p>' +
+    //     '<p>Best Regards,</p>' +
+    //     '<p> '+userName+' </p>'
+    // sendMail(contact, userName+" is in danger", html)
 }
 
 

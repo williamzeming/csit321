@@ -392,7 +392,7 @@ exports.allMountains = function () {
     var promise = new Promise(function (resolve, reject) {
         var createConnect = connectSQL();
         createConnect.connect();
-        var sql = 'select MountName,STATE from mountains';
+        var sql = 'select MountName,STATE,CITY from mountains';
         createConnect.query(sql, function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);
