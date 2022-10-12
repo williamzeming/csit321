@@ -276,6 +276,34 @@ app.post('/getLoc', jsonParser, (req, res) => {
         })
     })
 })
+// method to send email
+// sendMail("receiver", "subject", "content")
+key = require('./email.json')
+var nodemailer = require('nodemailer')
+var smtpTransport = require('nodemailer-smtp-transport');
+smtpTransport = nodemailer.createTransport(smtpTransport({
+    host: "smtp.exmail.qq.com",
+    port:465,
+    auth: {
+        user: key.user,
+        pass: key.code
+    }
+}));
+var sendMail = function (recipient, subject, html) {
+    smtpTransport.sendMail({
+        from: key.user,
+        to: recipient,
+        subject: subject,
+        html: html
+    }, function (error, response) {
+        if (error) {
+            console.log(error);
+        }
+        console.log('发送成功')
+    });
+}
+
+
 //最后
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
