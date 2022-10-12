@@ -14,6 +14,7 @@ import Profile from './page/Profile';
 import Footer from './page/Footer';
 import Star from './page/Star';
 import Map from './page/Map';
+import Test from './page/test';
 
 class App extends Component {
     render() {
@@ -34,6 +35,7 @@ class App extends Component {
                     <Route path="/Footer" element={<Footer/>} component={Footer}></Route>
                     <Route path="/Map" element={<Map/>} component={Map}></Route>
                     <Route path="/Star" element={<Star/>} component={Star}></Route>
+                    <Route path="/Test" element={<Test/>} component={Test}></Route>
 
 
                 </Routes>

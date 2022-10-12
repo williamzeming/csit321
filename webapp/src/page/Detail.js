@@ -32,7 +32,7 @@ import logo1 from './logo.png'
 import Star from './Star'
 import Rating from "@mui/material/Rating";
 import TextField from '@mui/material/TextField';
-import img3 from './imgM/MountKosciuszko.jpg';
+import img3 from './imgM/Mount Kosciuszko.jpg';
 import img1 from "./imgM/Ironstone Mountain.jpg";
 import img2 from "./imgM/Mother Cummings Peak.jpg";
 import WbSunnyIcon from '@mui/icons-material/WbSunny';

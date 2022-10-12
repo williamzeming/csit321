@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 import climb from './climbPg.jpg';
 import img1 from './imgM/Ironstone Mountain.jpg';
 import img2 from './imgM/Mother Cummings Peak.jpg';
-import img3 from './imgM/MountKosciuszko.jpg';
+import img3 from './imgM/Mount Kosciuszko.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.png'
 import Home from "./Home";

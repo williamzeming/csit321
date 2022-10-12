@@ -17,15 +17,17 @@ import Typography from '@mui/material/Typography';
 import climb from './climbPg.jpg';
 import img1 from './imgM/Ironstone Mountain.jpg';
 import img2 from './imgM/Mother Cummings Peak.jpg';
-import img3 from './imgM/MountKosciuszko.jpg';
+import img3 from './imgM/Mount Kosciuszko.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.png'
+
 
 import {ImageList, ImageListItem, ImageListItemBar, InputBase} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Footer from './Footer';
-import Map from "./Map";
-import {useNavigate} from "react-router";
+import Fab from "@mui/material/Fab";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -61,7 +63,8 @@ class Home extends React.Component {
     state = {
         person: null,
         loginState: false,
-        userName: this.getCookie('fname')
+        userName: this.getCookie('fname'),
+        show:true
     }
     itemData = [
         {
@@ -83,11 +86,15 @@ class Home extends React.Component {
             name: 'Mount Kosciuszko',
         }
     ]
+    showall = [
+    ]
+
+
+
     //加载自动运行
     componentDidMount = () => {
         this.checkLogin();
         this.initHomePost();
-
 
     }
     initHomePost = () => {
@@ -151,6 +158,33 @@ class Home extends React.Component {
     keyupadditem=(e)=>{
         if (e.which !== 13) return
         this.searchLoc()
+    }
+    loadAllData = () => {
+        const params = {
+            uid: this.getCookie("uid")
+        }
+        axios.post(url + "5000/allMountains", params).then((res) => {
+            console.log(res.data.res1.length)
+            if (this.showall.length !== res.data.res1.length){
+                for (var i = 0;i<res.data.res1.length;i++){
+                    var mountains = res.data.res1[i]
+                    var imgM = require('./imgM/'+mountains.MountName+'.jpg')
+                    var title = mountains.CITY
+                    var nation = mountains.STATE
+                    var name = mountains.MountName
+                    var one_mountain = {img:imgM,title:title,nation:nation,name:name}
+                    this.showall.push(one_mountain)
+                }
+            }
+            if (this.state.show ===false){
+                this.setState({show:true})
+            }
+            else {
+                this.setState({show:false})
+            }
+
+            console.log(this.showall)
+        })
     }
 
     render() {
@@ -382,6 +416,59 @@ class Home extends React.Component {
                     </Grid>
                     <Grid item xs={2}/>
                 </Grid>
+                <Grid container spacing={5}>
+                    <Grid item md={2} lg={2}></Grid>
+                    <Grid item md={8} lg={8}>
+                        <div style={{float:"right"}}>
+                            <Button variant="contained" onClick={this.loadAllData}>show all</Button>
+                        </div>
+
+
+                        {
+                            this.state.show ? (
+                                <div>
+                                    <ImageList cols={5} gap={10}>
+                                        {this.showall.map((item) => (
+                                            <div>
+                                                <Paper
+                                                    sx={{
+                                                        p: 2,
+                                                        margin: 'left',
+                                                        maxWidth: 150,
+                                                        flexGrow: 1,
+                                                        // backgroundColor: (theme) =>
+                                                        //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                                    }}
+                                                >
+                                                    <Grid container spacing={2}>
+                                                        <Grid item>
+                                                            <ButtonBase sx={{ width: 150, height: 150 }} href={`/Detail/${item.name}`} onClick={()=>this.setRouteCookie(item.name)}>
+                                                                <Img alt="complex" src={item.img}/>
+                                                            </ButtonBase>
+                                                            <Grid item xs container direction="column" spacing={2}>
+                                                                <Grid item xs>
+                                                                    <Typography gutterBottom variant="subtitle1" component="div">
+                                                                        {item.name}
+                                                                    </Typography>
+                                                                    <Typography variant="body1" gutterBottom>
+                                                                        {item.nation}
+                                                                    </Typography>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Paper>
+                                            </div>))}
+                                    </ImageList>
+                                </div>) : (
+                                    <div></div>
+
+                            )
+                        }
+                    </Grid>
+                    <Grid item md={2} lg={2}></Grid>
+                </Grid>
+
                 <hr/>
                 <Grid class={"botton"}>
                     <Grid style={{paddingTop: 50}}>
