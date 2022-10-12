@@ -36,8 +36,8 @@ const Item = styled(Paper)(({theme}) => ({
 }));
 
 
-const url = "http://localhost:";
-
+// const url = "http://localhost:";
+const url = "http://192.168.0.13:";
 //climbPg image style
 const Img = styled('img')({
     margin: 'auto',

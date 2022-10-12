@@ -324,27 +324,6 @@ class Detail extends React.Component {
                             </Stack>
 
                             <Stack className={"temp"}   direction="row" >
-                                {/*<Stack  style={{paddingLeft:10,textAlign:"center"}}>*/}
-                                {/*    <span id="weatherTodayDate">date</span>*/}
-                                {/*    <img id="weatherTodayImg" style={{height:50,width:50}}/>*/}
-                                {/*    <span id="temperature">temperature</span>*/}
-
-                                {/*</Stack>*/}
-                                {/*<Stack >*/}
-                                {/*    <span id="weatherTodayWind">wind speed</span>*/}
-                                {/*    <span id="visibility">visibility</span>*/}
-                                {/*    <span id="humidity">humidity</span>*/}
-                                {/*    <span id="pressure">pressure</span>*/}
-
-                                {/*</Stack>*/}
-                                {/*<Stack >*/}
-                                {/*    <span id="feelsLike">feelsLike</span>*/}
-                                {/*    <span id="lowestTemperature">lowest temperature</span>*/}
-                                {/*    <span id="maximumTemperature">maximum temperature</span>*/}
-
-
-                                {/*</Stack>*/}
-
                                 <Grid >
                                     <p style={{margin:0}}><img src={Rainy} id="weatherTodayImg" style={{height:100,width:100}}/></p>
                                     <p style={{margin:0,fontSize:26,textAlign:"center"}}>2/10</p>

@@ -23,6 +23,7 @@ import Footer from './Footer'
 import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material/styles";
 import {default as axios} from "axios";
 import Avatar from "@mui/material/Avatar";
+import Map from "./Map";
 
 const url = "http://localhost:";
 let theme = createTheme();
@@ -37,12 +38,12 @@ function ColorTab() {
 
 class Activities extends React.Component {
     state = {
-        show:false
+        show:false,
+        cLat:0,
+        cLon:0
+
     };
-    componentDidMount = () => {
-        this.initActivityOnload();
-        this.loadProfile();
-    }
+
 
     getCookie(cname) {
         var name = cname + "=";
@@ -191,7 +192,26 @@ class Activities extends React.Component {
         document.getElementById("profile").style.display="none";
         document.getElementById("activities").style.display="block";
     }
+    getLocation(){
+        var getLoc = document.getElementById("climbing location").value;
+        console.log(getLoc)
+        const params = {
+            loc:getLoc
+        }
 
+        axios.post(url + "5000/getLoc", params).then((res) =>{
+            console.log(res.data.res1);
+            this.setState({
+                lat: parseFloat(res.data.res1[0].Latitude),
+                lng: parseFloat(res.data.res1[0].Longitude),
+            })
+        })
+    }
+    componentDidMount = () => {
+        this.initActivityOnload();
+        this.loadProfile();
+        this.getLocation();
+    }
     render() {
         return (<div className={"sty"}>
                 {/*navigation bar  ys={1}*/}
@@ -265,7 +285,7 @@ class Activities extends React.Component {
                                     <TextField required={true} fullWidth id="emergency contact" variant="standard"/>
                                 </ThemeProvider></div><br/>
                             <div>
-                                <div className={"input-text"}>Climbing Location:</div>
+                                <div className={"input-text"}>Climbing Location:<Button onClick={this.getLocation}>Show Map</Button></div>
                                 <ThemeProvider theme={theme}>
                                     <TextField required={true} fullWidth id="climbing location" variant="standard"/>
                                 </ThemeProvider>
@@ -304,7 +324,12 @@ class Activities extends React.Component {
                     </Grid>
                     <Grid item xs={1}/>
 
-                    <Grid item xs={7} className={"mapImage"}/>
+                    <Grid item xs={7}>
+                        <div>
+                            <Map lat={this.state.cLat} lng={this.state.cLon}></Map>
+                            <br/>
+                        </div>
+                    </Grid>
                 </Grid>
                 </Grid><br/><br/>
                 </div>
