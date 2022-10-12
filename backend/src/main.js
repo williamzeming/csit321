@@ -337,30 +337,47 @@ checkOut = function (userName,contact, loc, endDate) {
     sendMail(contact, userName+" is safely back home", html)
 }
 // when not checked out, send email to emergency contact
-emergency = function (userName,contact, loc, endDate) {
+connectSQL = function () {
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({
+        host: '192.168.0.122',
+        user: 'william',
+        password: '123456',
+        port: '3306',
+        database: 'csit321'
+    });
+    return connection;
+}
+// if the user has not checked out
+emergencyTriger = function () {
     var createConnect = connectSQL();
     createConnect.connect();
-    var sql = 'select MountName,STATE from mountains';
-    createConnect.query(sql, function (err, result) {
+    var sql = 'select location, userName, emergencyContact, endDate from activity where active = ?';
+    createConnect.query(sql, ["active"], function (err, result) {
         if (err) {
             console.log('[SELECT ERROR] - ', err.message);
-            reject(err);
         }
         result = JSON.parse(JSON.stringify(result));
-        // console.log(result);
-        resolve(result);
+        for (i = 0; i < result.length; i++) {
+            result[i].endDate = new Date(result[i].endDate);
+            if (result[i].endDate < new Date()) {
+                console.log("no");
+                // execute the emergency contact
+                var html = '<p>Dear friend,</p>' +
+                    '<p>This message is send to from ' + result[i].userName + ' via <strong>WeClimb.com</strong> </p>' +
+                    '<p>I have not got back from ' + result[i].location + ' on ' + result[i].endDate.toString().split("(")[0] + '.</p>' +
+                    '<p>Please find me some resecue!</p>' +
+                    '<p>Thank you very much.</p>' +
+                    '<p>Best Regards,</p>' +
+                    '<p> ' + result[i].userName + ' </p>'
+                console.log(html);
+                sendMail(result[i].emergencyContact, result[i].userName + " is in danger", html)
+            }
+        }
     });
     createConnect.end();
-    // var html = '<p>Dear friend,</p>' +
-    //     '<p>This message is send to from '+userName+' via <strong>WeClimb.com</strong> </p>' +
-    //     '<p>I have not got back from '+loc+' on '+endDate+'.</p>' +
-    //     '<p>Please find me some resecue!</p>' +
-    //     '<p>Thank you very much.</p>' +
-    //     '<p>Best Regards,</p>' +
-    //     '<p> '+userName+' </p>'
-    // sendMail(contact, userName+" is in danger", html)
 }
-
+setInterval(function (){ emergencyTriger()}, 1000*60*60*24);
 
 //最后
 app.listen(port, () => {
