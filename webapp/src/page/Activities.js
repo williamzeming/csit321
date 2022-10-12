@@ -153,6 +153,7 @@ class Activities extends React.Component {
             document.getElementById("email").value=res.data.res1[0].email;
             document.getElementById("gender").value=res.data.res1[0].gender;
             document.getElementById("phoneNumber").value=res.data.res1[0].phoneNum;
+            document.getElementById("password").value=res.data.res1[0].password;
         })
     }
     setProfile= () => {
@@ -175,6 +176,7 @@ class Activities extends React.Component {
             phoneNum:phoneNum,
             password:password
         }
+
         axios.post(url + "5000/settingUpdate", params).then((res) =>{
             console.log(res.data.res1);
         })
