@@ -39,10 +39,11 @@ function ColorTab() {
 class Activities extends React.Component {
     state = {
         show:false,
-        cLat:0,
-        cLon:0
+        cLat:-34.40301321337629,
+        cLon:150.87876199637873,
 
     };
+
 
 
     getCookie(cname) {
@@ -192,21 +193,21 @@ class Activities extends React.Component {
         document.getElementById("profile").style.display="none";
         document.getElementById("activities").style.display="block";
     }
-    getLocation(){
+    getLocation= () =>{
         var getLoc = document.getElementById("climbing location").value;
         console.log(getLoc)
         const params = {
             loc:getLoc
         }
-
         axios.post(url + "5000/getLoc", params).then((res) =>{
-            console.log(res.data.res1);
+            console.log(res.data.res1[0].Latitude);
             this.setState({
-                lat: parseFloat(res.data.res1[0].Latitude),
-                lng: parseFloat(res.data.res1[0].Longitude),
-            })
+                cLat: parseFloat(res.data.res1[0].Latitude),
+                cLon: parseFloat(res.data.res1[0].Longitude)
+            });
         })
     }
+
     componentDidMount = () => {
         this.initActivityOnload();
         this.loadProfile();
@@ -232,12 +233,11 @@ class Activities extends React.Component {
                     </Grid>
                 </Grid>
                 <Grid item xs={6} className={"navBar1"}>
-                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Home</Button>
-                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Community</Button>
-                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Setting</Button>
+                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} href={"/"} underline="hover">Home</Button>
+                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} href={"/Profile"} underline="hover">Setting</Button>
                 </Grid>
                 <Grid item xs={3}>
-                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} to="/" underline="hover">Help</Button>
+                    <Button style={{paddingRight: 20,marginTop: 10, color:"white"}} href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"} underline="hover">Help</Button>
                 </Grid>
             </Grid><br/>
      {/*tab bar ys={2} sx={{ width: '30%' }}*/}

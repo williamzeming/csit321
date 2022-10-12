@@ -310,7 +310,7 @@ class Detail extends React.Component {
 
                 <Grid container >
                     <Grid item md={1} ></Grid>
-                    <Grid item md={7} className={"circle"}>
+                    <Grid item md={7} >
                         <Stack direction="column">
                             <Stack style={{fontSize:20}} >
                             Try this 6.8km loop trail near Mount Keira, New South Wales.<br/>
@@ -366,13 +366,6 @@ class Detail extends React.Component {
                                     </Table>
                                 </Grid>
 
-
-
-
-
-
-
-
                             </Stack>
                             <br/>
                             <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
@@ -408,11 +401,19 @@ class Detail extends React.Component {
                                 Your Review
                             </Stack>
                             <br/>
-                            <Stack>
-                                <Rating  name="rate" size={"large"} onChange={(event, newValue) => {
-                                    this.setState({rateValue:newValue})}} ></Rating>
+                                <Stack>
+                                    <Rating
+                                        sx={{
+                                            ".MuiRating-decimal": { marginLeft: 1 }
+                                        }}
+                                        name="rating"
+                                        size={"large"}
+                                        precision={0.5}
+                                        onChange={(event, newValue) => {
+                                            this.setState({rateValue:newValue})}}
+                                    />
+                                </Stack>
 
-                            </Stack>
                             <br/>
                             <Stack>
                                 <Stack spacing={2} direction="row" style={{paddingRight: 120}}>

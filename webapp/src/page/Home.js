@@ -176,9 +176,18 @@ class Home extends React.Component {
                                 <Grid>
                                     <span style={{fontSize: 30, paddingLeft: 50, color: "white", paddingTop: 80}}>with We Climb</span>
                                 </Grid>
-                                <Grid style={{paddingLeft: 50, paddingTop: 30}}>
-                                    <Button variant="contained" href={"/Login"}>GET STARTED</Button>
-                                </Grid>
+
+                                {
+                                    this.state.loginState ? (
+                                        <Grid style={{paddingLeft: 50, paddingTop: 30}}>
+                                        </Grid>) : (
+                                            <Grid style={{paddingLeft: 50, paddingTop: 30}}>
+                                                <Button variant="contained" href={"/Login"}>GET STARTED</Button>
+                                            </Grid>
+                                    )
+                                }
+
+
                             </Stack>
                         </Grid>
 
@@ -204,37 +213,52 @@ class Home extends React.Component {
 
                     </Grid>
                     <Grid item xs={3} md={4} lg={3}>
-                        <Stack direction="row" spacing={2}>
-                            <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
-                                <Link style={{paddingRight: 20}} href="/" underline="hover">Home</Link>
-                                <Link style={{paddingRight: 20}} href="/Activities" underline="hover">Activities</Link>
-                            </Stack>
+
+
                             {
                                 this.state.loginState ? (
-                                    <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
-                                        <Button fullWidth variant="contained" href={"/Login"}>
-                                            <div>{this.state.userName}</div>
-                                        </Button>
-                                        <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
-                                        <Button fullWidth variant="outlined" onClick={this.logout}
-                                                href={"/"}>Logout</Button>
-                                    </Stack>) : (
-                                    <Grid style={{paddingRight: 10}}>
-                                        <Stack spacing={2} direction="row">
-
-                                            <Button fullWidth variant="contained" href={"/Login"}>
-                                                Login
-                                            </Button>
-                                            <Button fullWidth variant="outlined"
-                                                    href={"/Register"}>Register</Button>
-
+                                    <div>
+                                        <Stack direction="row" spacing={2}>
+                                        <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
+                                            <Link style={{paddingRight: 20}} href="/" underline="hover">Home</Link>
+                                            <Link style={{paddingRight: 20}} href="/Activities" underline="hover">Activities</Link>
                                         </Stack>
+                                        <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
+                                            <Button fullWidth variant="contained" href={"/Profile"}>
+                                                <div>{this.state.userName}</div>
+                                            </Button>
+                                            <Button fullWidth variant="outlined" onClick={this.logout}
+                                                    href={"/"}>Logout</Button>
+                                        </Stack>
+                                        </Stack>
+                                    </div>
+                                        ) : (
+                                    <Grid style={{paddingRight: 10}}>
+
+                                        <div>
+                                            <Stack direction="row" spacing={2}>
+                                            <Stack spacing={2} direction="row" style={{paddingTop: 7}}>
+                                                <Link style={{paddingRight: 20}} href="/" underline="hover">Home</Link>
+                                                <Link style={{paddingRight: 20}} href="/Login" underline="hover">Activities</Link>
+                                            </Stack>
+                                            <Stack spacing={2} direction="row">
+
+                                                <Button fullWidth variant="contained" href={"/Login"}>
+                                                    Login
+                                                </Button>
+                                                <Button fullWidth variant="outlined"
+                                                        href={"/Register"}>Register</Button>
+
+                                            </Stack>
+                                            </Stack>
+                                        </div>
+
                                     </Grid>
 
 
                                 )
                             }
-                        </Stack>
+
                     </Grid>
                 </Grid>
                 {/*main content*/}
@@ -255,12 +279,12 @@ class Home extends React.Component {
                                 this.state.loginState ? (
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
-                                        <Button variant="contained">Start</Button>
+                                        <Button variant="contained" href={"/Activities"}>Start</Button>
                                     </Grid>) : (
                                     <Grid item xs={4}>
                                         <p className={"text1"}>Build your own trip?</p>
                                         <Button variant="contained" href={"/Register"}>Sign Up</Button>
-                                        {/*<br/><Button variant="contained" href={"/Activities"}>Activities</Button>*/}
+
                                     </Grid>
                                 )
                             }
@@ -345,7 +369,6 @@ class Home extends React.Component {
                                 <p className={"text1"}>Customer Reviews</p>
                                 <p className={"text2"}>We encourage each customer to leave review about their climbing
                                     journey and what they would like to suggest to other climbers.</p>
-                                <Button variant="contained">All Reviews</Button>
                             </Grid>
                             <Grid item xs={6}>
                                 <ButtonBase sx={{width: 400, height: 320}}>
@@ -376,7 +399,7 @@ class Home extends React.Component {
                         </Grid>
                         <br/>
                         <Grid textAlign={"center"}>
-                            <Button variant="contained" href={"/Login"}>
+                            <Button variant="contained" href="https://www.uow.edu.au/">
                                 About us
                             </Button>
                         </Grid>

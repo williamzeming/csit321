@@ -268,7 +268,14 @@ app.post('/finishActivity', jsonParser, (req, res) => {
         })
     })
 })
-
+app.post('/getLoc', jsonParser, (req, res) => {
+    console.log(req.body.uid)
+    mysql.selectMountainDetailOnload(req.body.loc).then(res1 => {
+        res.status(200).json({
+            res1
+        })
+    })
+})
 //最后
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

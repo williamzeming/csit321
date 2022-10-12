@@ -23,7 +23,7 @@ import logo1 from './logo.png'
 import Home from "./Home";
 
 class Footer extends React.Component{
-
+    ytb="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
     render(){
         return(<div className="row">
 
@@ -34,29 +34,29 @@ class Footer extends React.Component{
                         </Grid>
                         <Grid className={"backgroundBlack_secondColumn"}>
                             <Stack spacing={1}>
-                                <Link href="#" color="inherit" underline={'hover'}>
+                                <Link href={this.ytb} color="inherit" underline={'hover'}>
                                     Environment
                                 </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
+                                <Link href={this.ytb} color="inherit" underline={'hover'}>
                                     Press Releases
                                 </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
+                                <Link href={this.ytb} color="inherit" underline={'hover'}>
                                     Privacy Policy
                                 </Link>
                             </Stack>
                         </Grid>
                         <Grid className={"backgroundBlack_thirdColumn"}>
                             <Stack spacing={1}>
-                                <Link href="#" color="inherit" underline={'hover'}>
+                                <Link href={this.ytb} color="inherit" underline={'hover'}>
                                     Contact Us
                                 </Link>
-                                <Link href="#" color="inherit" underline={'hover'}>
+                                <Link href={this.ytb} color="inherit" underline={'hover'}>
                                     041244321
                                 </Link>
                             </Stack>
                         </Grid>
                         <Grid className={"backgroundBlack_fourthColumn"}>
-                            <Link href="#" color="inherit" underline={'hover'}>
+                            <Link href={this.ytb} color="inherit" underline={'hover'}>
                                 Learn More
                             </Link>
                         </Grid>
