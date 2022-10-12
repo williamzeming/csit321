@@ -32,6 +32,7 @@
 }
 .mapImage{
     background-image: url('./imgM/map-example.png');
+
     background-repeat: no-repeat;
     background-size: 400px,400px;
 }
@@ -66,7 +67,8 @@ hr{
     background-image: url('./imgM/profile_title_image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    opacity:0.8;
+
+    opacity: 80%;
 }
 .avatar{
     padding:5px;
@@ -107,7 +109,9 @@ label .input-text2{
 label .input-text2 span{
     color:white;
     float:left;
+    /*background:rgba(255,255,255,0.5);*/
 }
 label TextField{
     width:55vw;
+    /*background:rgba(255,255,255,0.5);*/
 }

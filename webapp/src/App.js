@@ -9,8 +9,8 @@ import Home from './page/Home';
 import Login from './page/Login';
 import Register from './page/Register';
 import Detail from './page/Detail';
-import Activities from './page/Activities'
-
+import Activities from './page/Activities';
+import Profile from './page/Profile';
 import Footer from './page/Footer';
 import Star from './page/Star';
 import Map from './page/Map';
@@ -26,7 +26,7 @@ class App extends Component {
                     <Route path="/Detail" element={<Detail/>} component={Detail}></Route>
                     <Route path="/Activities" element={<Activities/>} component={Activities}></Route>
                     <Route path="/Detail/:loc" element={<Detail/>}></Route>
-
+                    <Route path="/Profile" element={<Profile/>} component={Profile}></Route>
                     {/*<Route path="/Detail">*/}
                     {/*    <Route path=":loc" element={<Detail/>} component={Detail}></Route>*/}
                     {/*    <Route path="" element={<Home/>} component={Home}></Route>*/}
@@ -34,6 +34,8 @@ class App extends Component {
                     <Route path="/Footer" element={<Footer/>} component={Footer}></Route>
                     <Route path="/Map" element={<Map/>} component={Map}></Route>
                     <Route path="/Star" element={<Star/>} component={Star}></Route>
+
+
                 </Routes>
             </BrowserRouter>
 
