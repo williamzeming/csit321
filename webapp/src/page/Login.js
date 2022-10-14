@@ -21,8 +21,8 @@ import {Alert} from "@mui/material";
 
 
 const label = {inputProps: {'aria-label': 'Checkbox demo'}};
-// const url = "http://localhost:";
-const url = "http://192.168.0.13:";
+const url = "http://localhost:";
+// const url = "http://192.168.0.13:";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 

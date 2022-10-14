@@ -273,10 +273,10 @@ class Detail extends React.Component {
                         {
                             this.state.loginState ? (
                                 <Stack spacing={2} direction="row" style={{paddingRight: 120}}>
-                                    <Button fullWidth variant="outlined" href={"/Login"}>
+                                    <Button fullWidth variant="outlined" href={"/Profile"}>
                                         <div>{this.state.userName}</div>
                                     </Button>
-                                    <Button fullWidth variant="outlined" href={"/Register"}>Setting</Button>
+                                    {/*<Button fullWidth variant="outlined" href={"/Profile"}>Setting</Button>*/}
                                     <Button fullWidth variant="outlined" onClick={this.logout}
                                             href={"/"}>Logout</Button>
                                 </Stack>) : (

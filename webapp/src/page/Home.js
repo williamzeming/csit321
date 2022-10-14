@@ -38,8 +38,8 @@ const Item = styled(Paper)(({theme}) => ({
 }));
 
 
-// const url = "http://localhost:";
-const url = "http://192.168.0.13:";
+const url = "http://localhost:";
+// const url = "http://192.168.0.13:";
 //climbPg image style
 const Img = styled('img')({
     margin: 'auto',
@@ -64,7 +64,7 @@ class Home extends React.Component {
         person: null,
         loginState: false,
         userName: this.getCookie('fname'),
-        show:true
+        show:false
     }
     itemData = [
         {
