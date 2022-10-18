@@ -15,7 +15,7 @@ import Footer from './page/Footer';
 import Star from './page/Star';
 import Map from './page/Map';
 import Test from './page/test';
-
+//set the router in this file
 class App extends Component {
     render() {
         return <div className={"sty"}>

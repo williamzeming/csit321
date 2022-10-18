@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { Marker } from '@react-google-maps/api';
 import key from './key.json'
 
-
+//google map api, set tbe parameter of map
 function MyComponent({lat, lng}) {
     const containerStyle = {
         width: '400px',

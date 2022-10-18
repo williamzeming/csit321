@@ -10,7 +10,7 @@ const port = 5000
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({extended: false})
-//最前
+//start
 app.use(cors()) // Use this after the variable declaration
 
 
@@ -379,7 +379,7 @@ emergencyTriger = function () {
 }
 setInterval(function (){ emergencyTriger()}, 1000*60*60*24);
 
-//最后
+//end
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

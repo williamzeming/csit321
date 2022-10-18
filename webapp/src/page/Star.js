@@ -2,7 +2,7 @@ import * as React from 'react';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
-
+//star rating module
 const labels = {
     0.5: 'Useless',
     1: 'Useless+',

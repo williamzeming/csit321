@@ -21,9 +21,10 @@ import img3 from './imgM/Mount Kosciuszko.jpg';
 import climbMt from './climb2.jpeg';
 import logo1 from './logo.png'
 import Home from "./Home";
-
+//creat the footer module for website to call
 class Footer extends React.Component{
     ytb="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
+    //the layout and the element of the page
     render(){
         return(<div className="row">
 

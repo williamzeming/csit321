@@ -47,7 +47,7 @@ const Item = styled(Paper)(({theme}) => ({
 }));
 
 
-
+//create profile page to the website
 class Profile extends React.Component {
     getCookie(cname) {
         var name = cname + "=";

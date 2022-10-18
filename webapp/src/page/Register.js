@@ -33,9 +33,7 @@ const url = "http://localhost:";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-function TransitionAlerts() {
-    const [open, setOpen] = React.useState(true);
-}
+
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -45,7 +43,7 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 
-
+// create the register page for the website
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -57,7 +55,7 @@ class Register extends React.Component {
         this.checkPw = this.checkPw.bind(this);
         this.checkSb = this.checkSb.bind(this);
     }
-
+    //check the two password if it is same
     checkPw() {
         var pw1 = document.getElementById("first-pd").value;
         var pw2 = document.getElementById("second-pd").value;
@@ -67,7 +65,7 @@ class Register extends React.Component {
             this.setState({showElem: true})
         }
     }
-
+    //Check if the user has entered all the registration information and pass the information out to the backend
     checkSb() {
         var lastName = document.getElementById("last-name").value;
         var firstName = document.getElementById("first-name").value;
@@ -81,7 +79,6 @@ class Register extends React.Component {
         var value = gender.options[index].value;
         var text = gender.options[index].text;
         var temp = "default";
-        // console.log(text,lastName,firstName,firstPd,secondPd,birth,phoneNumber,email);
 
         if (lastName == "" || firstName == "" || firstPd == "" || secondPd == "" || birth == "" || email == "" || phoneNumber == "" || value == temp) {
             this.setState({showSub: true})
@@ -112,7 +109,7 @@ class Register extends React.Component {
         }
 
     }
-
+    //the layout and element of the page
     render() {
         return (
             <div>

@@ -53,7 +53,7 @@ const Img = styled('img')({
     maxWidth: '100%',
     maxHeight: '100%',
 });
-
+//create the detail of the website
 class Detail extends React.Component {
     state = {
         lat: 0,
@@ -65,6 +65,7 @@ class Detail extends React.Component {
     };
     commentItemData = [
     ]
+    //create three pictures of recommend mountains
     recommends = [
         {
             img: img1,
@@ -82,7 +83,7 @@ class Detail extends React.Component {
             name: 'Mount Kosciuszko',
         }
     ]
-
+    //load the three recommend mountains
     initDetailOnload = () => {
         document.getElementById("mountName").innerHTML=this.getCookie("loc");
         // document.getElementById("mountImage").src=require("./imgM/"+this.getCookie("loc")+".jpg");
@@ -110,6 +111,7 @@ class Detail extends React.Component {
 
         })
     }
+    //load the comment according to the parameter of the backend
     commentDetailOnload(){
         const params = {
             loc : this.getCookie("loc")
@@ -128,6 +130,7 @@ class Detail extends React.Component {
         })
         console.log(this.commentItemData)
     }
+    //function to post the comment to the backend
     postComment= () =>{
         var userID = this.getCookie("uid");
         if (userID === ""){
@@ -146,7 +149,7 @@ class Detail extends React.Component {
         })
     }
 
-
+    //check user is login or not
     checkLogin() {
         var userID = this.getCookie("uid");
         if (userID !== "") {
@@ -155,11 +158,13 @@ class Detail extends React.Component {
             this.setState({loginState: false})
         }
     }
+    //log out function
     logout() {
         document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         this.setState({loginState: false})
         document.location.reload();
     }
+    //get parameter from cookie
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -169,22 +174,21 @@ class Detail extends React.Component {
         }
         return "";
     }
-    showURL= () => {
-        let location = this.getCookie("loc")
-        console.log(location);
-    }
+
+    //set the location to cookie
     setRouteCookie(loc) {
         document.cookie = "loc="+loc+";"+"path=/"
         console.log(loc)
 
     }
+    //Loading automatically runs after page rendering is complete
     componentDidMount = () => {
         this.checkLogin();
         this.initDetailOnload();
         this.commentDetailOnload();
         this.setWeather();
     }
-
+    //load the weather info according to the backend
     setWeather=()=>{
         //Today date
         var date = new Date();
@@ -194,15 +198,13 @@ class Detail extends React.Component {
         dateTomorrow = new Date(dateTomorrow);
         var tomorrow = dateTomorrow.getMonth()+"/"+dateTomorrow.getDate();
         // //set today's parameter
-       // document.getElementById("weatherTodayDate").innerHTML=today;
+       document.getElementById("todayDate").innerHTML=today;
 
 
         let location = this.getCookie("loc")
         const params = {
             loc: location
         }
-
-
 
         axios.post(url + "5000/getWeatherInfo", params).then((res) => {
 
@@ -215,18 +217,18 @@ class Detail extends React.Component {
                 document.getElementById("weatherTodayImg").src=Rainy;
             }
             var sunRiseData=res.data.weather.sys.sunrise;
-            var sunRise = new Date(sunRiseData*1000);//如果date为13位不需要乘1000
+            var sunRise = new Date(sunRiseData*1000);
             var h = (sunRise.getHours() < 10 ? '0' + sunRise.getHours() : sunRise.getHours()) + ':';
             var m = (sunRise.getMinutes() <10 ? '0' + sunRise.getMinutes() : sunRise.getMinutes()) ;
             document.getElementById("sunRise").innerText=h+m;
 
-            var sunRiseData=res.data.weather.sys.sunset;
-            var sunSet = new Date(sunRiseData*1000);//如果date为13位不需要乘1000
+            var sunSetData=res.data.weather.sys.sunset;
+            var sunSet = new Date(sunSetData*1000);
             var h1 = (sunSet.getHours() < 10 ? '0' + sunSet.getHours() : sunSet.getHours()) + ':';
             var m1 = (sunSet.getMinutes() <10 ? '0' + sunSet.getMinutes() : sunSet.getMinutes()) ;
 
             document.getElementById("sunSet").innerText=h1+m1;
-
+            console.log("sunRise"+sunRise+"sunSet"+sunSet)
             var temperature=res.data.weather.main.temp;
             var feelsLike=res.data.weather.main.feels_like;
             var min=res.data.weather.main.temp_min;
@@ -241,11 +243,11 @@ class Detail extends React.Component {
             document.getElementById("feelsLike").innerHTML=feelsLike.toFixed(2)+"°C";
             document.getElementById("max/min").innerHTML=mn+"°C";
 
-            console.log(res.data.weather.wind.speed)
         })
 
 
     }
+    //the layout and the element of this page
     render() {
         return (
             <div>
@@ -319,7 +321,6 @@ class Detail extends React.Component {
                             </Stack>
                             <br/>
 
-
                             <Stack className={"temp"} style={{fontSize:25,fontWeight:500}}>
                              Weather
                             </Stack>
@@ -327,7 +328,7 @@ class Detail extends React.Component {
                             <Stack className={"temp"}   direction="row" >
                                 <Grid >
                                     <p style={{margin:0}}><img src={Rainy} id="weatherTodayImg" style={{height:100,width:100}}/></p>
-                                    <p style={{margin:0,fontSize:26,textAlign:"center"}}>2/10</p>
+                                    <p id="todayDate" style={{margin:0,fontSize:26,textAlign:"center"}}>2/10</p>
 
                                 </Grid>
 

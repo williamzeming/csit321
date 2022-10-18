@@ -36,52 +36,12 @@ const Item = styled(Paper)(({theme}) => ({
 }));
 
 
-function getLogin() {
-    let params = {
-        userName: 'william',
-        pw: '12345678'
-    }
-    axios.get(url + "5000/test", {
-        params: {
-            ID: 12345
-        }
-    }).then((res) => {
-        console.log(res)
-    })
-}
-
-function postLogin1() {
-    let params = {
-        userName: 'william',
-        pw: '12345678'
-    }
-    axios.post(url + "5000/test").then((res) => {
-        console.log(res)
-    })
-}
-
-
-// function postLogin() {
-//     const params = {
-//         email: document.getElementById("userName").value,
-//         pw: document.getElementById("pw").value
-//     }
-//     axios.post(url + "5000/test", params).then((res) => {
-//         console.log(res)
-//         if (res.data.error === "password error"){
-//             console.log("error")
-//
-//
-//         }
-//     })
-// }
-
-
+//create login page for customer to log in our website
 class Login extends React.Component {
     state = {
         showElem: false
     };
-
+    //pass the login information to the back end
     postLogin = () => {
         const params = {
             email: document.getElementById("userName").value,
@@ -100,11 +60,12 @@ class Login extends React.Component {
             }
         })
     }
+    //clear the input of user
     clearInput(){
         document.getElementById("userName").value =""
         document.getElementById("pw").value = ""
     }
-
+    //the layout and the element of the page
     render() {
         return (
             <div>
@@ -122,7 +83,7 @@ class Login extends React.Component {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <TextField fullWidth id="userName" label="Name" variant="filled"/>
+                                <TextField fullWidth id="userName" label="E-Mail" variant="filled"/>
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -134,7 +95,7 @@ class Login extends React.Component {
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <Link underline="hover" href="#">Forgotten your password?</Link>
+                                <Link underline="hover" href="/Register">Forgotten your password?</Link>
                             </Grid>
                             <Grid item xs={12}>
                                 {

@@ -58,7 +58,7 @@ const bull = (
 );
 //images list
 
-
+//create home page of our website
 class Home extends React.Component {
     state = {
         person: null,
@@ -66,6 +66,7 @@ class Home extends React.Component {
         userName: this.getCookie('fname'),
         show:false
     }
+    //three picture in the middle of the page
     itemData = [
         {
             img: img1,
@@ -86,17 +87,15 @@ class Home extends React.Component {
             name: 'Mount Kosciuszko',
         }
     ]
-    showall = [
-    ]
 
 
-
-    //加载自动运行
+    //Loading automatically runs after page rendering is complete
     componentDidMount = () => {
         this.checkLogin();
         this.initHomePost();
 
     }
+    //load picture of the mountain in the middle of the page according to the parameter of the  backend
     initHomePost = () => {
         const params = {
             uid: this.getCookie("uid")
@@ -112,7 +111,7 @@ class Home extends React.Component {
 
         })
     }
-
+    //check user login or not by user id.
     checkLogin() {
         var userID = this.getCookie("uid");
         if (userID != "") {
@@ -121,7 +120,7 @@ class Home extends React.Component {
             this.setState({loginState: false})
         }
     }
-
+    //get parameter from cookie
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -131,19 +130,19 @@ class Home extends React.Component {
         }
         return "";
     }
-
+    //log out function reload page and set cookie expire
     logout() {
         document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         this.setState({loginState: false})
         document.location.reload();
     }
-
+    //set cookie location
     setRouteCookie(loc) {
         document.cookie = "loc="+loc
         console.log(loc)
         // window.location.href = `/Detail/${loc}`
     }
-
+    //search box function to jump the page to detail page
     searchLoc() {
         const sLoc = document.getElementById("searchBox").value
         const params = {
@@ -155,10 +154,12 @@ class Home extends React.Component {
             window.location.href = `/Detail/${mountain}`
         })
     }
+    //set the user event that trigger the search box
     keyupadditem=(e)=>{
         if (e.which !== 13) return
         this.searchLoc()
     }
+    // show the all mountains
     loadAllData = () => {
         const params = {
             uid: this.getCookie("uid")
@@ -186,7 +187,7 @@ class Home extends React.Component {
             console.log(this.showall)
         })
     }
-
+    //the layout and the element of the page
     render() {
         return (<div>
                 <Grid className={"topColumn"} container>

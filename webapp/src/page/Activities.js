@@ -35,7 +35,7 @@ function BasicDatePicker() {
 function ColorTab() {
     const [value, setValue] = React.useState('activities');
 }
-
+//create activity page for our website
 class Activities extends React.Component {
     state = {
         show:false,
@@ -45,7 +45,7 @@ class Activities extends React.Component {
     };
 
 
-
+    //get parameter from cookie
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -55,6 +55,7 @@ class Activities extends React.Component {
         }
         return "";
     }
+    //load the initial information of the page according to whether user have activity or not
     initActivityOnload= () =>{
         var userID = this.getCookie("uid");
         const params = {
@@ -94,7 +95,7 @@ class Activities extends React.Component {
         })
 
     }
-
+    //user submit the plan of climbing (store the activity info to the backend)
     checkIn= () =>{
         this.setState({
             show:true
@@ -123,6 +124,7 @@ class Activities extends React.Component {
         })
 
     }
+    //check out the plan (user finish the climb activity) backend will update the plan info
     checkOut= () =>{
         var userID = this.getCookie("uid");
         var name = document.getElementById("name").value;
@@ -148,61 +150,17 @@ class Activities extends React.Component {
             console.log(res.data.res1)
         })
     }
-    loadProfile=()=>{
-        var userID = this.getCookie("uid");
-        const params = {
-            uid: userID
-        }
-        axios.post(url + "5000/settingOnload", params).then((res) => {
-            var date = new Date(res.data.res1[0].cusDOB);
-            var year = date.getFullYear();
-            var month = date.getMonth()+1;
-            var day = date.getDate();
-            console.log(day+"/"+month+"/"+year);
-            document.getElementById("firstName").value=res.data.res1[0].firstName;
-            document.getElementById("lastName").value=res.data.res1[0].lastName;
-            document.getElementById("dob").value=day+"/"+month+"/"+year;
-            document.getElementById("email").value=res.data.res1[0].email;
-            document.getElementById("gender").value=res.data.res1[0].gender;
-            document.getElementById("phoneNumber").value=res.data.res1[0].phoneNum;
-            document.getElementById("password").value=res.data.res1[0].password;
-        })
-    }
-    setProfile= () => {
-        var userID = this.getCookie("uid");
-
-        var firstName=document.getElementById("firstName").value;
-        var lastName=document.getElementById("lastName").value;
-        var cusDOB=document.getElementById("dob").value;
-        var email=document.getElementById("email").value;
-        var gender=document.getElementById("gender").value;
-        var phoneNum=document.getElementById("phoneNumber").value;
-        var password=document.getElementById("password").value;
-        const params = {
-            uid: userID,
-            firstName:firstName,
-            lastName:lastName,
-            cusDOB:cusDOB,
-            email:email,
-            gender:gender,
-            phoneNum:phoneNum,
-            password:password
-        }
-
-        axios.post(url + "5000/settingUpdate", params).then((res) =>{
-            console.log(res.data.res1);
-        })
-    }
-//show profile
+//show profile Navigation Bar
     showProfile(){
         document.getElementById("profile").style.display="block";
         document.getElementById("activities").style.display="none";
     }
-//show activities
+//show activities Navigation Bar
     showActivities(){
         document.getElementById("profile").style.display="none";
         document.getElementById("activities").style.display="block";
     }
+    //get Longitude and latitude of the location according to the info from the backend
     getLocation= () =>{
         var getLoc = document.getElementById("climbing location").value;
         console.log(getLoc)
@@ -217,12 +175,12 @@ class Activities extends React.Component {
             });
         })
     }
-
+    //Loading automatically runs after page rendering is complete
     componentDidMount = () => {
         this.initActivityOnload();
-        this.loadProfile();
         this.getLocation();
     }
+    //layout and the element of this page
     render() {
         return (<div className={"sty"}>
                 {/*navigation bar  ys={1}*/}
