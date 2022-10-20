@@ -66,6 +66,8 @@ class Home extends React.Component {
         userName: this.getCookie('fname'),
         show:false
     }
+    showall = [
+    ]
     //three picture in the middle of the page
     itemData = [
         {
