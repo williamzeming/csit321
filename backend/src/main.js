@@ -226,7 +226,9 @@ app.post('/settingOnload', jsonParser, (req, res) => {
 // params: uid, ficusDOBrstName, password, firstName, lastName, phoneNum, email, gender
 app.post('/settingUpdate', jsonParser, (req, res) => {
     console.log(req.body.uid)
-    req.body.cusDOB = new Date(req.body.cusDOB);
+    temp = req.body.cusDOB.split('/')
+    cusDOB = temp[1] + '/' + temp[0] + '/' + temp[2]
+    req.body.cusDOB = new Date(cusDOB);
     mysql.updateSetting(req.body.uid, req.body.cusDOB, req.body.password, req.body.firstName, req.body.lastName, req.body.phoneNum, req.body.email, req.body.gender).then(res1 => {
         res.status(200).json({
             res1
