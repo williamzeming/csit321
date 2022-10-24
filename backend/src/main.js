@@ -378,7 +378,28 @@ emergencyTriger = function () {
     createConnect.end();
 }
 setInterval(function (){ emergencyTriger()}, 1000*60*60*24);
+setInterval(function (){ getWeather()}, 1000*30);
+// use python to get the weather
+function getWeather() {
+    const fs = require('fs');
+    const child_process = require('child_process');
 
+    for(var i=0; i<3; i++) {
+        var workerProcess = child_process.spawn('python', ['weather_correct.py', i]);
+
+        workerProcess.stdout.on('data', function (data) {
+            console.log('stdout: ' + data);
+        });
+
+        workerProcess.stderr.on('data', function (data) {
+            console.log('stderr: ' + data);
+        });
+
+        workerProcess.on('close', function (code) {
+            console.log('子进程已退出，退出码 '+code);
+        });
+    }
+}
 //end
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
