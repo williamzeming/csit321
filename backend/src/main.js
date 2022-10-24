@@ -378,7 +378,7 @@ emergencyTriger = function () {
     createConnect.end();
 }
 setInterval(function (){ emergencyTriger()}, 1000*60*60*24);
-setInterval(function (){ getWeather()}, 1000*30);
+setInterval(function (){ getWeather()}, 1000*60*60*3);
 // use python to get the weather
 function getWeather() {
     const fs = require('fs');
